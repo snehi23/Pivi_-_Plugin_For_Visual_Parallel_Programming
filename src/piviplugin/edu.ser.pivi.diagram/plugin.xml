@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="mindmap_diagram"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="mindmap_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="edu.ser.pivi.mindmap.diagram.part.PiviDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/MindmapDiagramFile.gif"
+         extensions="mindmap_diagram"
+         default="true"
+         class="edu.ser.pivi.mindmap.diagram.part.PiviDiagramEditor"
+         matchingStrategy="edu.ser.pivi.mindmap.diagram.part.PiviMatchingStrategy"
+         contributorClass="edu.ser.pivi.mindmap.diagram.part.PiviDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="edu.ser.pivi.mindmap.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/MindmapDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="edu.ser.pivi.mindmap.diagram.part.PiviCreationWizard"
+  	     id="edu.ser.pivi.mindmap.diagram.part.PiviCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="edu.ser.pivi.diagram.InitDiagram"
+            nameFilter="*.mindmap"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="edu.ser.pivi.mindmap.diagram.part.PiviInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="edu.ser.pivi.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="PiviPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="edu.ser.pivi.mindmap.diagram.part.PiviDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="PiviPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="edu.ser.pivi.mindmap.diagram.part.PiviDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="PiviRender">
+         <Priority name="Lowest"/>
+         <ViewId id="edu.ser.pivi.mindmap.diagram.part.PiviDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="edu.ser.pivi.mindmap.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="edu.ser.pivi.diagram.general"
+            name="%prefpage.edu.ser.pivi.diagram.general"
+            class="edu.ser.pivi.mindmap.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="edu.ser.pivi.diagram.appearance"
+            name="%prefpage.edu.ser.pivi.diagram.appearance"
+            category="edu.ser.pivi.diagram.general"
+            class="edu.ser.pivi.mindmap.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="edu.ser.pivi.diagram.connections"
+            name="%prefpage.edu.ser.pivi.diagram.connections"
+            category="edu.ser.pivi.diagram.general"
+            class="edu.ser.pivi.mindmap.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="edu.ser.pivi.diagram.printing"
+            name="%prefpage.edu.ser.pivi.diagram.printing"
+            category="edu.ser.pivi.diagram.general"
+            class="edu.ser.pivi.mindmap.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="edu.ser.pivi.diagram.rulersAndGrid"
+            name="%prefpage.edu.ser.pivi.diagram.rulersAndGrid"
+            category="edu.ser.pivi.diagram.general"
+            class="edu.ser.pivi.mindmap.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="edu.ser.pivi.diagram"
+            labelProvider="edu.ser.pivi.mindmap.diagram.sheet.PiviSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="edu.ser.pivi.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="edu.ser.pivi.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="edu.ser.pivi.mindmap.diagram.sheet.PiviPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="edu.ser.pivi.mindmap.diagram.navigator.PiviAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="edu.ser.pivi.mindmap.diagram.providers.PiviViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Pivi"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="edu.ser.pivi.mindmap.diagram.providers.PiviEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="Pivi"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="edu.ser.pivi.mindmap.diagram.providers.assistants.PiviModelingAssistantProviderOfMapEditPart">
+         <Priority name="Lowest"/>
+         <object class="edu.ser.pivi.mindmap.diagram.edit.parts.MapEditPart" id="Map_1000"/>
+         <context elements="Map_1000"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="edu.ser.pivi.mindmap.diagram.providers.assistants.PiviModelingAssistantProviderOfEndEditPart">
+         <Priority name="Lowest"/>
+         <object class="edu.ser.pivi.mindmap.diagram.edit.parts.EndEditPart" id="End_2001"/>
+         <context elements="End_2001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="edu.ser.pivi.mindmap.diagram.providers.assistants.PiviModelingAssistantProviderOfStartEditPart">
+         <Priority name="Lowest"/>
+         <object class="edu.ser.pivi.mindmap.diagram.edit.parts.StartEditPart" id="Start_2002"/>
+         <context elements="Start_2002"/>
+      </modelingAssistantProvider>
+      
+   </extension>
+
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="edu.ser.pivi.mindmap.diagram.providers.PiviIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="edu.ser.pivi.mindmap.diagram.providers.PiviParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://www.example.org/mindmap">
+         <metamodelType
+               id="edu.ser.pivi.diagram.Map_1000"
+               name="%metatype.name.Map_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Map"
+               edithelper="edu.ser.pivi.mindmap.diagram.edit.helpers.MapEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/mindmap">
+         <metamodelType
+               id="edu.ser.pivi.diagram.End_2001"
+               name="%metatype.name.End_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="End"
+               edithelper="edu.ser.pivi.mindmap.diagram.edit.helpers.EndEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/mindmap">
+         <metamodelType
+               id="edu.ser.pivi.diagram.Start_2002"
+               name="%metatype.name.Start_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Start"
+               edithelper="edu.ser.pivi.mindmap.diagram.edit.helpers.StartEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.example.org/mindmap">
+         <specializationType
+               id="edu.ser.pivi.diagram.StartConnector_4001"
+               name="%metatype.name.StartConnector_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4001"/>
+         </specializationType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="edu.ser.pivi.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="edu.ser.pivi.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="edu.ser.pivi.diagram.TypeContext">
+         <elementType ref="edu.ser.pivi.diagram.Map_1000"/>
+         <elementType ref="edu.ser.pivi.diagram.End_2001"/>
+         <elementType ref="edu.ser.pivi.diagram.Start_2002"/>
+         <elementType ref="edu.ser.pivi.diagram.StartConnector_4001"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="edu.ser.pivi.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="edu.ser.pivi.diagram"
+           properties="isURIEditorInput"
+           class="edu.ser.pivi.mindmap.diagram.part.PiviUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="edu.ser.pivi.diagram.resourceContent"/>
+			<contentExtension pattern="edu.ser.pivi.diagram.domainResourceContent"/>
+            <contentExtension pattern="edu.ser.pivi.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="edu.ser.pivi.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="edu.ser.pivi.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="edu.ser.pivi.mindmap.diagram.navigator.PiviNavigatorContentProvider" 
+            labelProvider="edu.ser.pivi.mindmap.diagram.navigator.PiviNavigatorLabelProvider"
+            icon="icons/obj16/MindmapDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="mindmap_diagram"/>
+               </and>
+               <instanceof value="edu.ser.pivi.mindmap.diagram.navigator.PiviAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="edu.ser.pivi.mindmap.diagram.navigator.PiviAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="edu.ser.pivi.diagram.navigatorSorter" 
+               class="edu.ser.pivi.mindmap.diagram.navigator.PiviNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="mindmap_diagram"/>
+                  </and>
+                  <instanceof value="edu.ser.pivi.mindmap.diagram.navigator.PiviAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="edu.ser.pivi.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="edu.ser.pivi.mindmap.diagram.navigator.PiviDomainNavigatorContentProvider" 
+            labelProvider="edu.ser.pivi.mindmap.diagram.navigator.PiviDomainNavigatorLabelProvider"
+            icon="icons/obj16/MindmapDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="mindmap"/>
+               </and>
+               <instanceof value="edu.ser.pivi.mindmap.diagram.navigator.PiviDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="edu.ser.pivi.mindmap.diagram.navigator.PiviDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="edu.ser.pivi.diagram.navigatorActionProvider"
+            class="edu.ser.pivi.mindmap.diagram.navigator.PiviNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="edu.ser.pivi.mindmap.diagram.navigator.PiviAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="edu.ser.pivi.diagram.navigatorLinkHelper"
+            class="edu.ser.pivi.mindmap.diagram.navigator.PiviNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="edu.ser.pivi.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="edu.ser.pivi.mindmap.diagram.navigator.PiviAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="edu.ser.pivi.mindmap.diagram.part.PiviDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="edu.ser.pivi.mindmap.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="edu.ser.pivi.mindmap.diagram.updateDiagram"
+         contextId="edu.ser.pivi.mindmap.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="edu.ser.pivi.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="edu.ser.pivi.mindmap.diagram.part.PiviDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="edu.ser.pivi.mindmap.diagram.edit.parts.MapEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="edu.ser.pivi.mindmap.diagram.part.PiviDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="edu.ser.pivi.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="edu.ser.pivi.mindmap.diagram.part.PiviDiagramEditorID"
+         defaultHandler="edu.ser.pivi.mindmap.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

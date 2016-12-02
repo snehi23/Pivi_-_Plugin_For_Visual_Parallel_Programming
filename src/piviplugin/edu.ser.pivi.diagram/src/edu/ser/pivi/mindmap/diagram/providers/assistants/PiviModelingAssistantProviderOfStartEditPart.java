@@ -1,0 +1,83 @@
+package edu.ser.pivi.mindmap.diagram.providers.assistants;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+
+import edu.ser.pivi.mindmap.diagram.edit.parts.EndEditPart;
+import edu.ser.pivi.mindmap.diagram.edit.parts.StartEditPart;
+import edu.ser.pivi.mindmap.diagram.providers.PiviElementTypes;
+import edu.ser.pivi.mindmap.diagram.providers.PiviModelingAssistantProvider;
+
+/**
+ * @generated
+ */
+public class PiviModelingAssistantProviderOfStartEditPart extends PiviModelingAssistantProvider {
+
+	/**
+	* @generated
+	*/
+	@Override
+
+	public List<IElementType> getRelTypesOnSource(IAdaptable source) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+		return doGetRelTypesOnSource((StartEditPart) sourceEditPart);
+	}
+
+	/**
+	* @generated
+	*/
+	public List<IElementType> doGetRelTypesOnSource(StartEditPart source) {
+		List<IElementType> types = new ArrayList<IElementType>(1);
+		types.add(PiviElementTypes.StartConnector_4001);
+		return types;
+	}
+
+	/**
+	* @generated
+	*/
+	@Override
+
+	public List<IElementType> getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+		return doGetRelTypesOnSourceAndTarget((StartEditPart) sourceEditPart, targetEditPart);
+	}
+
+	/**
+	* @generated
+	*/
+	public List<IElementType> doGetRelTypesOnSourceAndTarget(StartEditPart source, IGraphicalEditPart targetEditPart) {
+		List<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof EndEditPart) {
+			types.add(PiviElementTypes.StartConnector_4001);
+		}
+		return types;
+	}
+
+	/**
+	* @generated
+	*/
+	@Override
+
+	public List<IElementType> getTypesForTarget(IAdaptable source, IElementType relationshipType) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+		return doGetTypesForTarget((StartEditPart) sourceEditPart, relationshipType);
+	}
+
+	/**
+	* @generated
+	*/
+	public List<IElementType> doGetTypesForTarget(StartEditPart source, IElementType relationshipType) {
+		List<IElementType> types = new ArrayList<IElementType>();
+		if (relationshipType == PiviElementTypes.StartConnector_4001) {
+			types.add(PiviElementTypes.End_2001);
+		}
+		return types;
+	}
+
+}

@@ -1,0 +1,95 @@
+package edu.ser.pivi.mindmap.diagram.edit.commands;
+
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.common.core.command.CommandResult;
+import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
+
+import edu.ser.pivi.mindmap.End;
+import edu.ser.pivi.mindmap.Start;
+import edu.ser.pivi.mindmap.diagram.edit.policies.PiviBaseItemSemanticEditPolicy;
+
+/**
+ * @generated
+ */
+public class StartConnectorCreateCommand extends EditElementCommand {
+
+	/**
+	* @generated
+	*/
+	private final EObject source;
+
+	/**
+	* @generated
+	*/
+	private final EObject target;
+
+	/**
+	* @generated
+	*/
+	public StartConnectorCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
+		super(request.getLabel(), null, request);
+		this.source = source;
+		this.target = target;
+	}
+
+	/**
+	* @generated
+	*/
+	public boolean canExecute() {
+		if (source == null && target == null) {
+			return false;
+		}
+		if (source != null && false == source instanceof Start) {
+			return false;
+		}
+		if (target != null && false == target instanceof End) {
+			return false;
+		}
+		if (getSource() == null) {
+			return true; // link creation is in progress; source is not defined yet
+		}
+		// target may be null here but it's possible to check constraint
+		return PiviBaseItemSemanticEditPolicy.getLinkConstraints().canCreateStartConnector_4001(getSource(),
+				getTarget());
+	}
+
+	/**
+	* @generated
+	*/
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+		if (!canExecute()) {
+			throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
+		}
+
+		if (getSource() != null && getTarget() != null) {
+			getSource().getConnector().add(getTarget());
+		}
+		return CommandResult.newOKCommandResult();
+
+	}
+
+	/**
+	* @generated
+	*/
+	protected void setElementToEdit(EObject element) {
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	* @generated
+	*/
+	protected Start getSource() {
+		return (Start) source;
+	}
+
+	/**
+	* @generated
+	*/
+	protected End getTarget() {
+		return (End) target;
+	}
+}
