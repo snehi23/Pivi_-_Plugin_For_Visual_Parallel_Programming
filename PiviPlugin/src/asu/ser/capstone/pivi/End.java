@@ -1,14 +1,15 @@
 package asu.ser.capstone.pivi;
 
-import java.util.List;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * @model
  */
-public interface End {
+public interface End extends EObject {
 	
 	/**
 	 * @model
 	 */
-	public List<StatementOutput> getStatementOutput();
+	public EList<StatementOutput> getStatementOutput();
 }

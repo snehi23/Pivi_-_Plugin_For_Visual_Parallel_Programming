@@ -1,13 +1,14 @@
 package asu.ser.capstone.pivi;
 
-import java.util.List;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * @model
  */
-public interface Start {
+public interface Start extends EObject {
 	/**
 	 * @model
 	 */
-	public List<StatementInput> getInputs();
+	public EList<StatementInput> getInputs();
 }
