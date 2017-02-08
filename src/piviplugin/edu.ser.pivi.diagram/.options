@@ -1,7 +1,0 @@
-# Tracing options for the edu.ser.pivi.diagram plug-in
-
-# Common issues
-edu.ser.pivi.diagram/debug=false
-
-# Visual IDs
-edu.ser.pivi.diagram/debug/visualID=false
