@@ -6,8 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: asu.ser.capstone.pivi.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: asu.edu.ser.capstone.pivi.tests
 Require-Bundle: org.eclipse.core.runtime,
  PiviPlugin;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
