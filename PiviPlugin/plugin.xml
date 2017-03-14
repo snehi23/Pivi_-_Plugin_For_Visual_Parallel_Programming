@@ -7,10 +7,11 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated Pivi -->
+      <!-- @generated pivi -->
       <package
-            uri="http:///asu/ser/capstone/pivi.ecore"
-            class="asu.ser.capstone.pivi.PiviPackage"/>
+            uri="http:///asu/edu/ser/capstone/pivi.ecore"
+            class="asu.edu.ser.capstone.pivi.PiviPackage"
+            genModel="model/pivi.genmodel"/>
    </extension>
 
 </plugin>

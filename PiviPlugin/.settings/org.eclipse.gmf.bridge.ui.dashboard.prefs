@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
-gmf_dashboard/domainGenerationModel=platform\:/resource/PiviPlugin/model/pivi.genmodel
-gmf_dashboard/domainModel=platform\:/resource/PiviPlugin/model/pivi.ecore
-gmf_dashboard/toolingDefinitionModel=platform\:/resource/PiviPlugin/model/pivi.gmftool
+gmf_dashboard/domainGenerationModel=platform\:/resource/Pivi/model/pivi.genmodel
+gmf_dashboard/domainModel=platform\:/resource/Pivi/model/pivi.ecore
+gmf_dashboard/generationModel=platform\:/resource/Pivi/model/pivi.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/Pivi/model/pivi.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/Pivi/model/pivi.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/Pivi/model/pivi.gmftool

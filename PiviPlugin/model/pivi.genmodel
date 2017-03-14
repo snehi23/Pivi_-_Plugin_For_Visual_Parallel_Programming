@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/PiviPlugin/src" modelPluginID="PiviPlugin" modelName="Pivi"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Pivi/src" modelPluginID="Pivi" modelName="Pivi"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.java"
-    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+    complianceLevel="6.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>@model</foreignModel>
-  <genPackages prefix="Pivi" basePackage="asu.ser.capstone" disposableProviderFactory="true"
+  <genPackages prefix="Pivi" basePackage="asu.edu.ser.capstone" disposableProviderFactory="true"
       ecorePackage="pivi.ecore#/">
-    <genClasses ecoreClass="pivi.ecore#//End">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pivi.ecore#//End/statementOutput"/>
+    <genClasses ecoreClass="pivi.ecore#//Diagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pivi.ecore#//Diagram/statements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pivi.ecore#//Diagram/edges"/>
     </genClasses>
-    <genClasses ecoreClass="pivi.ecore#//IfStatement"/>
-    <genClasses ecoreClass="pivi.ecore#//InstructionStatement"/>
-    <genClasses ecoreClass="pivi.ecore#//ProgramDiagram">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pivi.ecore#//ProgramDiagram/start"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pivi.ecore#//ProgramDiagram/end"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pivi.ecore#//ProgramDiagram/statements"/>
+    <genClasses ecoreClass="pivi.ecore#//Edge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pivi.ecore#//Edge/inputPort"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pivi.ecore#//Edge/outputPort"/>
     </genClasses>
-    <genClasses ecoreClass="pivi.ecore#//Start">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pivi.ecore#//Start/inputs"/>
+    <genClasses ecoreClass="pivi.ecore#//EndNode"/>
+    <genClasses ecoreClass="pivi.ecore#//IfEnd"/>
+    <genClasses ecoreClass="pivi.ecore#//IfStart"/>
+    <genClasses ecoreClass="pivi.ecore#//InputPort"/>
+    <genClasses ecoreClass="pivi.ecore#//Instruction"/>
+    <genClasses image="false" ecoreClass="pivi.ecore#//Node">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pivi.ecore#//Node/inputPorts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pivi.ecore#//Node/outputPorts"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="pivi.ecore#//Statement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pivi.ecore#//Statement/inputs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pivi.ecore#//Statement/outputs"/>
+    <genClasses ecoreClass="pivi.ecore#//OutputPort"/>
+    <genClasses ecoreClass="pivi.ecore#//Port">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pivi.ecore#//Port/node"/>
     </genClasses>
-    <genClasses ecoreClass="pivi.ecore#//StatementInput">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pivi.ecore#//StatementInput/statement"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pivi.ecore#//StatementInput/start"/>
-    </genClasses>
-    <genClasses ecoreClass="pivi.ecore#//StatementOutput">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pivi.ecore#//StatementOutput/statement"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pivi.ecore#//StatementOutput/end"/>
-    </genClasses>
-    <genClasses ecoreClass="pivi.ecore#//WhileStatement"/>
+    <genClasses ecoreClass="pivi.ecore#//StartNode"/>
+    <genClasses ecoreClass="pivi.ecore#//WhileStart"/>
   </genPackages>
 </genmodel:GenModel>

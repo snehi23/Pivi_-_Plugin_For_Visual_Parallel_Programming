@@ -1,37 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pivi" nsURI="http:///asu/ser/capstone/pivi.ecore" nsPrefix="asu.ser.capstone.pivi">
-  <eClassifiers xsi:type="ecore:EClass" name="End">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="statementOutput" upperBound="-1"
-        eType="#//StatementOutput"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IfStatement" eSuperTypes="#//Statement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InstructionStatement" eSuperTypes="#//Statement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ProgramDiagram">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//Start"
-        containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="end" eType="#//End" containment="true"
-        resolveProxies="false"/>
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pivi" nsURI="http:///asu/edu/ser/capstone/pivi.ecore" nsPrefix="asu.edu.ser.capstone.pivi">
+  <eClassifiers xsi:type="ecore:EClass" name="Diagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
-        eType="#//Statement" containment="true" resolveProxies="false"/>
+        eType="#//Node" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" upperBound="-1"
+        eType="#//Edge" containment="true" resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Start">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
-        eType="#//StatementInput"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Edge">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputPort" eType="#//InputPort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputPort" eType="#//OutputPort"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
-        eType="#//StatementInput" containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
-        eType="#//StatementOutput" containment="true" resolveProxies="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EndNode" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IfEnd" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IfStart" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputPort" eSuperTypes="#//Port"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Instruction" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputPorts" upperBound="-1"
+        eType="#//InputPort" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputPorts" upperBound="-1"
+        eType="#//OutputPort" containment="true" resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StatementInput">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Statement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//Start"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputPort" eSuperTypes="#//Port"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Port">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//Node"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StatementOutput">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Statement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="end" eType="#//End"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WhileStatement" eSuperTypes="#//Statement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StartNode" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WhileStart" eSuperTypes="#//Node"/>
 </ecore:EPackage>
