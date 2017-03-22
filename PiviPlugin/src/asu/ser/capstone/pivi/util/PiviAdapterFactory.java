@@ -68,20 +68,32 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 	protected PiviSwitch<Adapter> modelSwitch =
 		new PiviSwitch<Adapter>() {
 			@Override
-			public Adapter caseEnd(End object) {
-				return createEndAdapter();
+			public Adapter caseIfEndStatement(IfEndStatement object) {
+				return createIfEndStatementAdapter();
 			}
 			@Override
-			public Adapter caseIfStatement(IfStatement object) {
-				return createIfStatementAdapter();
+			public Adapter caseIfStartStatement(IfStartStatement object) {
+				return createIfStartStatementAdapter();
 			}
 			@Override
-			public Adapter caseInstructionStatement(InstructionStatement object) {
-				return createInstructionStatementAdapter();
+			public Adapter caseInputPort(InputPort object) {
+				return createInputPortAdapter();
 			}
 			@Override
-			public Adapter caseProgramDiagram(ProgramDiagram object) {
-				return createProgramDiagramAdapter();
+			public Adapter caseInstruction(Instruction object) {
+				return createInstructionAdapter();
+			}
+			@Override
+			public Adapter caseOutputPort(OutputPort object) {
+				return createOutputPortAdapter();
+			}
+			@Override
+			public Adapter casePiviDiagram(PiviDiagram object) {
+				return createPiviDiagramAdapter();
+			}
+			@Override
+			public Adapter caseResult(Result object) {
+				return createResultAdapter();
 			}
 			@Override
 			public Adapter caseStart(Start object) {
@@ -92,12 +104,8 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 				return createStatementAdapter();
 			}
 			@Override
-			public Adapter caseStatementInput(StatementInput object) {
-				return createStatementInputAdapter();
-			}
-			@Override
-			public Adapter caseStatementOutput(StatementOutput object) {
-				return createStatementOutputAdapter();
+			public Adapter caseTerminal(Terminal object) {
+				return createTerminalAdapter();
 			}
 			@Override
 			public Adapter caseWhileStatement(WhileStatement object) {
@@ -124,58 +132,100 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.End <em>End</em>}'.
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.IfEndStatement <em>If End Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.End
+	 * @see asu.ser.capstone.pivi.IfEndStatement
 	 * @generated
 	 */
-	public Adapter createEndAdapter() {
+	public Adapter createIfEndStatementAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.IfStatement <em>If Statement</em>}'.
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.IfStartStatement <em>If Start Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.IfStatement
+	 * @see asu.ser.capstone.pivi.IfStartStatement
 	 * @generated
 	 */
-	public Adapter createIfStatementAdapter() {
+	public Adapter createIfStartStatementAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.InstructionStatement <em>Instruction Statement</em>}'.
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.InputPort <em>Input Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.InstructionStatement
+	 * @see asu.ser.capstone.pivi.InputPort
 	 * @generated
 	 */
-	public Adapter createInstructionStatementAdapter() {
+	public Adapter createInputPortAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.ProgramDiagram <em>Program Diagram</em>}'.
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.Instruction <em>Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.ProgramDiagram
+	 * @see asu.ser.capstone.pivi.Instruction
 	 * @generated
 	 */
-	public Adapter createProgramDiagramAdapter() {
+	public Adapter createInstructionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.OutputPort <em>Output Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see asu.ser.capstone.pivi.OutputPort
+	 * @generated
+	 */
+	public Adapter createOutputPortAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.PiviDiagram <em>Diagram</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see asu.ser.capstone.pivi.PiviDiagram
+	 * @generated
+	 */
+	public Adapter createPiviDiagramAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.Result <em>Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see asu.ser.capstone.pivi.Result
+	 * @generated
+	 */
+	public Adapter createResultAdapter() {
 		return null;
 	}
 
@@ -208,30 +258,16 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.StatementInput <em>Statement Input</em>}'.
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.Terminal <em>Terminal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.StatementInput
+	 * @see asu.ser.capstone.pivi.Terminal
 	 * @generated
 	 */
-	public Adapter createStatementInputAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.StatementOutput <em>Statement Output</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.StatementOutput
-	 * @generated
-	 */
-	public Adapter createStatementOutputAdapter() {
+	public Adapter createTerminalAdapter() {
 		return null;
 	}
 

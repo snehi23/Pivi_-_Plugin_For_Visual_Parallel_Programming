@@ -56,13 +56,14 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PiviPackage.END: return createEnd();
-			case PiviPackage.IF_STATEMENT: return createIfStatement();
-			case PiviPackage.INSTRUCTION_STATEMENT: return createInstructionStatement();
-			case PiviPackage.PROGRAM_DIAGRAM: return createProgramDiagram();
+			case PiviPackage.IF_END_STATEMENT: return createIfEndStatement();
+			case PiviPackage.IF_START_STATEMENT: return createIfStartStatement();
+			case PiviPackage.INPUT_PORT: return createInputPort();
+			case PiviPackage.INSTRUCTION: return createInstruction();
+			case PiviPackage.OUTPUT_PORT: return createOutputPort();
+			case PiviPackage.PIVI_DIAGRAM: return createPiviDiagram();
+			case PiviPackage.RESULT: return createResult();
 			case PiviPackage.START: return createStart();
-			case PiviPackage.STATEMENT_INPUT: return createStatementInput();
-			case PiviPackage.STATEMENT_OUTPUT: return createStatementOutput();
 			case PiviPackage.WHILE_STATEMENT: return createWhileStatement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -74,9 +75,9 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public End createEnd() {
-		EndImpl end = new EndImpl();
-		return end;
+	public IfEndStatement createIfEndStatement() {
+		IfEndStatementImpl ifEndStatement = new IfEndStatementImpl();
+		return ifEndStatement;
 	}
 
 	/**
@@ -84,9 +85,9 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IfStatement createIfStatement() {
-		IfStatementImpl ifStatement = new IfStatementImpl();
-		return ifStatement;
+	public IfStartStatement createIfStartStatement() {
+		IfStartStatementImpl ifStartStatement = new IfStartStatementImpl();
+		return ifStartStatement;
 	}
 
 	/**
@@ -94,9 +95,9 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InstructionStatement createInstructionStatement() {
-		InstructionStatementImpl instructionStatement = new InstructionStatementImpl();
-		return instructionStatement;
+	public InputPort createInputPort() {
+		InputPortImpl inputPort = new InputPortImpl();
+		return inputPort;
 	}
 
 	/**
@@ -104,9 +105,39 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProgramDiagram createProgramDiagram() {
-		ProgramDiagramImpl programDiagram = new ProgramDiagramImpl();
-		return programDiagram;
+	public Instruction createInstruction() {
+		InstructionImpl instruction = new InstructionImpl();
+		return instruction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OutputPort createOutputPort() {
+		OutputPortImpl outputPort = new OutputPortImpl();
+		return outputPort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PiviDiagram createPiviDiagram() {
+		PiviDiagramImpl piviDiagram = new PiviDiagramImpl();
+		return piviDiagram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Result createResult() {
+		ResultImpl result = new ResultImpl();
+		return result;
 	}
 
 	/**
@@ -117,26 +148,6 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	public Start createStart() {
 		StartImpl start = new StartImpl();
 		return start;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StatementInput createStatementInput() {
-		StatementInputImpl statementInput = new StatementInputImpl();
-		return statementInput;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StatementOutput createStatementOutput() {
-		StatementOutputImpl statementOutput = new StatementOutputImpl();
-		return statementOutput;
 	}
 
 	/**

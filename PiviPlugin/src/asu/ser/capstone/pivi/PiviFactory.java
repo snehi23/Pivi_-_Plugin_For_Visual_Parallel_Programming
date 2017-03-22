@@ -22,40 +22,67 @@ public interface PiviFactory extends EFactory {
 	PiviFactory eINSTANCE = asu.ser.capstone.pivi.impl.PiviFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>End</em>'.
+	 * Returns a new object of class '<em>If End Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>End</em>'.
+	 * @return a new object of class '<em>If End Statement</em>'.
 	 * @generated
 	 */
-	End createEnd();
+	IfEndStatement createIfEndStatement();
 
 	/**
-	 * Returns a new object of class '<em>If Statement</em>'.
+	 * Returns a new object of class '<em>If Start Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>If Statement</em>'.
+	 * @return a new object of class '<em>If Start Statement</em>'.
 	 * @generated
 	 */
-	IfStatement createIfStatement();
+	IfStartStatement createIfStartStatement();
 
 	/**
-	 * Returns a new object of class '<em>Instruction Statement</em>'.
+	 * Returns a new object of class '<em>Input Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Instruction Statement</em>'.
+	 * @return a new object of class '<em>Input Port</em>'.
 	 * @generated
 	 */
-	InstructionStatement createInstructionStatement();
+	InputPort createInputPort();
 
 	/**
-	 * Returns a new object of class '<em>Program Diagram</em>'.
+	 * Returns a new object of class '<em>Instruction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Program Diagram</em>'.
+	 * @return a new object of class '<em>Instruction</em>'.
 	 * @generated
 	 */
-	ProgramDiagram createProgramDiagram();
+	Instruction createInstruction();
+
+	/**
+	 * Returns a new object of class '<em>Output Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Output Port</em>'.
+	 * @generated
+	 */
+	OutputPort createOutputPort();
+
+	/**
+	 * Returns a new object of class '<em>Diagram</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Diagram</em>'.
+	 * @generated
+	 */
+	PiviDiagram createPiviDiagram();
+
+	/**
+	 * Returns a new object of class '<em>Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Result</em>'.
+	 * @generated
+	 */
+	Result createResult();
 
 	/**
 	 * Returns a new object of class '<em>Start</em>'.
@@ -65,24 +92,6 @@ public interface PiviFactory extends EFactory {
 	 * @generated
 	 */
 	Start createStart();
-
-	/**
-	 * Returns a new object of class '<em>Statement Input</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Statement Input</em>'.
-	 * @generated
-	 */
-	StatementInput createStatementInput();
-
-	/**
-	 * Returns a new object of class '<em>Statement Output</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Statement Output</em>'.
-	 * @generated
-	 */
-	StatementOutput createStatementOutput();
 
 	/**
 	 * Returns a new object of class '<em>While Statement</em>'.

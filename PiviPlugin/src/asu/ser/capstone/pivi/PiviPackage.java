@@ -2,6 +2,7 @@
  */
 package asu.ser.capstone.pivi;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -56,43 +57,6 @@ public interface PiviPackage extends EPackage {
 	PiviPackage eINSTANCE = asu.ser.capstone.pivi.impl.PiviPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.EndImpl <em>End</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see asu.ser.capstone.pivi.impl.EndImpl
-	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getEnd()
-	 * @generated
-	 */
-	int END = 0;
-
-	/**
-	 * The feature id for the '<em><b>Statement Output</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END__STATEMENT_OUTPUT = 0;
-
-	/**
-	 * The number of structural features of the '<em>End</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>End</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.StatementImpl <em>Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,7 +64,16 @@ public interface PiviPackage extends EPackage {
 	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 5;
+	int STATEMENT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -109,7 +82,7 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT__INPUTS = 0;
+	int STATEMENT__INPUTS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -118,7 +91,7 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT__OUTPUTS = 1;
+	int STATEMENT__OUTPUTS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
@@ -127,7 +100,7 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_FEATURE_COUNT = 2;
+	int STATEMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Statement</em>' class.
@@ -139,14 +112,23 @@ public interface PiviPackage extends EPackage {
 	int STATEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.IfStatementImpl <em>If Statement</em>}' class.
+	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.IfEndStatementImpl <em>If End Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see asu.ser.capstone.pivi.impl.IfStatementImpl
-	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getIfStatement()
+	 * @see asu.ser.capstone.pivi.impl.IfEndStatementImpl
+	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getIfEndStatement()
 	 * @generated
 	 */
-	int IF_STATEMENT = 1;
+	int IF_END_STATEMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_END_STATEMENT__NAME = STATEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -155,7 +137,7 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IF_STATEMENT__INPUTS = STATEMENT__INPUTS;
+	int IF_END_STATEMENT__INPUTS = STATEMENT__INPUTS;
 
 	/**
 	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -164,35 +146,44 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IF_STATEMENT__OUTPUTS = STATEMENT__OUTPUTS;
+	int IF_END_STATEMENT__OUTPUTS = STATEMENT__OUTPUTS;
 
 	/**
-	 * The number of structural features of the '<em>If Statement</em>' class.
+	 * The number of structural features of the '<em>If End Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+	int IF_END_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>If Statement</em>' class.
+	 * The number of operations of the '<em>If End Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+	int IF_END_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.InstructionStatementImpl <em>Instruction Statement</em>}' class.
+	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.IfStartStatementImpl <em>If Start Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see asu.ser.capstone.pivi.impl.InstructionStatementImpl
-	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getInstructionStatement()
+	 * @see asu.ser.capstone.pivi.impl.IfStartStatementImpl
+	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getIfStartStatement()
 	 * @generated
 	 */
-	int INSTRUCTION_STATEMENT = 2;
+	int IF_START_STATEMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_START_STATEMENT__NAME = STATEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -201,7 +192,7 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTRUCTION_STATEMENT__INPUTS = STATEMENT__INPUTS;
+	int IF_START_STATEMENT__INPUTS = STATEMENT__INPUTS;
 
 	/**
 	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -210,53 +201,200 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTRUCTION_STATEMENT__OUTPUTS = STATEMENT__OUTPUTS;
+	int IF_START_STATEMENT__OUTPUTS = STATEMENT__OUTPUTS;
 
 	/**
-	 * The number of structural features of the '<em>Instruction Statement</em>' class.
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTRUCTION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+	int IF_START_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Instruction Statement</em>' class.
+	 * The number of structural features of the '<em>If Start Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTRUCTION_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+	int IF_START_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.ProgramDiagramImpl <em>Program Diagram</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see asu.ser.capstone.pivi.impl.ProgramDiagramImpl
-	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getProgramDiagram()
-	 * @generated
-	 */
-	int PROGRAM_DIAGRAM = 3;
-
-	/**
-	 * The feature id for the '<em><b>Start</b></em>' containment reference.
+	 * The number of operations of the '<em>If Start Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_DIAGRAM__START = 0;
+	int IF_START_STATEMENT_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.InputPortImpl <em>Input Port</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see asu.ser.capstone.pivi.impl.InputPortImpl
+	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getInputPort()
+	 * @generated
+	 */
+	int INPUT_PORT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Statement</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_DIAGRAM__END = 1;
+	int INPUT_PORT__STATEMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Terminal</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PORT__TERMINAL = 1;
+
+	/**
+	 * The number of structural features of the '<em>Input Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PORT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Input Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PORT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.InstructionImpl <em>Instruction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see asu.ser.capstone.pivi.impl.InstructionImpl
+	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getInstruction()
+	 * @generated
+	 */
+	int INSTRUCTION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION__NAME = STATEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION__INPUTS = STATEMENT__INPUTS;
+
+	/**
+	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION__OUTPUTS = STATEMENT__OUTPUTS;
+
+	/**
+	 * The feature id for the '<em><b>Instructions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION__INSTRUCTIONS = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Instruction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Instruction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUCTION_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.OutputPortImpl <em>Output Port</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see asu.ser.capstone.pivi.impl.OutputPortImpl
+	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getOutputPort()
+	 * @generated
+	 */
+	int OUTPUT_PORT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Statement</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PORT__STATEMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Result</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PORT__RESULT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Output Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PORT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Output Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PORT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.PiviDiagramImpl <em>Diagram</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see asu.ser.capstone.pivi.impl.PiviDiagramImpl
+	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getPiviDiagram()
+	 * @generated
+	 */
+	int PIVI_DIAGRAM = 5;
 
 	/**
 	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -265,25 +403,144 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_DIAGRAM__STATEMENTS = 2;
+	int PIVI_DIAGRAM__STATEMENTS = 0;
 
 	/**
-	 * The number of structural features of the '<em>Program Diagram</em>' class.
+	 * The feature id for the '<em><b>Start</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_DIAGRAM_FEATURE_COUNT = 3;
+	int PIVI_DIAGRAM__START = 1;
 
 	/**
-	 * The number of operations of the '<em>Program Diagram</em>' class.
+	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_DIAGRAM_OPERATION_COUNT = 0;
+	int PIVI_DIAGRAM__RESULTS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Diagram</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIVI_DIAGRAM_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Diagram</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIVI_DIAGRAM_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.TerminalImpl <em>Terminal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see asu.ser.capstone.pivi.impl.TerminalImpl
+	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getTerminal()
+	 * @generated
+	 */
+	int TERMINAL = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TERMINAL__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Input Ports</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TERMINAL__INPUT_PORTS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Terminal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TERMINAL_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Terminal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TERMINAL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.ResultImpl <em>Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see asu.ser.capstone.pivi.impl.ResultImpl
+	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getResult()
+	 * @generated
+	 */
+	int RESULT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__NAME = TERMINAL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Input Ports</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__INPUT_PORTS = TERMINAL__INPUT_PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Output Port</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__OUTPUT_PORT = TERMINAL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_FEATURE_COUNT = TERMINAL_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_OPERATION_COUNT = TERMINAL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.StartImpl <em>Start</em>}' class.
@@ -293,16 +550,25 @@ public interface PiviPackage extends EPackage {
 	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getStart()
 	 * @generated
 	 */
-	int START = 4;
+	int START = 7;
 
 	/**
-	 * The feature id for the '<em><b>Inputs</b></em>' reference list.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int START__INPUTS = 0;
+	int START__NAME = TERMINAL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Input Ports</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__INPUT_PORTS = TERMINAL__INPUT_PORTS;
 
 	/**
 	 * The number of structural features of the '<em>Start</em>' class.
@@ -311,7 +577,7 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_FEATURE_COUNT = 1;
+	int START_FEATURE_COUNT = TERMINAL_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Start</em>' class.
@@ -320,99 +586,7 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.StatementInputImpl <em>Statement Input</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see asu.ser.capstone.pivi.impl.StatementInputImpl
-	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getStatementInput()
-	 * @generated
-	 */
-	int STATEMENT_INPUT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Statement</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_INPUT__STATEMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Start</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_INPUT__START = 1;
-
-	/**
-	 * The number of structural features of the '<em>Statement Input</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_INPUT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Statement Input</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_INPUT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.StatementOutputImpl <em>Statement Output</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see asu.ser.capstone.pivi.impl.StatementOutputImpl
-	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getStatementOutput()
-	 * @generated
-	 */
-	int STATEMENT_OUTPUT = 7;
-
-	/**
-	 * The feature id for the '<em><b>Statement</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_OUTPUT__STATEMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>End</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_OUTPUT__END = 1;
-
-	/**
-	 * The number of structural features of the '<em>Statement Output</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_OUTPUT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Statement Output</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_OUTPUT_OPERATION_COUNT = 0;
+	int START_OPERATION_COUNT = TERMINAL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link asu.ser.capstone.pivi.impl.WhileStatementImpl <em>While Statement</em>}' class.
@@ -422,7 +596,16 @@ public interface PiviPackage extends EPackage {
 	 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getWhileStatement()
 	 * @generated
 	 */
-	int WHILE_STATEMENT = 8;
+	int WHILE_STATEMENT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_STATEMENT__NAME = STATEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -443,13 +626,22 @@ public interface PiviPackage extends EPackage {
 	int WHILE_STATEMENT__OUTPUTS = STATEMENT__OUTPUTS;
 
 	/**
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>While Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WHILE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+	int WHILE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>While Statement</em>' class.
@@ -462,88 +654,184 @@ public interface PiviPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.End <em>End</em>}'.
+	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.IfEndStatement <em>If End Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>End</em>'.
-	 * @see asu.ser.capstone.pivi.End
+	 * @return the meta object for class '<em>If End Statement</em>'.
+	 * @see asu.ser.capstone.pivi.IfEndStatement
 	 * @generated
 	 */
-	EClass getEnd();
+	EClass getIfEndStatement();
 
 	/**
-	 * Returns the meta object for the reference list '{@link asu.ser.capstone.pivi.End#getStatementOutput <em>Statement Output</em>}'.
+	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.IfStartStatement <em>If Start Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Statement Output</em>'.
-	 * @see asu.ser.capstone.pivi.End#getStatementOutput()
-	 * @see #getEnd()
+	 * @return the meta object for class '<em>If Start Statement</em>'.
+	 * @see asu.ser.capstone.pivi.IfStartStatement
 	 * @generated
 	 */
-	EReference getEnd_StatementOutput();
+	EClass getIfStartStatement();
 
 	/**
-	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.IfStatement <em>If Statement</em>}'.
+	 * Returns the meta object for the attribute '{@link asu.ser.capstone.pivi.IfStartStatement#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>If Statement</em>'.
-	 * @see asu.ser.capstone.pivi.IfStatement
+	 * @return the meta object for the attribute '<em>Condition</em>'.
+	 * @see asu.ser.capstone.pivi.IfStartStatement#getCondition()
+	 * @see #getIfStartStatement()
 	 * @generated
 	 */
-	EClass getIfStatement();
+	EAttribute getIfStartStatement_Condition();
 
 	/**
-	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.InstructionStatement <em>Instruction Statement</em>}'.
+	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.InputPort <em>Input Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Instruction Statement</em>'.
-	 * @see asu.ser.capstone.pivi.InstructionStatement
+	 * @return the meta object for class '<em>Input Port</em>'.
+	 * @see asu.ser.capstone.pivi.InputPort
 	 * @generated
 	 */
-	EClass getInstructionStatement();
+	EClass getInputPort();
 
 	/**
-	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.ProgramDiagram <em>Program Diagram</em>}'.
+	 * Returns the meta object for the container reference '{@link asu.ser.capstone.pivi.InputPort#getStatement <em>Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Program Diagram</em>'.
-	 * @see asu.ser.capstone.pivi.ProgramDiagram
+	 * @return the meta object for the container reference '<em>Statement</em>'.
+	 * @see asu.ser.capstone.pivi.InputPort#getStatement()
+	 * @see #getInputPort()
 	 * @generated
 	 */
-	EClass getProgramDiagram();
+	EReference getInputPort_Statement();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link asu.ser.capstone.pivi.ProgramDiagram#getStart <em>Start</em>}'.
+	 * Returns the meta object for the reference '{@link asu.ser.capstone.pivi.InputPort#getTerminal <em>Terminal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Start</em>'.
-	 * @see asu.ser.capstone.pivi.ProgramDiagram#getStart()
-	 * @see #getProgramDiagram()
+	 * @return the meta object for the reference '<em>Terminal</em>'.
+	 * @see asu.ser.capstone.pivi.InputPort#getTerminal()
+	 * @see #getInputPort()
 	 * @generated
 	 */
-	EReference getProgramDiagram_Start();
+	EReference getInputPort_Terminal();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link asu.ser.capstone.pivi.ProgramDiagram#getEnd <em>End</em>}'.
+	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.Instruction <em>Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>End</em>'.
-	 * @see asu.ser.capstone.pivi.ProgramDiagram#getEnd()
-	 * @see #getProgramDiagram()
+	 * @return the meta object for class '<em>Instruction</em>'.
+	 * @see asu.ser.capstone.pivi.Instruction
 	 * @generated
 	 */
-	EReference getProgramDiagram_End();
+	EClass getInstruction();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link asu.ser.capstone.pivi.ProgramDiagram#getStatements <em>Statements</em>}'.
+	 * Returns the meta object for the attribute '{@link asu.ser.capstone.pivi.Instruction#getInstructions <em>Instructions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Instructions</em>'.
+	 * @see asu.ser.capstone.pivi.Instruction#getInstructions()
+	 * @see #getInstruction()
+	 * @generated
+	 */
+	EAttribute getInstruction_Instructions();
+
+	/**
+	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.OutputPort <em>Output Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output Port</em>'.
+	 * @see asu.ser.capstone.pivi.OutputPort
+	 * @generated
+	 */
+	EClass getOutputPort();
+
+	/**
+	 * Returns the meta object for the container reference '{@link asu.ser.capstone.pivi.OutputPort#getStatement <em>Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Statement</em>'.
+	 * @see asu.ser.capstone.pivi.OutputPort#getStatement()
+	 * @see #getOutputPort()
+	 * @generated
+	 */
+	EReference getOutputPort_Statement();
+
+	/**
+	 * Returns the meta object for the reference '{@link asu.ser.capstone.pivi.OutputPort#getResult <em>Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Result</em>'.
+	 * @see asu.ser.capstone.pivi.OutputPort#getResult()
+	 * @see #getOutputPort()
+	 * @generated
+	 */
+	EReference getOutputPort_Result();
+
+	/**
+	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.PiviDiagram <em>Diagram</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Diagram</em>'.
+	 * @see asu.ser.capstone.pivi.PiviDiagram
+	 * @generated
+	 */
+	EClass getPiviDiagram();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link asu.ser.capstone.pivi.PiviDiagram#getStatements <em>Statements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Statements</em>'.
-	 * @see asu.ser.capstone.pivi.ProgramDiagram#getStatements()
-	 * @see #getProgramDiagram()
+	 * @see asu.ser.capstone.pivi.PiviDiagram#getStatements()
+	 * @see #getPiviDiagram()
 	 * @generated
 	 */
-	EReference getProgramDiagram_Statements();
+	EReference getPiviDiagram_Statements();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link asu.ser.capstone.pivi.PiviDiagram#getStart <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Start</em>'.
+	 * @see asu.ser.capstone.pivi.PiviDiagram#getStart()
+	 * @see #getPiviDiagram()
+	 * @generated
+	 */
+	EReference getPiviDiagram_Start();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link asu.ser.capstone.pivi.PiviDiagram#getResults <em>Results</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Results</em>'.
+	 * @see asu.ser.capstone.pivi.PiviDiagram#getResults()
+	 * @see #getPiviDiagram()
+	 * @generated
+	 */
+	EReference getPiviDiagram_Results();
+
+	/**
+	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.Result <em>Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Result</em>'.
+	 * @see asu.ser.capstone.pivi.Result
+	 * @generated
+	 */
+	EClass getResult();
+
+	/**
+	 * Returns the meta object for the reference '{@link asu.ser.capstone.pivi.Result#getOutputPort <em>Output Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Output Port</em>'.
+	 * @see asu.ser.capstone.pivi.Result#getOutputPort()
+	 * @see #getResult()
+	 * @generated
+	 */
+	EReference getResult_OutputPort();
 
 	/**
 	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.Start <em>Start</em>}'.
@@ -556,17 +844,6 @@ public interface PiviPackage extends EPackage {
 	EClass getStart();
 
 	/**
-	 * Returns the meta object for the reference list '{@link asu.ser.capstone.pivi.Start#getInputs <em>Inputs</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Inputs</em>'.
-	 * @see asu.ser.capstone.pivi.Start#getInputs()
-	 * @see #getStart()
-	 * @generated
-	 */
-	EReference getStart_Inputs();
-
-	/**
 	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.Statement <em>Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -575,6 +852,17 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link asu.ser.capstone.pivi.Statement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see asu.ser.capstone.pivi.Statement#getName()
+	 * @see #getStatement()
+	 * @generated
+	 */
+	EAttribute getStatement_Name();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link asu.ser.capstone.pivi.Statement#getInputs <em>Inputs</em>}'.
@@ -599,68 +887,36 @@ public interface PiviPackage extends EPackage {
 	EReference getStatement_Outputs();
 
 	/**
-	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.StatementInput <em>Statement Input</em>}'.
+	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.Terminal <em>Terminal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Statement Input</em>'.
-	 * @see asu.ser.capstone.pivi.StatementInput
+	 * @return the meta object for class '<em>Terminal</em>'.
+	 * @see asu.ser.capstone.pivi.Terminal
 	 * @generated
 	 */
-	EClass getStatementInput();
+	EClass getTerminal();
 
 	/**
-	 * Returns the meta object for the reference '{@link asu.ser.capstone.pivi.StatementInput#getStatement <em>Statement</em>}'.
+	 * Returns the meta object for the attribute '{@link asu.ser.capstone.pivi.Terminal#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Statement</em>'.
-	 * @see asu.ser.capstone.pivi.StatementInput#getStatement()
-	 * @see #getStatementInput()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see asu.ser.capstone.pivi.Terminal#getName()
+	 * @see #getTerminal()
 	 * @generated
 	 */
-	EReference getStatementInput_Statement();
+	EAttribute getTerminal_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link asu.ser.capstone.pivi.StatementInput#getStart <em>Start</em>}'.
+	 * Returns the meta object for the reference list '{@link asu.ser.capstone.pivi.Terminal#getInputPorts <em>Input Ports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Start</em>'.
-	 * @see asu.ser.capstone.pivi.StatementInput#getStart()
-	 * @see #getStatementInput()
+	 * @return the meta object for the reference list '<em>Input Ports</em>'.
+	 * @see asu.ser.capstone.pivi.Terminal#getInputPorts()
+	 * @see #getTerminal()
 	 * @generated
 	 */
-	EReference getStatementInput_Start();
-
-	/**
-	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.StatementOutput <em>Statement Output</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Statement Output</em>'.
-	 * @see asu.ser.capstone.pivi.StatementOutput
-	 * @generated
-	 */
-	EClass getStatementOutput();
-
-	/**
-	 * Returns the meta object for the reference '{@link asu.ser.capstone.pivi.StatementOutput#getStatement <em>Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Statement</em>'.
-	 * @see asu.ser.capstone.pivi.StatementOutput#getStatement()
-	 * @see #getStatementOutput()
-	 * @generated
-	 */
-	EReference getStatementOutput_Statement();
-
-	/**
-	 * Returns the meta object for the reference '{@link asu.ser.capstone.pivi.StatementOutput#getEnd <em>End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>End</em>'.
-	 * @see asu.ser.capstone.pivi.StatementOutput#getEnd()
-	 * @see #getStatementOutput()
-	 * @generated
-	 */
-	EReference getStatementOutput_End();
+	EReference getTerminal_InputPorts();
 
 	/**
 	 * Returns the meta object for class '{@link asu.ser.capstone.pivi.WhileStatement <em>While Statement</em>}'.
@@ -671,6 +927,17 @@ public interface PiviPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getWhileStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link asu.ser.capstone.pivi.WhileStatement#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Condition</em>'.
+	 * @see asu.ser.capstone.pivi.WhileStatement#getCondition()
+	 * @see #getWhileStatement()
+	 * @generated
+	 */
+	EAttribute getWhileStatement_Condition();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -696,68 +963,112 @@ public interface PiviPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.EndImpl <em>End</em>}' class.
+		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.IfEndStatementImpl <em>If End Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see asu.ser.capstone.pivi.impl.EndImpl
-		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getEnd()
+		 * @see asu.ser.capstone.pivi.impl.IfEndStatementImpl
+		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getIfEndStatement()
 		 * @generated
 		 */
-		EClass END = eINSTANCE.getEnd();
+		EClass IF_END_STATEMENT = eINSTANCE.getIfEndStatement();
 
 		/**
-		 * The meta object literal for the '<em><b>Statement Output</b></em>' reference list feature.
+		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.IfStartStatementImpl <em>If Start Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see asu.ser.capstone.pivi.impl.IfStartStatementImpl
+		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getIfStartStatement()
 		 * @generated
 		 */
-		EReference END__STATEMENT_OUTPUT = eINSTANCE.getEnd_StatementOutput();
+		EClass IF_START_STATEMENT = eINSTANCE.getIfStartStatement();
 
 		/**
-		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.IfStatementImpl <em>If Statement</em>}' class.
+		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see asu.ser.capstone.pivi.impl.IfStatementImpl
-		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getIfStatement()
 		 * @generated
 		 */
-		EClass IF_STATEMENT = eINSTANCE.getIfStatement();
+		EAttribute IF_START_STATEMENT__CONDITION = eINSTANCE.getIfStartStatement_Condition();
 
 		/**
-		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.InstructionStatementImpl <em>Instruction Statement</em>}' class.
+		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.InputPortImpl <em>Input Port</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see asu.ser.capstone.pivi.impl.InstructionStatementImpl
-		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getInstructionStatement()
+		 * @see asu.ser.capstone.pivi.impl.InputPortImpl
+		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getInputPort()
 		 * @generated
 		 */
-		EClass INSTRUCTION_STATEMENT = eINSTANCE.getInstructionStatement();
+		EClass INPUT_PORT = eINSTANCE.getInputPort();
 
 		/**
-		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.ProgramDiagramImpl <em>Program Diagram</em>}' class.
+		 * The meta object literal for the '<em><b>Statement</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see asu.ser.capstone.pivi.impl.ProgramDiagramImpl
-		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getProgramDiagram()
 		 * @generated
 		 */
-		EClass PROGRAM_DIAGRAM = eINSTANCE.getProgramDiagram();
+		EReference INPUT_PORT__STATEMENT = eINSTANCE.getInputPort_Statement();
 
 		/**
-		 * The meta object literal for the '<em><b>Start</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Terminal</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROGRAM_DIAGRAM__START = eINSTANCE.getProgramDiagram_Start();
+		EReference INPUT_PORT__TERMINAL = eINSTANCE.getInputPort_Terminal();
 
 		/**
-		 * The meta object literal for the '<em><b>End</b></em>' containment reference feature.
+		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.InstructionImpl <em>Instruction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see asu.ser.capstone.pivi.impl.InstructionImpl
+		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getInstruction()
+		 * @generated
+		 */
+		EClass INSTRUCTION = eINSTANCE.getInstruction();
+
+		/**
+		 * The meta object literal for the '<em><b>Instructions</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROGRAM_DIAGRAM__END = eINSTANCE.getProgramDiagram_End();
+		EAttribute INSTRUCTION__INSTRUCTIONS = eINSTANCE.getInstruction_Instructions();
+
+		/**
+		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.OutputPortImpl <em>Output Port</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see asu.ser.capstone.pivi.impl.OutputPortImpl
+		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getOutputPort()
+		 * @generated
+		 */
+		EClass OUTPUT_PORT = eINSTANCE.getOutputPort();
+
+		/**
+		 * The meta object literal for the '<em><b>Statement</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_PORT__STATEMENT = eINSTANCE.getOutputPort_Statement();
+
+		/**
+		 * The meta object literal for the '<em><b>Result</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_PORT__RESULT = eINSTANCE.getOutputPort_Result();
+
+		/**
+		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.PiviDiagramImpl <em>Diagram</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see asu.ser.capstone.pivi.impl.PiviDiagramImpl
+		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getPiviDiagram()
+		 * @generated
+		 */
+		EClass PIVI_DIAGRAM = eINSTANCE.getPiviDiagram();
 
 		/**
 		 * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
@@ -765,7 +1076,41 @@ public interface PiviPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROGRAM_DIAGRAM__STATEMENTS = eINSTANCE.getProgramDiagram_Statements();
+		EReference PIVI_DIAGRAM__STATEMENTS = eINSTANCE.getPiviDiagram_Statements();
+
+		/**
+		 * The meta object literal for the '<em><b>Start</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PIVI_DIAGRAM__START = eINSTANCE.getPiviDiagram_Start();
+
+		/**
+		 * The meta object literal for the '<em><b>Results</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PIVI_DIAGRAM__RESULTS = eINSTANCE.getPiviDiagram_Results();
+
+		/**
+		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.ResultImpl <em>Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see asu.ser.capstone.pivi.impl.ResultImpl
+		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getResult()
+		 * @generated
+		 */
+		EClass RESULT = eINSTANCE.getResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Port</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESULT__OUTPUT_PORT = eINSTANCE.getResult_OutputPort();
 
 		/**
 		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.StartImpl <em>Start</em>}' class.
@@ -778,14 +1123,6 @@ public interface PiviPackage extends EPackage {
 		EClass START = eINSTANCE.getStart();
 
 		/**
-		 * The meta object literal for the '<em><b>Inputs</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference START__INPUTS = eINSTANCE.getStart_Inputs();
-
-		/**
 		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.StatementImpl <em>Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -794,6 +1131,14 @@ public interface PiviPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STATEMENT = eINSTANCE.getStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATEMENT__NAME = eINSTANCE.getStatement_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Inputs</b></em>' containment reference list feature.
@@ -812,56 +1157,30 @@ public interface PiviPackage extends EPackage {
 		EReference STATEMENT__OUTPUTS = eINSTANCE.getStatement_Outputs();
 
 		/**
-		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.StatementInputImpl <em>Statement Input</em>}' class.
+		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.TerminalImpl <em>Terminal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see asu.ser.capstone.pivi.impl.StatementInputImpl
-		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getStatementInput()
+		 * @see asu.ser.capstone.pivi.impl.TerminalImpl
+		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getTerminal()
 		 * @generated
 		 */
-		EClass STATEMENT_INPUT = eINSTANCE.getStatementInput();
+		EClass TERMINAL = eINSTANCE.getTerminal();
 
 		/**
-		 * The meta object literal for the '<em><b>Statement</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATEMENT_INPUT__STATEMENT = eINSTANCE.getStatementInput_Statement();
+		EAttribute TERMINAL__NAME = eINSTANCE.getTerminal_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Start</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Input Ports</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATEMENT_INPUT__START = eINSTANCE.getStatementInput_Start();
-
-		/**
-		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.StatementOutputImpl <em>Statement Output</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see asu.ser.capstone.pivi.impl.StatementOutputImpl
-		 * @see asu.ser.capstone.pivi.impl.PiviPackageImpl#getStatementOutput()
-		 * @generated
-		 */
-		EClass STATEMENT_OUTPUT = eINSTANCE.getStatementOutput();
-
-		/**
-		 * The meta object literal for the '<em><b>Statement</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STATEMENT_OUTPUT__STATEMENT = eINSTANCE.getStatementOutput_Statement();
-
-		/**
-		 * The meta object literal for the '<em><b>End</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STATEMENT_OUTPUT__END = eINSTANCE.getStatementOutput_End();
+		EReference TERMINAL__INPUT_PORTS = eINSTANCE.getTerminal_InputPorts();
 
 		/**
 		 * The meta object literal for the '{@link asu.ser.capstone.pivi.impl.WhileStatementImpl <em>While Statement</em>}' class.
@@ -872,6 +1191,14 @@ public interface PiviPackage extends EPackage {
 		 * @generated
 		 */
 		EClass WHILE_STATEMENT = eINSTANCE.getWhileStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WHILE_STATEMENT__CONDITION = eINSTANCE.getWhileStatement_Condition();
 
 	}
 

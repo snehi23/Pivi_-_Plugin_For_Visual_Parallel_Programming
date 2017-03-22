@@ -1,17 +1,23 @@
-/**
- */
 package asu.ser.capstone.pivi;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>While Statement</b></em>'.
- * <!-- end-user-doc -->
- *
- *
- * @see asu.ser.capstone.pivi.PiviPackage#getWhileStatement()
  * @model
- * @generated
  */
 public interface WhileStatement extends Statement {
-} // WhileStatement
+	
+	/**
+	 * @model
+	 */
+	String getCondition();
+
+	/**
+	 * Sets the value of the '{@link asu.ser.capstone.pivi.WhileStatement#getCondition <em>Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Condition</em>' attribute.
+	 * @see #getCondition()
+	 * @generated
+	 */
+	void setCondition(String value);
+
+}

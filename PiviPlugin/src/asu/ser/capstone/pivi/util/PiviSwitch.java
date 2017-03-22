@@ -66,35 +66,56 @@ public class PiviSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case PiviPackage.END: {
-				End end = (End)theEObject;
-				T result = caseEnd(end);
+			case PiviPackage.IF_END_STATEMENT: {
+				IfEndStatement ifEndStatement = (IfEndStatement)theEObject;
+				T result = caseIfEndStatement(ifEndStatement);
+				if (result == null) result = caseStatement(ifEndStatement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PiviPackage.IF_STATEMENT: {
-				IfStatement ifStatement = (IfStatement)theEObject;
-				T result = caseIfStatement(ifStatement);
-				if (result == null) result = caseStatement(ifStatement);
+			case PiviPackage.IF_START_STATEMENT: {
+				IfStartStatement ifStartStatement = (IfStartStatement)theEObject;
+				T result = caseIfStartStatement(ifStartStatement);
+				if (result == null) result = caseStatement(ifStartStatement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PiviPackage.INSTRUCTION_STATEMENT: {
-				InstructionStatement instructionStatement = (InstructionStatement)theEObject;
-				T result = caseInstructionStatement(instructionStatement);
-				if (result == null) result = caseStatement(instructionStatement);
+			case PiviPackage.INPUT_PORT: {
+				InputPort inputPort = (InputPort)theEObject;
+				T result = caseInputPort(inputPort);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PiviPackage.PROGRAM_DIAGRAM: {
-				ProgramDiagram programDiagram = (ProgramDiagram)theEObject;
-				T result = caseProgramDiagram(programDiagram);
+			case PiviPackage.INSTRUCTION: {
+				Instruction instruction = (Instruction)theEObject;
+				T result = caseInstruction(instruction);
+				if (result == null) result = caseStatement(instruction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
+			}
+			case PiviPackage.OUTPUT_PORT: {
+				OutputPort outputPort = (OutputPort)theEObject;
+				T result = caseOutputPort(outputPort);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PiviPackage.PIVI_DIAGRAM: {
+				PiviDiagram piviDiagram = (PiviDiagram)theEObject;
+				T result = casePiviDiagram(piviDiagram);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PiviPackage.RESULT: {
+				Result result = (Result)theEObject;
+				T theResult = caseResult(result);
+				if (theResult == null) theResult = caseTerminal(result);
+				if (theResult == null) theResult = defaultCase(theEObject);
+				return theResult;
 			}
 			case PiviPackage.START: {
 				Start start = (Start)theEObject;
 				T result = caseStart(start);
+				if (result == null) result = caseTerminal(start);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -104,15 +125,9 @@ public class PiviSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PiviPackage.STATEMENT_INPUT: {
-				StatementInput statementInput = (StatementInput)theEObject;
-				T result = caseStatementInput(statementInput);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PiviPackage.STATEMENT_OUTPUT: {
-				StatementOutput statementOutput = (StatementOutput)theEObject;
-				T result = caseStatementOutput(statementOutput);
+			case PiviPackage.TERMINAL: {
+				Terminal terminal = (Terminal)theEObject;
+				T result = caseTerminal(terminal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -128,62 +143,107 @@ public class PiviSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>End</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>If End Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>End</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>If End Statement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEnd(End object) {
+	public T caseIfEndStatement(IfEndStatement object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>If Statement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>If Start Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>If Statement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>If Start Statement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIfStatement(IfStatement object) {
+	public T caseIfStartStatement(IfStartStatement object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Instruction Statement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Instruction Statement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Port</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInstructionStatement(InstructionStatement object) {
+	public T caseInputPort(InputPort object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Program Diagram</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Instruction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Program Diagram</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Instruction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProgramDiagram(ProgramDiagram object) {
+	public T caseInstruction(Instruction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Output Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Output Port</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOutputPort(OutputPort object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Diagram</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Diagram</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePiviDiagram(PiviDiagram object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResult(Result object) {
 		return null;
 	}
 
@@ -218,32 +278,17 @@ public class PiviSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Statement Input</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Terminal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Statement Input</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Terminal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStatementInput(StatementInput object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Statement Output</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Statement Output</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStatementOutput(StatementOutput object) {
+	public T caseTerminal(Terminal object) {
 		return null;
 	}
 

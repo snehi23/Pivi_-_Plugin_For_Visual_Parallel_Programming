@@ -8,11 +8,11 @@
       title="piviPalette">
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="pivi nodes">
+        title="nodes">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="EndNode"
-          description="Create new EndNode">
+          title="IfEndStatement"
+          description="Create new IfEndStatement">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -20,26 +20,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="IfEnd"
-          description="Create new IfEnd">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="IfStart"
-          description="Create new IfStart">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="InputPort"
-          description="Create new InputPort">
+          title="IfStartStatement"
+          description="Create new IfStartStatement">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -56,8 +38,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="OutputPort"
-          description="Create new OutputPort">
+          title="Result"
+          description="Create new Result">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -65,8 +47,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="StartNode"
-          description="Create new StartNode">
+          title="Start"
+          description="Create new Start">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -74,8 +56,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="WhileStart"
-          description="Create new WhileStart">
+          title="WhileStatement"
+          description="Create new WhileStatement">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -84,11 +66,20 @@
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Connections">
+        title="connections">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Edge"
-          description="Create new Edge">
+          title="OutputPortResult"
+          description="Create new OutputPortResult">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="TerminalInputPorts"
+          description="Create new TerminalInputPorts">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

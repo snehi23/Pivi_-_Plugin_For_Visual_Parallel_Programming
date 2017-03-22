@@ -8,71 +8,56 @@
     xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
   <nodes>
     <containmentFeature
-        href="pivi.ecore#//Diagram/statements"/>
+        href="pivi.ecore#//PiviDiagram/statements"/>
     <ownedChild>
       <domainMetaElement
-          href="pivi.ecore#//WhileStart"/>
+          href="pivi.ecore#//IfStartStatement"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true">
+        <diagramLabel
+            href="pivi.gmfgraph#IfStartStatementName"/>
+        <features
+            href="pivi.ecore#//Statement/name"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="pivi.gmfgraph#IfStartStatementCondition"/>
+        <features
+            href="pivi.ecore#//IfStartStatement/condition"/>
+        <editableFeatures
+            href="pivi.ecore#//IfStartStatement/condition"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="pivi.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="pivi.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
-          href="pivi.gmfgraph#WhileStart"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="pivi.ecore#//Diagram/statements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="pivi.ecore#//EndNode"/>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="pivi.gmftool#//@palette/@tools.0/@tools.0"/>
-      <diagramNode
-          href="pivi.gmfgraph#EndNode"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="pivi.ecore#//Diagram/statements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="pivi.ecore#//IfStart"/>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="pivi.gmftool#//@palette/@tools.0/@tools.2"/>
-      <diagramNode
-          href="pivi.gmfgraph#IfStart"/>
+          href="pivi.gmfgraph#IfStartStatement"/>
       <children
-          compartment="//@nodes.2/@ownedChild/@compartments.0">
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="pivi.ecore#//Node/inputPorts"/>
+            href="pivi.ecore#//Statement/inputs"/>
         <ownedChild>
           <domainMetaElement
               href="pivi.ecore#//InputPort"/>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="pivi.gmftool#//@palette/@tools.0/@tools.3"/>
           <diagramNode
               href="pivi.gmfgraph#InputPort"/>
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.2/@ownedChild/@compartments.0">
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="pivi.ecore#//Node/outputPorts"/>
+            href="pivi.ecore#//Statement/outputs"/>
         <ownedChild>
           <domainMetaElement
               href="pivi.ecore#//OutputPort"/>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="pivi.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="pivi.gmfgraph#OutputPort"/>
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1">
+          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1">
         <compartment
             href="pivi.gmfgraph#IfStartFigureCompartment"/>
       </compartments>
@@ -80,56 +65,199 @@
   </nodes>
   <nodes>
     <containmentFeature
-        href="pivi.ecore#//Diagram/statements"/>
+        href="pivi.ecore#//PiviDiagram/statements"/>
+    <ownedChild>
+      <domainMetaElement
+          href="pivi.ecore#//WhileStatement"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true">
+        <diagramLabel
+            href="pivi.gmfgraph#WhileStatementName"/>
+        <features
+            href="pivi.ecore#//Statement/name"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="">
+        <diagramLabel
+            href="pivi.gmfgraph#WhileStatementCondition"/>
+        <features
+            href="pivi.ecore#//WhileStatement/condition"/>
+        <editableFeatures
+            href="pivi.ecore#//WhileStatement/condition"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="pivi.gmftool#//@palette/@tools.0/@tools.5"/>
+      <diagramNode
+          href="pivi.gmfgraph#WhileStatement"/>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+        <containmentFeature
+            href="pivi.ecore#//Statement/inputs"/>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild">
+        <containmentFeature
+            href="pivi.ecore#//Statement/outputs"/>
+      </children>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.1">
+        <compartment
+            href="pivi.gmfgraph#WhileFigureCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="pivi.ecore#//PiviDiagram/statements"/>
+    <ownedChild>
+      <domainMetaElement
+          href="pivi.ecore#//IfEndStatement"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true">
+        <diagramLabel
+            href="pivi.gmfgraph#IfEndStatementName"/>
+        <features
+            href="pivi.ecore#//Statement/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="pivi.gmftool#//@palette/@tools.0/@tools.0"/>
+      <diagramNode
+          href="pivi.gmfgraph#IfEndStatement"/>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+        <containmentFeature
+            href="pivi.ecore#//Statement/inputs"/>
+      </children>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild">
+        <containmentFeature
+            href="pivi.ecore#//Statement/outputs"/>
+      </children>
+      <compartments
+          children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1">
+        <compartment
+            href="pivi.gmfgraph#IfEndFigureCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="pivi.ecore#//PiviDiagram/statements"/>
     <ownedChild>
       <domainMetaElement
           href="pivi.ecore#//Instruction"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true">
+        <diagramLabel
+            href="pivi.gmfgraph#InstructionName"/>
+        <features
+            href="pivi.ecore#//Statement/name"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          editorPattern="">
+        <diagramLabel
+            href="pivi.gmfgraph#InstructionInstructions"/>
+        <features
+            href="pivi.ecore#//Instruction/instructions"/>
+        <editableFeatures
+            href="pivi.ecore#//Instruction/instructions"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="pivi.gmftool#//@palette/@tools.0/@tools.2"/>
+      <diagramNode
+          href="pivi.gmfgraph#Instruction"/>
+      <children
+          compartment="//@nodes.3/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
+        <containmentFeature
+            href="pivi.ecore#//Statement/inputs"/>
+      </children>
+      <children
+          compartment="//@nodes.3/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild">
+        <containmentFeature
+            href="pivi.ecore#//Statement/outputs"/>
+      </children>
+      <compartments
+          children="//@nodes.3/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.1">
+        <compartment
+            href="pivi.gmfgraph#InstructionFigureCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="pivi.ecore#//PiviDiagram/start"/>
+    <ownedChild>
+      <domainMetaElement
+          href="pivi.ecore#//Start"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true">
+        <diagramLabel
+            href="pivi.gmfgraph#StartName"/>
+        <features
+            href="pivi.ecore#//Terminal/name"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="pivi.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
-          href="pivi.gmfgraph#Instruction"/>
+          href="pivi.gmfgraph#Start"/>
     </ownedChild>
   </nodes>
   <nodes>
     <containmentFeature
-        href="pivi.ecore#//Diagram/statements"/>
+        href="pivi.ecore#//PiviDiagram/results"/>
     <ownedChild>
       <domainMetaElement
-          href="pivi.ecore#//IfEnd"/>
+          href="pivi.ecore#//Result"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true">
+        <diagramLabel
+            href="pivi.gmfgraph#ResultName"/>
+        <features
+            href="pivi.ecore#//Terminal/name"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="pivi.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="pivi.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
-          href="pivi.gmfgraph#IfEnd"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="pivi.ecore#//Diagram/statements"/>
-    <ownedChild>
-      <domainMetaElement
-          href="pivi.ecore#//StartNode"/>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="pivi.gmftool#//@palette/@tools.0/@tools.6"/>
-      <diagramNode
-          href="pivi.gmfgraph#StartNode"/>
+          href="pivi.gmfgraph#Result"/>
     </ownedChild>
   </nodes>
   <links>
-    <domainMetaElement
-        href="pivi.ecore#//Edge"/>
-    <containmentFeature
-        href="pivi.ecore#//Diagram/edges"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="pivi.gmftool#//@palette/@tools.1/@tools.1"/>
+    <diagramLink
+        href="pivi.gmfgraph#StartInputPorts"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="pivi.ecore#//Terminal/inputPorts"/>
+  </links>
+  <links>
     <tool
         xsi:type="gmftool:CreationTool"
         href="pivi.gmftool#//@palette/@tools.1/@tools.0"/>
     <diagramLink
-        href="pivi.gmfgraph#Edge"/>
+        href="pivi.gmfgraph#OutputPortResult"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="pivi.ecore#//Edge/inputPort"/>
+        href="pivi.ecore#//OutputPort/result"/>
   </links>
   <diagram>
     <diagramCanvas
@@ -137,7 +265,7 @@
     <domainModel
         href="pivi.ecore#/"/>
     <domainMetaElement
-        href="pivi.ecore#//Diagram"/>
+        href="pivi.ecore#//PiviDiagram"/>
     <palette
         href="pivi.gmftool#//@palette"/>
   </diagram>
