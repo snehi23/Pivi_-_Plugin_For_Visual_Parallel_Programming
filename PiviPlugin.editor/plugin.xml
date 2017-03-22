@@ -12,9 +12,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="asu.edu.ser.capstone.pivi.presentation.PiviModelWizardID"
+            id="asu.ser.capstone.pivi.presentation.PiviModelWizardID"
             name="%_UI_PiviModelWizard_label"
-            class="asu.edu.ser.capstone.pivi.presentation.PiviModelWizard"
+            class="asu.ser.capstone.pivi.presentation.PiviModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/PiviModelFile.gif">
          <description>%_UI_PiviModelWizard_description</description>
@@ -25,12 +25,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pivi -->
       <editor
-            id="asu.edu.ser.capstone.pivi.presentation.PiviEditorID"
+            id="asu.ser.capstone.pivi.presentation.PiviEditorID"
             name="%_UI_PiviEditor_label"
             icon="icons/full/obj16/PiviModelFile.gif"
             extensions="pivi"
-            class="asu.edu.ser.capstone.pivi.presentation.PiviEditor"
-            contributorClass="asu.edu.ser.capstone.pivi.presentation.PiviActionBarContributor">
+            class="asu.ser.capstone.pivi.presentation.PiviEditor"
+            contributorClass="asu.ser.capstone.pivi.presentation.PiviActionBarContributor">
       </editor>
    </extension>
 
