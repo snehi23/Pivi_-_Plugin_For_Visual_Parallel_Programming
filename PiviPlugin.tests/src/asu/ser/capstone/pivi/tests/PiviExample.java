@@ -2,7 +2,7 @@
  */
 package asu.ser.capstone.pivi.tests;
 
-import asu.ser.capstone.pivi.End;
+import asu.ser.capstone.pivi.IfEndStatement;
 import asu.ser.capstone.pivi.PiviFactory;
 import asu.ser.capstone.pivi.PiviPackage;
 
@@ -60,7 +60,7 @@ public class PiviExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.pivi"));
-				End root = PiviFactory.eINSTANCE.createEnd();
+				IfEndStatement root = PiviFactory.eINSTANCE.createIfEndStatement();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

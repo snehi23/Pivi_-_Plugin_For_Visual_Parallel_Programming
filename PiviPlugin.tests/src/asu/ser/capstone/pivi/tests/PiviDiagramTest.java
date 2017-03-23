@@ -2,18 +2,28 @@
  */
 package asu.ser.capstone.pivi.tests;
 
+import asu.ser.capstone.pivi.PiviDiagram;
 import asu.ser.capstone.pivi.PiviFactory;
-import asu.ser.capstone.pivi.Start;
+
+import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Start</b></em>'.
+ * A test case for the model object '<em><b>Diagram</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class StartTest extends TerminalTest {
+public class PiviDiagramTest extends TestCase {
+
+	/**
+	 * The fixture for this Diagram test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PiviDiagram fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +31,37 @@ public class StartTest extends TerminalTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(StartTest.class);
+		TestRunner.run(PiviDiagramTest.class);
 	}
 
 	/**
-	 * Constructs a new Start test case with the given name.
+	 * Constructs a new Diagram test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StartTest(String name) {
+	public PiviDiagramTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Start test case.
+	 * Sets the fixture for this Diagram test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected Start getFixture() {
-		return (Start)fixture;
+	protected void setFixture(PiviDiagram fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
+	 * Returns the fixture for this Diagram test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PiviDiagram getFixture() {
+		return fixture;
 	}
 
 	/**
@@ -53,7 +72,7 @@ public class StartTest extends TerminalTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PiviFactory.eINSTANCE.createStart());
+		setFixture(PiviFactory.eINSTANCE.createPiviDiagram());
 	}
 
 	/**
@@ -67,4 +86,4 @@ public class StartTest extends TerminalTest {
 		setFixture(null);
 	}
 
-} //StartTest
+} //PiviDiagramTest

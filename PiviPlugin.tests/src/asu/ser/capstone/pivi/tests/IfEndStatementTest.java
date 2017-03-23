@@ -2,18 +2,18 @@
  */
 package asu.ser.capstone.pivi.tests;
 
+import asu.ser.capstone.pivi.IfEndStatement;
 import asu.ser.capstone.pivi.PiviFactory;
-import asu.ser.capstone.pivi.Start;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Start</b></em>'.
+ * A test case for the model object '<em><b>If End Statement</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class StartTest extends TerminalTest {
+public class IfEndStatementTest extends StatementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class StartTest extends TerminalTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(StartTest.class);
+		TestRunner.run(IfEndStatementTest.class);
 	}
 
 	/**
-	 * Constructs a new Start test case with the given name.
+	 * Constructs a new If End Statement test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StartTest(String name) {
+	public IfEndStatementTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Start test case.
+	 * Returns the fixture for this If End Statement test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected Start getFixture() {
-		return (Start)fixture;
+	protected IfEndStatement getFixture() {
+		return (IfEndStatement)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class StartTest extends TerminalTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PiviFactory.eINSTANCE.createStart());
+		setFixture(PiviFactory.eINSTANCE.createIfEndStatement());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class StartTest extends TerminalTest {
 		setFixture(null);
 	}
 
-} //StartTest
+} //IfEndStatementTest

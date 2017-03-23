@@ -2,18 +2,18 @@
  */
 package asu.ser.capstone.pivi.tests;
 
+import asu.ser.capstone.pivi.Instruction;
 import asu.ser.capstone.pivi.PiviFactory;
-import asu.ser.capstone.pivi.Start;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Start</b></em>'.
+ * A test case for the model object '<em><b>Instruction</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class StartTest extends TerminalTest {
+public class InstructionTest extends StatementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class StartTest extends TerminalTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(StartTest.class);
+		TestRunner.run(InstructionTest.class);
 	}
 
 	/**
-	 * Constructs a new Start test case with the given name.
+	 * Constructs a new Instruction test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StartTest(String name) {
+	public InstructionTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Start test case.
+	 * Returns the fixture for this Instruction test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected Start getFixture() {
-		return (Start)fixture;
+	protected Instruction getFixture() {
+		return (Instruction)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class StartTest extends TerminalTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PiviFactory.eINSTANCE.createStart());
+		setFixture(PiviFactory.eINSTANCE.createInstruction());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class StartTest extends TerminalTest {
 		setFixture(null);
 	}
 
-} //StartTest
+} //InstructionTest
