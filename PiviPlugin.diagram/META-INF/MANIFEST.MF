@@ -1,15 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: PiviPlugin.diagram;singleton:=true
+Bundle-SymbolicName: PiviPlugin.diagram; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: asu.edu.ser.capstone.pivi.diagram.part.PiviDiagramEditorPlugin
+Bundle-Activator: asu.ser.capstone.pivi.diagram.part.PiviDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: asu.edu.ser.capstone.pivi.diagram.edit.parts, 
- asu.edu.ser.capstone.pivi.diagram.part,
- asu.edu.ser.capstone.pivi.diagram.providers
+Export-Package: asu.ser.capstone.pivi.diagram.edit.parts, 
+ asu.ser.capstone.pivi.diagram.part,
+ asu.ser.capstone.pivi.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.core.expressions,
