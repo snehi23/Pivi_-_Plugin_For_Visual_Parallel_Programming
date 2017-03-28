@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: asu.ser.capstone.pivi.provider.PiviEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: asu.ser.capstone.pivi.provider
 Require-Bundle: org.eclipse.core.runtime,
  PiviPlugin;visibility:=reexport,

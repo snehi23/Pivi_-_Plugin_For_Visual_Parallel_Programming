@@ -3,13 +3,19 @@
 package asu.ser.capstone.pivi.provider;
 
 
+import asu.ser.capstone.pivi.PiviPackage;
+import asu.ser.capstone.pivi.WhileStatement;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link asu.ser.capstone.pivi.WhileStatement} object.
@@ -39,8 +45,31 @@ public class WhileStatementItemProvider extends StatementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addConditionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Condition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConditionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_WhileStatement_condition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_WhileStatement_condition_feature", "_UI_WhileStatement_type"),
+				 PiviPackage.Literals.WHILE_STATEMENT__CONDITION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -62,7 +91,10 @@ public class WhileStatementItemProvider extends StatementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_WhileStatement_type");
+		String label = ((WhileStatement)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_WhileStatement_type") :
+			getString("_UI_WhileStatement_type") + " " + label;
 	}
 	
 
@@ -76,6 +108,12 @@ public class WhileStatementItemProvider extends StatementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(WhileStatement.class)) {
+			case PiviPackage.WHILE_STATEMENT__CONDITION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

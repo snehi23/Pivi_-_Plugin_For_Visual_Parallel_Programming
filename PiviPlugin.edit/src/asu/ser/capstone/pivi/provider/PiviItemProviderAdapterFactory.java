@@ -72,95 +72,164 @@ public class PiviItemProviderAdapterFactory extends PiviAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.End} instances.
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.IfEndStatement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EndItemProvider endItemProvider;
+	protected IfEndStatementItemProvider ifEndStatementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link asu.ser.capstone.pivi.End}.
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.IfEndStatement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createEndAdapter() {
-		if (endItemProvider == null) {
-			endItemProvider = new EndItemProvider(this);
+	public Adapter createIfEndStatementAdapter() {
+		if (ifEndStatementItemProvider == null) {
+			ifEndStatementItemProvider = new IfEndStatementItemProvider(this);
 		}
 
-		return endItemProvider;
+		return ifEndStatementItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.IfStatement} instances.
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.IfStartStatement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IfStatementItemProvider ifStatementItemProvider;
+	protected IfStartStatementItemProvider ifStartStatementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link asu.ser.capstone.pivi.IfStatement}.
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.IfStartStatement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createIfStatementAdapter() {
-		if (ifStatementItemProvider == null) {
-			ifStatementItemProvider = new IfStatementItemProvider(this);
+	public Adapter createIfStartStatementAdapter() {
+		if (ifStartStatementItemProvider == null) {
+			ifStartStatementItemProvider = new IfStartStatementItemProvider(this);
 		}
 
-		return ifStatementItemProvider;
+		return ifStartStatementItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.InstructionStatement} instances.
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.InputPort} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InstructionStatementItemProvider instructionStatementItemProvider;
+	protected InputPortItemProvider inputPortItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link asu.ser.capstone.pivi.InstructionStatement}.
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.InputPort}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInstructionStatementAdapter() {
-		if (instructionStatementItemProvider == null) {
-			instructionStatementItemProvider = new InstructionStatementItemProvider(this);
+	public Adapter createInputPortAdapter() {
+		if (inputPortItemProvider == null) {
+			inputPortItemProvider = new InputPortItemProvider(this);
 		}
 
-		return instructionStatementItemProvider;
+		return inputPortItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.ProgramDiagram} instances.
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.Instruction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProgramDiagramItemProvider programDiagramItemProvider;
+	protected InstructionItemProvider instructionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link asu.ser.capstone.pivi.ProgramDiagram}.
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.Instruction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createProgramDiagramAdapter() {
-		if (programDiagramItemProvider == null) {
-			programDiagramItemProvider = new ProgramDiagramItemProvider(this);
+	public Adapter createInstructionAdapter() {
+		if (instructionItemProvider == null) {
+			instructionItemProvider = new InstructionItemProvider(this);
 		}
 
-		return programDiagramItemProvider;
+		return instructionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.OutputPort} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OutputPortItemProvider outputPortItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.OutputPort}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOutputPortAdapter() {
+		if (outputPortItemProvider == null) {
+			outputPortItemProvider = new OutputPortItemProvider(this);
+		}
+
+		return outputPortItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.PiviDiagram} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PiviDiagramItemProvider piviDiagramItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.PiviDiagram}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPiviDiagramAdapter() {
+		if (piviDiagramItemProvider == null) {
+			piviDiagramItemProvider = new PiviDiagramItemProvider(this);
+		}
+
+		return piviDiagramItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.Result} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResultItemProvider resultItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.Result}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResultAdapter() {
+		if (resultItemProvider == null) {
+			resultItemProvider = new ResultItemProvider(this);
+		}
+
+		return resultItemProvider;
 	}
 
 	/**
@@ -184,52 +253,6 @@ public class PiviItemProviderAdapterFactory extends PiviAdapterFactory implement
 		}
 
 		return startItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.StatementInput} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StatementInputItemProvider statementInputItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link asu.ser.capstone.pivi.StatementInput}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStatementInputAdapter() {
-		if (statementInputItemProvider == null) {
-			statementInputItemProvider = new StatementInputItemProvider(this);
-		}
-
-		return statementInputItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.StatementOutput} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StatementOutputItemProvider statementOutputItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link asu.ser.capstone.pivi.StatementOutput}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStatementOutputAdapter() {
-		if (statementOutputItemProvider == null) {
-			statementOutputItemProvider = new StatementOutputItemProvider(this);
-		}
-
-		return statementOutputItemProvider;
 	}
 
 	/**
@@ -354,13 +377,14 @@ public class PiviItemProviderAdapterFactory extends PiviAdapterFactory implement
 	 * @generated
 	 */
 	public void dispose() {
-		if (endItemProvider != null) endItemProvider.dispose();
-		if (ifStatementItemProvider != null) ifStatementItemProvider.dispose();
-		if (instructionStatementItemProvider != null) instructionStatementItemProvider.dispose();
-		if (programDiagramItemProvider != null) programDiagramItemProvider.dispose();
+		if (ifEndStatementItemProvider != null) ifEndStatementItemProvider.dispose();
+		if (ifStartStatementItemProvider != null) ifStartStatementItemProvider.dispose();
+		if (inputPortItemProvider != null) inputPortItemProvider.dispose();
+		if (instructionItemProvider != null) instructionItemProvider.dispose();
+		if (outputPortItemProvider != null) outputPortItemProvider.dispose();
+		if (piviDiagramItemProvider != null) piviDiagramItemProvider.dispose();
+		if (resultItemProvider != null) resultItemProvider.dispose();
 		if (startItemProvider != null) startItemProvider.dispose();
-		if (statementInputItemProvider != null) statementInputItemProvider.dispose();
-		if (statementOutputItemProvider != null) statementOutputItemProvider.dispose();
 		if (whileStatementItemProvider != null) whileStatementItemProvider.dispose();
 	}
 

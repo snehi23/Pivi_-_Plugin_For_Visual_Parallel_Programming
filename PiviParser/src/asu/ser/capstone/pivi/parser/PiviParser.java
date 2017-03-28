@@ -62,7 +62,7 @@ public class PiviParser {
 	private void saveToFile() {
 		BufferedWriter bw = null;
 		FileWriter fw = null;
-		String fileName = "src/Solution.java";
+		String fileName = "src/asu/ser/capstone/pivi/test/Solution.java";
 
 		try {
 			fw = new FileWriter(fileName);
@@ -85,7 +85,7 @@ public class PiviParser {
 	}
 
 	private void generateCode() {
-		generatedCode.append("package asu.ser.capstone.pivi.test;\n");
+		generatedCode.append("package asu.ser.capstone.pivi.test;\n\n");
 		generatedCode.append("public class Solution {\n");
 		generatedCode.append("public static void main(String[] args) { \n");
 
