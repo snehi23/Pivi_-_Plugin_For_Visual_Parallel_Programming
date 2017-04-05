@@ -1,5 +1,9 @@
 package asu.ser.capstone.pivi.diagram.edit.parts;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
@@ -9,13 +13,16 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.editpolicies.DirectEditPolicy;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gef.requests.DirectEditRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -35,6 +42,8 @@ import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
  */
 public class InstructionEditPart extends ShapeNodeEditPart {
 
+	public static Integer count = 1;
+	
 	/**
 	* @generated
 	*/
@@ -66,6 +75,38 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InstructionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenEditPolicy() {
+			
+			@Override
+			protected Command getOpenCommand(Request request) {
+				
+				BufferedWriter bw = null;
+				FileWriter fw = null;
+				
+				try {
+					fw = new FileWriter("/Users/snehi23/Documents/runtime-EclipseApplication/TEST2/" +"Instruction_"+count+".txt");
+					count++;
+					bw = new BufferedWriter(fw);
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						if (bw != null) {
+							bw.close();
+						}
+						if (fw != null) {
+							fw.close();
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				
+				return null;
+			}
+		});
+		
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
