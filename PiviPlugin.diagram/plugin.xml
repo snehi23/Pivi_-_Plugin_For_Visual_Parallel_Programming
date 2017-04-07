@@ -108,6 +108,21 @@
             </ElementType>
          </ViewId>
       </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="piviplugin.diagram.CGBGlobalActionHandlerProvider"
+            id="PiviPlugin.diagram.CGBGlobalActionHandlerProvider">
+         <Priority
+               name="Lowest">
+         </Priority>
+         <ViewId
+               id="PiviPlugin.diagram.ViewId2">
+            <ElementType>
+               <GlobalActionId
+                     actionId="CodeGenAction">
+               </GlobalActionId>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
    </extension>
 
 
