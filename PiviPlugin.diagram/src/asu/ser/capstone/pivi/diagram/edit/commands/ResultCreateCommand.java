@@ -12,9 +12,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import asu.ser.capstone.pivi.PiviDiagram;
 import asu.ser.capstone.pivi.PiviFactory;
 import asu.ser.capstone.pivi.Result;
+import asu.ser.capstone.pivi.Statement;
 
 /**
  * @generated
@@ -54,7 +54,7 @@ public class ResultCreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		Result newElement = PiviFactory.eINSTANCE.createResult();
 
-		PiviDiagram owner = (PiviDiagram) getElementToEdit();
+		Statement owner = (Statement) getElementToEdit();
 		owner.getResults().add(newElement);
 
 		doConfigure(newElement, monitor, info);

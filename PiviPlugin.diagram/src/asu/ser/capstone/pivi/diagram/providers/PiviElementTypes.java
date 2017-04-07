@@ -62,27 +62,23 @@ public class PiviElementTypes {
 	/**
 	* @generated
 	*/
-	public static final IElementType IfStartStatement_2001 = getElementType("PiviPlugin.diagram.IfStartStatement_2001"); //$NON-NLS-1$
+	public static final IElementType IfEndStatement_2001 = getElementType("PiviPlugin.diagram.IfEndStatement_2001"); //$NON-NLS-1$
 	/**
 	* @generated
 	*/
-	public static final IElementType WhileStatement_2002 = getElementType("PiviPlugin.diagram.WhileStatement_2002"); //$NON-NLS-1$
+	public static final IElementType Start_2002 = getElementType("PiviPlugin.diagram.Start_2002"); //$NON-NLS-1$
 	/**
 	* @generated
 	*/
-	public static final IElementType IfEndStatement_2003 = getElementType("PiviPlugin.diagram.IfEndStatement_2003"); //$NON-NLS-1$
+	public static final IElementType Instruction_2003 = getElementType("PiviPlugin.diagram.Instruction_2003"); //$NON-NLS-1$
 	/**
 	* @generated
 	*/
-	public static final IElementType Instruction_2004 = getElementType("PiviPlugin.diagram.Instruction_2004"); //$NON-NLS-1$
+	public static final IElementType IfStartStatement_2004 = getElementType("PiviPlugin.diagram.IfStartStatement_2004"); //$NON-NLS-1$
 	/**
 	* @generated
 	*/
-	public static final IElementType Start_2005 = getElementType("PiviPlugin.diagram.Start_2005"); //$NON-NLS-1$
-	/**
-	* @generated
-	*/
-	public static final IElementType Result_2006 = getElementType("PiviPlugin.diagram.Result_2006"); //$NON-NLS-1$
+	public static final IElementType WhileStatement_2005 = getElementType("PiviPlugin.diagram.WhileStatement_2005"); //$NON-NLS-1$
 	/**
 	* @generated
 	*/
@@ -91,6 +87,10 @@ public class PiviElementTypes {
 	* @generated
 	*/
 	public static final IElementType OutputPort_3002 = getElementType("PiviPlugin.diagram.OutputPort_3002"); //$NON-NLS-1$
+	/**
+	* @generated
+	*/
+	public static final IElementType Result_3003 = getElementType("PiviPlugin.diagram.Result_3003"); //$NON-NLS-1$
 	/**
 	* @generated
 	*/
@@ -141,21 +141,21 @@ public class PiviElementTypes {
 
 			elements.put(PiviDiagram_1000, PiviPackage.eINSTANCE.getPiviDiagram());
 
-			elements.put(IfStartStatement_2001, PiviPackage.eINSTANCE.getIfStartStatement());
+			elements.put(IfEndStatement_2001, PiviPackage.eINSTANCE.getIfEndStatement());
 
-			elements.put(WhileStatement_2002, PiviPackage.eINSTANCE.getWhileStatement());
+			elements.put(Start_2002, PiviPackage.eINSTANCE.getStart());
 
-			elements.put(IfEndStatement_2003, PiviPackage.eINSTANCE.getIfEndStatement());
+			elements.put(Instruction_2003, PiviPackage.eINSTANCE.getInstruction());
 
-			elements.put(Instruction_2004, PiviPackage.eINSTANCE.getInstruction());
+			elements.put(IfStartStatement_2004, PiviPackage.eINSTANCE.getIfStartStatement());
 
-			elements.put(Start_2005, PiviPackage.eINSTANCE.getStart());
-
-			elements.put(Result_2006, PiviPackage.eINSTANCE.getResult());
+			elements.put(WhileStatement_2005, PiviPackage.eINSTANCE.getWhileStatement());
 
 			elements.put(InputPort_3001, PiviPackage.eINSTANCE.getInputPort());
 
 			elements.put(OutputPort_3002, PiviPackage.eINSTANCE.getOutputPort());
+
+			elements.put(Result_3003, PiviPackage.eINSTANCE.getResult());
 
 			elements.put(TerminalInputPorts_4001, PiviPackage.eINSTANCE.getTerminal_InputPorts());
 
@@ -178,14 +178,14 @@ public class PiviElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(PiviDiagram_1000);
-			KNOWN_ELEMENT_TYPES.add(IfStartStatement_2001);
-			KNOWN_ELEMENT_TYPES.add(WhileStatement_2002);
-			KNOWN_ELEMENT_TYPES.add(IfEndStatement_2003);
-			KNOWN_ELEMENT_TYPES.add(Instruction_2004);
-			KNOWN_ELEMENT_TYPES.add(Start_2005);
-			KNOWN_ELEMENT_TYPES.add(Result_2006);
+			KNOWN_ELEMENT_TYPES.add(IfEndStatement_2001);
+			KNOWN_ELEMENT_TYPES.add(Start_2002);
+			KNOWN_ELEMENT_TYPES.add(Instruction_2003);
+			KNOWN_ELEMENT_TYPES.add(IfStartStatement_2004);
+			KNOWN_ELEMENT_TYPES.add(WhileStatement_2005);
 			KNOWN_ELEMENT_TYPES.add(InputPort_3001);
 			KNOWN_ELEMENT_TYPES.add(OutputPort_3002);
+			KNOWN_ELEMENT_TYPES.add(Result_3003);
 			KNOWN_ELEMENT_TYPES.add(TerminalInputPorts_4001);
 			KNOWN_ELEMENT_TYPES.add(OutputPortResult_4002);
 		}
@@ -199,22 +199,22 @@ public class PiviElementTypes {
 		switch (visualID) {
 		case PiviDiagramEditPart.VISUAL_ID:
 			return PiviDiagram_1000;
-		case IfStartStatementEditPart.VISUAL_ID:
-			return IfStartStatement_2001;
-		case WhileStatementEditPart.VISUAL_ID:
-			return WhileStatement_2002;
 		case IfEndStatementEditPart.VISUAL_ID:
-			return IfEndStatement_2003;
-		case InstructionEditPart.VISUAL_ID:
-			return Instruction_2004;
+			return IfEndStatement_2001;
 		case StartEditPart.VISUAL_ID:
-			return Start_2005;
-		case ResultEditPart.VISUAL_ID:
-			return Result_2006;
+			return Start_2002;
+		case InstructionEditPart.VISUAL_ID:
+			return Instruction_2003;
+		case IfStartStatementEditPart.VISUAL_ID:
+			return IfStartStatement_2004;
+		case WhileStatementEditPart.VISUAL_ID:
+			return WhileStatement_2005;
 		case InputPortEditPart.VISUAL_ID:
 			return InputPort_3001;
 		case OutputPortEditPart.VISUAL_ID:
 			return OutputPort_3002;
+		case ResultEditPart.VISUAL_ID:
+			return Result_3003;
 		case TerminalInputPortsEditPart.VISUAL_ID:
 			return TerminalInputPorts_4001;
 		case OutputPortResultEditPart.VISUAL_ID:

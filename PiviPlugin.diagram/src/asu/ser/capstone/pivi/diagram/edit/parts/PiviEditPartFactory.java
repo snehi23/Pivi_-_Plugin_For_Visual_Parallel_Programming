@@ -25,6 +25,27 @@ public class PiviEditPartFactory implements EditPartFactory {
 			case PiviDiagramEditPart.VISUAL_ID:
 				return new PiviDiagramEditPart(view);
 
+			case IfEndStatementEditPart.VISUAL_ID:
+				return new IfEndStatementEditPart(view);
+
+			case IfEndStatementNameEditPart.VISUAL_ID:
+				return new IfEndStatementNameEditPart(view);
+
+			case StartEditPart.VISUAL_ID:
+				return new StartEditPart(view);
+
+			case StartNameEditPart.VISUAL_ID:
+				return new StartNameEditPart(view);
+
+			case InstructionEditPart.VISUAL_ID:
+				return new InstructionEditPart(view);
+
+			case InstructionNameEditPart.VISUAL_ID:
+				return new InstructionNameEditPart(view);
+
+			case InstructionInstructionsEditPart.VISUAL_ID:
+				return new InstructionInstructionsEditPart(view);
+
 			case IfStartStatementEditPart.VISUAL_ID:
 				return new IfStartStatementEditPart(view);
 
@@ -43,50 +64,26 @@ public class PiviEditPartFactory implements EditPartFactory {
 			case WhileStatementConditionEditPart.VISUAL_ID:
 				return new WhileStatementConditionEditPart(view);
 
-			case IfEndStatementEditPart.VISUAL_ID:
-				return new IfEndStatementEditPart(view);
-
-			case IfEndStatementNameEditPart.VISUAL_ID:
-				return new IfEndStatementNameEditPart(view);
-
-			case InstructionEditPart.VISUAL_ID:
-				return new InstructionEditPart(view);
-
-			case InstructionNameEditPart.VISUAL_ID:
-				return new InstructionNameEditPart(view);
-
-			case InstructionInstructionsEditPart.VISUAL_ID:
-				return new InstructionInstructionsEditPart(view);
-
-			case StartEditPart.VISUAL_ID:
-				return new StartEditPart(view);
-
-			case StartNameEditPart.VISUAL_ID:
-				return new StartNameEditPart(view);
-
-			case ResultEditPart.VISUAL_ID:
-				return new ResultEditPart(view);
-
-			case ResultNameEditPart.VISUAL_ID:
-				return new ResultNameEditPart(view);
-
 			case InputPortEditPart.VISUAL_ID:
 				return new InputPortEditPart(view);
 
 			case OutputPortEditPart.VISUAL_ID:
 				return new OutputPortEditPart(view);
 
-			case IfStartStatementIfStartFigureCompartmentEditPart.VISUAL_ID:
-				return new IfStartStatementIfStartFigureCompartmentEditPart(view);
+			case ResultEditPart.VISUAL_ID:
+				return new ResultEditPart(view);
 
-			case WhileStatementWhileFigureCompartmentEditPart.VISUAL_ID:
-				return new WhileStatementWhileFigureCompartmentEditPart(view);
+			case IfEndStatementIfEndCompartmentFigureEditPart.VISUAL_ID:
+				return new IfEndStatementIfEndCompartmentFigureEditPart(view);
 
-			case IfEndStatementIfEndFigureCompartmentEditPart.VISUAL_ID:
-				return new IfEndStatementIfEndFigureCompartmentEditPart(view);
+			case InstructionInstructionCompartmentFigureEditPart.VISUAL_ID:
+				return new InstructionInstructionCompartmentFigureEditPart(view);
 
-			case InstructionInstructionFigureCompartmentEditPart.VISUAL_ID:
-				return new InstructionInstructionFigureCompartmentEditPart(view);
+			case IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID:
+				return new IfStartStatementIfStartCompartmentFigureEditPart(view);
+
+			case WhileStatementWhileCompartmentFigureEditPart.VISUAL_ID:
+				return new WhileStatementWhileCompartmentFigureEditPart(view);
 
 			case TerminalInputPortsEditPart.VISUAL_ID:
 				return new TerminalInputPortsEditPart(view);

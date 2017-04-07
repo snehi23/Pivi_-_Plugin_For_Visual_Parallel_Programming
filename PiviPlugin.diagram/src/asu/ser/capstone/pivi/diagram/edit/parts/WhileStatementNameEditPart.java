@@ -57,7 +57,7 @@ public class WhileStatementNameEditPart extends CompartmentEditPart implements I
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5003;
+	public static final int VISUAL_ID = 5007;
 
 	/**
 	* @generated
@@ -236,7 +236,7 @@ public class WhileStatementNameEditPart extends CompartmentEditPart implements I
 	* @generated
 	*/
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -292,7 +292,7 @@ public class WhileStatementNameEditPart extends CompartmentEditPart implements I
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = PiviParserProvider.getParser(PiviElementTypes.WhileStatement_2002, getParserElement(),
+			parser = PiviParserProvider.getParser(PiviElementTypes.WhileStatement_2005, getParserElement(),
 					PiviVisualIDRegistry
 							.getType(asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementNameEditPart.VISUAL_ID));
 		}

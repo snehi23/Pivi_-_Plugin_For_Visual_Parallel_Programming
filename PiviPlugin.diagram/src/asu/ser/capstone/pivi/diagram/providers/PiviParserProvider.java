@@ -19,7 +19,6 @@ import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementConditionEditPar
 import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementNameEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionsEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InstructionNameEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.ResultNameEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.StartNameEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementConditionEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementNameEditPart;
@@ -34,157 +33,144 @@ public class PiviParserProvider extends AbstractProvider implements IParserProvi
 	/**
 	* @generated
 	*/
-	private IParser ifStartStatementName_5001Parser;
+	private IParser ifEndStatementName_5001Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getIfStartStatementName_5001Parser() {
-		if (ifStartStatementName_5001Parser == null) {
+	private IParser getIfEndStatementName_5001Parser() {
+		if (ifEndStatementName_5001Parser == null) {
 			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			ifStartStatementName_5001Parser = parser;
-		}
-		return ifStartStatementName_5001Parser;
-	}
-
-	/**
-	* @generated
-	*/
-	private IParser ifStartStatementCondition_5002Parser;
-
-	/**
-	* @generated
-	*/
-	private IParser getIfStartStatementCondition_5002Parser() {
-		if (ifStartStatementCondition_5002Parser == null) {
-			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getIfStartStatement_Condition() };
-			EAttribute[] editableFeatures = new EAttribute[] { PiviPackage.eINSTANCE.getIfStartStatement_Condition() };
+			EAttribute[] editableFeatures = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
-			ifStartStatementCondition_5002Parser = parser;
+			ifEndStatementName_5001Parser = parser;
 		}
-		return ifStartStatementCondition_5002Parser;
+		return ifEndStatementName_5001Parser;
 	}
 
 	/**
 	* @generated
 	*/
-	private IParser whileStatementName_5003Parser;
+	private IParser startName_5002Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getWhileStatementName_5003Parser() {
-		if (whileStatementName_5003Parser == null) {
-			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
+	private IParser getStartName_5002Parser() {
+		if (startName_5002Parser == null) {
+			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getTerminal_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			whileStatementName_5003Parser = parser;
+			startName_5002Parser = parser;
 		}
-		return whileStatementName_5003Parser;
+		return startName_5002Parser;
 	}
 
 	/**
 	* @generated
 	*/
-	private IParser whileStatementCondition_5004Parser;
+	private IParser instructionName_5003Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getWhileStatementCondition_5004Parser() {
-		if (whileStatementCondition_5004Parser == null) {
-			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getWhileStatement_Condition() };
-			EAttribute[] editableFeatures = new EAttribute[] { PiviPackage.eINSTANCE.getWhileStatement_Condition() };
+	private IParser getInstructionName_5003Parser() {
+		if (instructionName_5003Parser == null) {
+			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
-			whileStatementCondition_5004Parser = parser;
+			instructionName_5003Parser = parser;
 		}
-		return whileStatementCondition_5004Parser;
+		return instructionName_5003Parser;
 	}
 
 	/**
 	* @generated
 	*/
-	private IParser ifEndStatementName_5005Parser;
+	private IParser instructionInstructions_5004Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getIfEndStatementName_5005Parser() {
-		if (ifEndStatementName_5005Parser == null) {
-			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			ifEndStatementName_5005Parser = parser;
-		}
-		return ifEndStatementName_5005Parser;
-	}
-
-	/**
-	* @generated
-	*/
-	private IParser instructionName_5006Parser;
-
-	/**
-	* @generated
-	*/
-	private IParser getInstructionName_5006Parser() {
-		if (instructionName_5006Parser == null) {
-			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			instructionName_5006Parser = parser;
-		}
-		return instructionName_5006Parser;
-	}
-
-	/**
-	* @generated
-	*/
-	private IParser instructionInstructions_5007Parser;
-
-	/**
-	* @generated
-	*/
-	private IParser getInstructionInstructions_5007Parser() {
-		if (instructionInstructions_5007Parser == null) {
+	private IParser getInstructionInstructions_5004Parser() {
+		if (instructionInstructions_5004Parser == null) {
 			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getInstruction_Instructions() };
 			EAttribute[] editableFeatures = new EAttribute[] { PiviPackage.eINSTANCE.getInstruction_Instructions() };
 			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
-			instructionInstructions_5007Parser = parser;
+			instructionInstructions_5004Parser = parser;
 		}
-		return instructionInstructions_5007Parser;
+		return instructionInstructions_5004Parser;
 	}
 
 	/**
 	* @generated
 	*/
-	private IParser startName_5008Parser;
+	private IParser ifStartStatementName_5005Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getStartName_5008Parser() {
-		if (startName_5008Parser == null) {
-			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getTerminal_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			startName_5008Parser = parser;
+	private IParser getIfStartStatementName_5005Parser() {
+		if (ifStartStatementName_5005Parser == null) {
+			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
+			ifStartStatementName_5005Parser = parser;
 		}
-		return startName_5008Parser;
+		return ifStartStatementName_5005Parser;
 	}
 
 	/**
 	* @generated
 	*/
-	private IParser resultName_5009Parser;
+	private IParser ifStartStatementCondition_5006Parser;
 
 	/**
 	* @generated
 	*/
-	private IParser getResultName_5009Parser() {
-		if (resultName_5009Parser == null) {
-			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getTerminal_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			resultName_5009Parser = parser;
+	private IParser getIfStartStatementCondition_5006Parser() {
+		if (ifStartStatementCondition_5006Parser == null) {
+			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getIfStartStatement_Condition() };
+			EAttribute[] editableFeatures = new EAttribute[] { PiviPackage.eINSTANCE.getIfStartStatement_Condition() };
+			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
+			ifStartStatementCondition_5006Parser = parser;
 		}
-		return resultName_5009Parser;
+		return ifStartStatementCondition_5006Parser;
+	}
+
+	/**
+	* @generated
+	*/
+	private IParser whileStatementName_5007Parser;
+
+	/**
+	* @generated
+	*/
+	private IParser getWhileStatementName_5007Parser() {
+		if (whileStatementName_5007Parser == null) {
+			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { PiviPackage.eINSTANCE.getStatement_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
+			whileStatementName_5007Parser = parser;
+		}
+		return whileStatementName_5007Parser;
+	}
+
+	/**
+	* @generated
+	*/
+	private IParser whileStatementCondition_5008Parser;
+
+	/**
+	* @generated
+	*/
+	private IParser getWhileStatementCondition_5008Parser() {
+		if (whileStatementCondition_5008Parser == null) {
+			EAttribute[] features = new EAttribute[] { PiviPackage.eINSTANCE.getWhileStatement_Condition() };
+			EAttribute[] editableFeatures = new EAttribute[] { PiviPackage.eINSTANCE.getWhileStatement_Condition() };
+			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
+			whileStatementCondition_5008Parser = parser;
+		}
+		return whileStatementCondition_5008Parser;
 	}
 
 	/**
@@ -192,24 +178,22 @@ public class PiviParserProvider extends AbstractProvider implements IParserProvi
 	*/
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case IfStartStatementNameEditPart.VISUAL_ID:
-			return getIfStartStatementName_5001Parser();
-		case IfStartStatementConditionEditPart.VISUAL_ID:
-			return getIfStartStatementCondition_5002Parser();
-		case WhileStatementNameEditPart.VISUAL_ID:
-			return getWhileStatementName_5003Parser();
-		case WhileStatementConditionEditPart.VISUAL_ID:
-			return getWhileStatementCondition_5004Parser();
 		case IfEndStatementNameEditPart.VISUAL_ID:
-			return getIfEndStatementName_5005Parser();
-		case InstructionNameEditPart.VISUAL_ID:
-			return getInstructionName_5006Parser();
-		case InstructionInstructionsEditPart.VISUAL_ID:
-			return getInstructionInstructions_5007Parser();
+			return getIfEndStatementName_5001Parser();
 		case StartNameEditPart.VISUAL_ID:
-			return getStartName_5008Parser();
-		case ResultNameEditPart.VISUAL_ID:
-			return getResultName_5009Parser();
+			return getStartName_5002Parser();
+		case InstructionNameEditPart.VISUAL_ID:
+			return getInstructionName_5003Parser();
+		case InstructionInstructionsEditPart.VISUAL_ID:
+			return getInstructionInstructions_5004Parser();
+		case IfStartStatementNameEditPart.VISUAL_ID:
+			return getIfStartStatementName_5005Parser();
+		case IfStartStatementConditionEditPart.VISUAL_ID:
+			return getIfStartStatementCondition_5006Parser();
+		case WhileStatementNameEditPart.VISUAL_ID:
+			return getWhileStatementName_5007Parser();
+		case WhileStatementConditionEditPart.VISUAL_ID:
+			return getWhileStatementCondition_5008Parser();
 		}
 		return null;
 	}

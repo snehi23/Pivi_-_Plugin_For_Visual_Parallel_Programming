@@ -32,7 +32,7 @@ public class StartEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 2005;
+	public static final int VISUAL_ID = 2002;
 
 	/**
 	* @generated
@@ -200,16 +200,17 @@ public class StartEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected void setForegroundColor(Color color) {
-		if (primaryShape != null) {
+		if (primaryShape != null) {			
 			primaryShape.setForegroundColor(color);
 		}
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
+			color = new Color(color.getDevice(), 255, 249, 94);
 			primaryShape.setBackgroundColor(color);
 		}
 	}
@@ -275,7 +276,7 @@ public class StartEditPart extends ShapeNodeEditPart {
 
 			fFigureStartNameFigure = new WrappingLabel();
 
-			fFigureStartNameFigure.setText("Start");
+			fFigureStartNameFigure.setText("<...>");
 
 			this.add(fFigureStartNameFigure);
 

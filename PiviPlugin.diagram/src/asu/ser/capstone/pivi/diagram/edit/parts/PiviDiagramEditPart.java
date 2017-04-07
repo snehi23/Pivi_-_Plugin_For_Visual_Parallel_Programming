@@ -4,6 +4,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.eclipse.swt.graphics.Color;
 
 import asu.ser.capstone.pivi.diagram.edit.policies.PiviDiagramCanonicalEditPolicy;
 import asu.ser.capstone.pivi.diagram.edit.policies.PiviDiagramItemSemanticEditPolicy;

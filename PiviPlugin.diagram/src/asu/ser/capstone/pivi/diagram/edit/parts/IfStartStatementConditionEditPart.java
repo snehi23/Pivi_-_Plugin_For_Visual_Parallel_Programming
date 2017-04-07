@@ -57,7 +57,7 @@ public class IfStartStatementConditionEditPart extends CompartmentEditPart imple
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5002;
+	public static final int VISUAL_ID = 5006;
 
 	/**
 	* @generated
@@ -292,7 +292,7 @@ public class IfStartStatementConditionEditPart extends CompartmentEditPart imple
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = PiviParserProvider.getParser(PiviElementTypes.IfStartStatement_2001, getParserElement(),
+			parser = PiviParserProvider.getParser(PiviElementTypes.IfStartStatement_2004, getParserElement(),
 					PiviVisualIDRegistry.getType(
 							asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementConditionEditPart.VISUAL_ID));
 		}

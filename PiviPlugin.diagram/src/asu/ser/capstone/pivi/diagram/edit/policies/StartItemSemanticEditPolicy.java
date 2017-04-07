@@ -30,7 +30,7 @@ public class StartItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy 
 	* @generated
 	*/
 	public StartItemSemanticEditPolicy() {
-		super(PiviElementTypes.Start_2005);
+		super(PiviElementTypes.Start_2002);
 	}
 
 	/**

@@ -22,17 +22,16 @@ import asu.ser.capstone.pivi.PiviFactory;
 public class IfEndStatementCreateCommand extends EditElementCommand {
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public IfEndStatementCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
 	/**
-	 * FIXME: replace with setElementToEdit()
-	 * 
-	 * @generated
-	 */
+	* FIXME: replace with setElementToEdit()
+	* @generated
+	*/
 	protected EObject getElementToEdit() {
 		EObject container = ((CreateElementRequest) getRequest()).getContainer();
 		if (container instanceof View) {
@@ -42,23 +41,22 @@ public class IfEndStatementCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	public boolean canExecute() {
 		return true;
 
 	}
 
 	/**
-	 * @generated NOT
-	 */
+	* @generated NOT
+	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		IfEndStatement newElement = PiviFactory.eINSTANCE.createIfEndStatement();
-
-		newElement.getInputs().add(PiviFactory.eINSTANCE.createInputPort());
-		newElement.getInputs().add(PiviFactory.eINSTANCE.createInputPort());
-
+		
 		newElement.getOutputs().add(PiviFactory.eINSTANCE.createOutputPort());
+		newElement.getResults().add(PiviFactory.eINSTANCE.createResult());
+		newElement.getResults().add(PiviFactory.eINSTANCE.createResult());
 
 		PiviDiagram owner = (PiviDiagram) getElementToEdit();
 		owner.getStatements().add(newElement);
@@ -70,8 +68,8 @@ public class IfEndStatementCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
-	 */
+	* @generated
+	*/
 	protected void doConfigure(IfEndStatement newElement, IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();

@@ -44,10 +44,6 @@ public class InputPortCreateCommand extends EditElementCommand {
 	* @generated
 	*/
 	public boolean canExecute() {
-		Statement container = (Statement) getElementToEdit();
-		if (container.getInputs().size() >= 2) {
-			return false;
-		}
 		return true;
 
 	}

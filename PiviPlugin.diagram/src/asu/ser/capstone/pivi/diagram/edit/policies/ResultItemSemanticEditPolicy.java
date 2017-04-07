@@ -17,10 +17,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import asu.ser.capstone.pivi.diagram.edit.commands.OutputPortResultCreateCommand;
 import asu.ser.capstone.pivi.diagram.edit.commands.OutputPortResultReorientCommand;
-import asu.ser.capstone.pivi.diagram.edit.commands.TerminalInputPortsCreateCommand;
-import asu.ser.capstone.pivi.diagram.edit.commands.TerminalInputPortsReorientCommand;
 import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortResultEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.TerminalInputPortsEditPart;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
 
@@ -33,7 +30,7 @@ public class ResultItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy
 	* @generated
 	*/
 	public ResultItemSemanticEditPolicy() {
-		super(PiviElementTypes.Result_2006);
+		super(PiviElementTypes.Result_3003);
 	}
 
 	/**
@@ -50,16 +47,6 @@ public class ResultItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy
 						incomingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
-		}
-		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
-			Edge outgoingLink = (Edge) it.next();
-			if (PiviVisualIDRegistry.getVisualID(outgoingLink) == TerminalInputPortsEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
-						outgoingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
 		}
@@ -88,9 +75,6 @@ public class ResultItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (PiviElementTypes.TerminalInputPorts_4001 == req.getElementType()) {
-			return getGEFWrapper(new TerminalInputPortsCreateCommand(req, req.getSource(), req.getTarget()));
-		}
 		if (PiviElementTypes.OutputPortResult_4002 == req.getElementType()) {
 			return null;
 		}
@@ -101,9 +85,6 @@ public class ResultItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (PiviElementTypes.TerminalInputPorts_4001 == req.getElementType()) {
-			return null;
-		}
 		if (PiviElementTypes.OutputPortResult_4002 == req.getElementType()) {
 			return getGEFWrapper(new OutputPortResultCreateCommand(req, req.getSource(), req.getTarget()));
 		}
@@ -118,8 +99,6 @@ public class ResultItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy
 	 */
 	protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case TerminalInputPortsEditPart.VISUAL_ID:
-			return getGEFWrapper(new TerminalInputPortsReorientCommand(req));
 		case OutputPortResultEditPart.VISUAL_ID:
 			return getGEFWrapper(new OutputPortResultReorientCommand(req));
 		}

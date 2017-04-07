@@ -57,7 +57,7 @@ public class InstructionNameEditPart extends CompartmentEditPart implements ITex
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5006;
+	public static final int VISUAL_ID = 5003;
 
 	/**
 	* @generated
@@ -236,7 +236,7 @@ public class InstructionNameEditPart extends CompartmentEditPart implements ITex
 	* @generated
 	*/
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -292,7 +292,7 @@ public class InstructionNameEditPart extends CompartmentEditPart implements ITex
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = PiviParserProvider.getParser(PiviElementTypes.Instruction_2004, getParserElement(),
+			parser = PiviParserProvider.getParser(PiviElementTypes.Instruction_2003, getParserElement(),
 					PiviVisualIDRegistry
 							.getType(asu.ser.capstone.pivi.diagram.edit.parts.InstructionNameEditPart.VISUAL_ID));
 		}

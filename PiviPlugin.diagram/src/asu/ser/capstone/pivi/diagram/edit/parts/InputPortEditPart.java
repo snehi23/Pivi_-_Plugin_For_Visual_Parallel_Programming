@@ -152,10 +152,11 @@ public class InputPortEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
+			color = new Color(color.getDevice(), 0, 255, 0);
 			primaryShape.setBackgroundColor(color);
 		}
 	}

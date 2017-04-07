@@ -43,29 +43,28 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
 import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementIfEndFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementIfEndCompartmentFigureEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementNameEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementConditionEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementIfStartFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementIfStartCompartmentFigureEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementNameEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InstructionEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionCompartmentFigureEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionsEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InstructionNameEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortResultEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.PiviDiagramEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.ResultEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.ResultNameEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.StartEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.StartNameEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.TerminalInputPortsEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementConditionEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementNameEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementWhileFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementWhileCompartmentFigureEditPart;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
 
 /**
@@ -149,14 +148,14 @@ public class PiviViewProvider extends AbstractProvider implements IViewProvider 
 					return false; // foreign diagram
 				}
 				switch (visualID) {
+				case IfEndStatementEditPart.VISUAL_ID:
+				case StartEditPart.VISUAL_ID:
+				case InstructionEditPart.VISUAL_ID:
 				case IfStartStatementEditPart.VISUAL_ID:
 				case WhileStatementEditPart.VISUAL_ID:
-				case IfEndStatementEditPart.VISUAL_ID:
-				case InstructionEditPart.VISUAL_ID:
-				case StartEditPart.VISUAL_ID:
-				case ResultEditPart.VISUAL_ID:
 				case InputPortEditPart.VISUAL_ID:
 				case OutputPortEditPart.VISUAL_ID:
+				case ResultEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != PiviVisualIDRegistry.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
@@ -167,10 +166,10 @@ public class PiviViewProvider extends AbstractProvider implements IViewProvider 
 				}
 			}
 		}
-		return IfStartStatementEditPart.VISUAL_ID == visualID || WhileStatementEditPart.VISUAL_ID == visualID
-				|| IfEndStatementEditPart.VISUAL_ID == visualID || InstructionEditPart.VISUAL_ID == visualID
-				|| StartEditPart.VISUAL_ID == visualID || ResultEditPart.VISUAL_ID == visualID
-				|| InputPortEditPart.VISUAL_ID == visualID || OutputPortEditPart.VISUAL_ID == visualID;
+		return IfEndStatementEditPart.VISUAL_ID == visualID || StartEditPart.VISUAL_ID == visualID
+				|| InstructionEditPart.VISUAL_ID == visualID || IfStartStatementEditPart.VISUAL_ID == visualID
+				|| WhileStatementEditPart.VISUAL_ID == visualID || InputPortEditPart.VISUAL_ID == visualID
+				|| OutputPortEditPart.VISUAL_ID == visualID || ResultEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -219,22 +218,22 @@ public class PiviViewProvider extends AbstractProvider implements IViewProvider 
 			visualID = PiviVisualIDRegistry.getVisualID(semanticHint);
 		}
 		switch (visualID) {
-		case IfStartStatementEditPart.VISUAL_ID:
-			return createIfStartStatement_2001(domainElement, containerView, index, persisted, preferencesHint);
-		case WhileStatementEditPart.VISUAL_ID:
-			return createWhileStatement_2002(domainElement, containerView, index, persisted, preferencesHint);
 		case IfEndStatementEditPart.VISUAL_ID:
-			return createIfEndStatement_2003(domainElement, containerView, index, persisted, preferencesHint);
-		case InstructionEditPart.VISUAL_ID:
-			return createInstruction_2004(domainElement, containerView, index, persisted, preferencesHint);
+			return createIfEndStatement_2001(domainElement, containerView, index, persisted, preferencesHint);
 		case StartEditPart.VISUAL_ID:
-			return createStart_2005(domainElement, containerView, index, persisted, preferencesHint);
-		case ResultEditPart.VISUAL_ID:
-			return createResult_2006(domainElement, containerView, index, persisted, preferencesHint);
+			return createStart_2002(domainElement, containerView, index, persisted, preferencesHint);
+		case InstructionEditPart.VISUAL_ID:
+			return createInstruction_2003(domainElement, containerView, index, persisted, preferencesHint);
+		case IfStartStatementEditPart.VISUAL_ID:
+			return createIfStartStatement_2004(domainElement, containerView, index, persisted, preferencesHint);
+		case WhileStatementEditPart.VISUAL_ID:
+			return createWhileStatement_2005(domainElement, containerView, index, persisted, preferencesHint);
 		case InputPortEditPart.VISUAL_ID:
 			return createInputPort_3001(domainElement, containerView, index, persisted, preferencesHint);
 		case OutputPortEditPart.VISUAL_ID:
 			return createOutputPort_3002(domainElement, containerView, index, persisted, preferencesHint);
+		case ResultEditPart.VISUAL_ID:
+			return createResult_3003(domainElement, containerView, index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -260,88 +259,7 @@ public class PiviViewProvider extends AbstractProvider implements IViewProvider 
 	/**
 	* @generated
 	*/
-	public Node createIfStartStatement_2001(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(PiviVisualIDRegistry.getType(IfStartStatementEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		stampShortcut(containerView, node);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(node, PiviVisualIDRegistry.getType(IfStartStatementNameEditPart.VISUAL_ID));
-		Node label5002 = createLabel(node, PiviVisualIDRegistry.getType(IfStartStatementConditionEditPart.VISUAL_ID));
-		createCompartment(node,
-				PiviVisualIDRegistry.getType(IfStartStatementIfStartFigureCompartmentEditPart.VISUAL_ID), false, false,
-				true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createWhileStatement_2002(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(PiviVisualIDRegistry.getType(WhileStatementEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		stampShortcut(containerView, node);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5003 = createLabel(node, PiviVisualIDRegistry.getType(WhileStatementNameEditPart.VISUAL_ID));
-		Node label5004 = createLabel(node, PiviVisualIDRegistry.getType(WhileStatementConditionEditPart.VISUAL_ID));
-		createCompartment(node, PiviVisualIDRegistry.getType(WhileStatementWhileFigureCompartmentEditPart.VISUAL_ID),
-				false, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createIfEndStatement_2003(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createIfEndStatement_2001(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -371,8 +289,8 @@ public class PiviViewProvider extends AbstractProvider implements IViewProvider 
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5005 = createLabel(node, PiviVisualIDRegistry.getType(IfEndStatementNameEditPart.VISUAL_ID));
-		createCompartment(node, PiviVisualIDRegistry.getType(IfEndStatementIfEndFigureCompartmentEditPart.VISUAL_ID),
+		Node label5001 = createLabel(node, PiviVisualIDRegistry.getType(IfEndStatementNameEditPart.VISUAL_ID));
+		createCompartment(node, PiviVisualIDRegistry.getType(IfEndStatementIfEndCompartmentFigureEditPart.VISUAL_ID),
 				false, false, true, true);
 		return node;
 	}
@@ -380,47 +298,7 @@ public class PiviViewProvider extends AbstractProvider implements IViewProvider 
 	/**
 	* @generated
 	*/
-	public Node createInstruction_2004(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(PiviVisualIDRegistry.getType(InstructionEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		stampShortcut(containerView, node);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5006 = createLabel(node, PiviVisualIDRegistry.getType(InstructionNameEditPart.VISUAL_ID));
-		Node label5007 = createLabel(node, PiviVisualIDRegistry.getType(InstructionInstructionsEditPart.VISUAL_ID));
-		createCompartment(node, PiviVisualIDRegistry.getType(InstructionInstructionFigureCompartmentEditPart.VISUAL_ID),
-				false, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createStart_2005(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createStart_2002(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -450,18 +328,18 @@ public class PiviViewProvider extends AbstractProvider implements IViewProvider 
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5008 = createLabel(node, PiviVisualIDRegistry.getType(StartNameEditPart.VISUAL_ID));
+		Node label5002 = createLabel(node, PiviVisualIDRegistry.getType(StartNameEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	* @generated
 	*/
-	public Node createResult_2006(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createInstruction_2003(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(PiviVisualIDRegistry.getType(ResultEditPart.VISUAL_ID));
+		node.setType(PiviVisualIDRegistry.getType(InstructionEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		stampShortcut(containerView, node);
@@ -487,7 +365,91 @@ public class PiviViewProvider extends AbstractProvider implements IViewProvider 
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5009 = createLabel(node, PiviVisualIDRegistry.getType(ResultNameEditPart.VISUAL_ID));
+		Node label5003 = createLabel(node, PiviVisualIDRegistry.getType(InstructionNameEditPart.VISUAL_ID));
+		Node label5004 = createLabel(node, PiviVisualIDRegistry.getType(InstructionInstructionsEditPart.VISUAL_ID));
+		createCompartment(node, PiviVisualIDRegistry.getType(InstructionInstructionCompartmentFigureEditPart.VISUAL_ID),
+				false, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createIfStartStatement_2004(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PiviVisualIDRegistry.getType(IfStartStatementEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5005 = createLabel(node, PiviVisualIDRegistry.getType(IfStartStatementNameEditPart.VISUAL_ID));
+		Node label5006 = createLabel(node, PiviVisualIDRegistry.getType(IfStartStatementConditionEditPart.VISUAL_ID));
+		createCompartment(node,
+				PiviVisualIDRegistry.getType(IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID), false, false,
+				true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createWhileStatement_2005(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PiviVisualIDRegistry.getType(WhileStatementEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5007 = createLabel(node, PiviVisualIDRegistry.getType(WhileStatementNameEditPart.VISUAL_ID));
+		Node label5008 = createLabel(node, PiviVisualIDRegistry.getType(WhileStatementConditionEditPart.VISUAL_ID));
+		createCompartment(node, PiviVisualIDRegistry.getType(WhileStatementWhileCompartmentFigureEditPart.VISUAL_ID),
+				false, false, true, true);
 		return node;
 	}
 
@@ -534,6 +496,41 @@ public class PiviViewProvider extends AbstractProvider implements IViewProvider 
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createResult_3003(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PiviVisualIDRegistry.getType(ResultEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 

@@ -333,22 +333,22 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String IfStartStatementIfStartFigureCompartmentEditPart_title;
+	public static String IfEndStatementIfEndCompartmentFigureEditPart_title;
 
 	/**
 	* @generated
 	*/
-	public static String WhileStatementWhileFigureCompartmentEditPart_title;
+	public static String InstructionInstructionCompartmentFigureEditPart_title;
 
 	/**
 	* @generated
 	*/
-	public static String IfEndStatementIfEndFigureCompartmentEditPart_title;
+	public static String IfStartStatementIfStartCompartmentFigureEditPart_title;
 
 	/**
 	* @generated
 	*/
-	public static String InstructionInstructionFigureCompartmentEditPart_title;
+	public static String WhileStatementWhileCompartmentFigureEditPart_title;
 
 	/**
 	* @generated
@@ -363,17 +363,7 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Start_2005_outgoinglinks;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_Result_2006_outgoinglinks;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_Result_2006_incominglinks;
+	public static String NavigatorGroupName_Start_2002_outgoinglinks;
 
 	/**
 	* @generated
@@ -384,6 +374,11 @@ public class Messages extends NLS {
 	* @generated
 	*/
 	public static String NavigatorGroupName_OutputPort_3002_outgoinglinks;
+
+	/**
+	* @generated
+	*/
+	public static String NavigatorGroupName_Result_3003_incominglinks;
 
 	/**
 	* @generated

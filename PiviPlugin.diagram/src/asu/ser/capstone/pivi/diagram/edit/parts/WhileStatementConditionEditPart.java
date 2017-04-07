@@ -57,7 +57,7 @@ public class WhileStatementConditionEditPart extends CompartmentEditPart impleme
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5004;
+	public static final int VISUAL_ID = 5008;
 
 	/**
 	* @generated
@@ -292,7 +292,7 @@ public class WhileStatementConditionEditPart extends CompartmentEditPart impleme
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = PiviParserProvider.getParser(PiviElementTypes.WhileStatement_2002, getParserElement(),
+			parser = PiviParserProvider.getParser(PiviElementTypes.WhileStatement_2005, getParserElement(),
 					PiviVisualIDRegistry.getType(
 							asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementConditionEditPart.VISUAL_ID));
 		}

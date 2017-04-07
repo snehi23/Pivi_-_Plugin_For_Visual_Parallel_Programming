@@ -57,7 +57,7 @@ public class IfStartStatementNameEditPart extends CompartmentEditPart implements
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 5005;
 
 	/**
 	* @generated
@@ -236,7 +236,7 @@ public class IfStartStatementNameEditPart extends CompartmentEditPart implements
 	* @generated
 	*/
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -292,7 +292,7 @@ public class IfStartStatementNameEditPart extends CompartmentEditPart implements
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = PiviParserProvider.getParser(PiviElementTypes.IfStartStatement_2001, getParserElement(),
+			parser = PiviParserProvider.getParser(PiviElementTypes.IfStartStatement_2004, getParserElement(),
 					PiviVisualIDRegistry
 							.getType(asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementNameEditPart.VISUAL_ID));
 		}

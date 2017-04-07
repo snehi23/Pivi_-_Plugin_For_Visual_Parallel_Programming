@@ -51,8 +51,7 @@ public class PiviModelingAssistantProviderOfInputPortEditPart extends PiviModeli
 	public List<IElementType> doGetTypesForSource(InputPortEditPart target, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == PiviElementTypes.TerminalInputPorts_4001) {
-			types.add(PiviElementTypes.Start_2005);
-			types.add(PiviElementTypes.Result_2006);
+			types.add(PiviElementTypes.Start_2002);
 		}
 		return types;
 	}
