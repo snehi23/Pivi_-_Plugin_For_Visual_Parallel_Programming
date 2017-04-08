@@ -55,10 +55,9 @@ public class IfStartStatementCreateCommand extends EditElementCommand {
 		IfStartStatement newElement = PiviFactory.eINSTANCE.createIfStartStatement();
 		
 		newElement.getInputs().add(PiviFactory.eINSTANCE.createInputPort());
-		
 		newElement.getOutputs().add(PiviFactory.eINSTANCE.createOutputPort());
 		newElement.getOutputs().add(PiviFactory.eINSTANCE.createOutputPort());
-		
+		newElement.getResults().add(PiviFactory.eINSTANCE.createResult());
 
 		PiviDiagram owner = (PiviDiagram) getElementToEdit();
 		owner.getStatements().add(newElement);

@@ -57,7 +57,7 @@ public class InstructionInstructionsEditPart extends CompartmentEditPart impleme
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5007;
+	public static final int VISUAL_ID = 5004;
 
 	/**
 	* @generated
@@ -292,7 +292,7 @@ public class InstructionInstructionsEditPart extends CompartmentEditPart impleme
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = PiviParserProvider.getParser(PiviElementTypes.Instruction_2004, getParserElement(),
+			parser = PiviParserProvider.getParser(PiviElementTypes.Instruction_2003, getParserElement(),
 					PiviVisualIDRegistry.getType(
 							asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionsEditPart.VISUAL_ID));
 		}

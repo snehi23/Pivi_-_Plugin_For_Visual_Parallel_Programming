@@ -57,7 +57,7 @@ public class StartNameEditPart extends CompartmentEditPart implements ITextAware
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5008;
+	public static final int VISUAL_ID = 5002;
 
 	/**
 	* @generated
@@ -236,7 +236,7 @@ public class StartNameEditPart extends CompartmentEditPart implements ITextAware
 	* @generated
 	*/
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -292,7 +292,7 @@ public class StartNameEditPart extends CompartmentEditPart implements ITextAware
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = PiviParserProvider.getParser(PiviElementTypes.Start_2005, getParserElement(),
+			parser = PiviParserProvider.getParser(PiviElementTypes.Start_2002, getParserElement(),
 					PiviVisualIDRegistry.getType(asu.ser.capstone.pivi.diagram.edit.parts.StartNameEditPart.VISUAL_ID));
 		}
 		return parser;

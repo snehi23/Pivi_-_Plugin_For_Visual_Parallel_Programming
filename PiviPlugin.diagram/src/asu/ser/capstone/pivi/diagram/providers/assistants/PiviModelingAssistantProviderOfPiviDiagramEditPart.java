@@ -20,13 +20,12 @@ public class PiviModelingAssistantProviderOfPiviDiagramEditPart extends PiviMode
 	@Override
 
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
-		List<IElementType> types = new ArrayList<IElementType>(6);
-		types.add(PiviElementTypes.IfStartStatement_2001);
-		types.add(PiviElementTypes.WhileStatement_2002);
-		types.add(PiviElementTypes.IfEndStatement_2003);
-		types.add(PiviElementTypes.Instruction_2004);
-		types.add(PiviElementTypes.Start_2005);
-		types.add(PiviElementTypes.Result_2006);
+		List<IElementType> types = new ArrayList<IElementType>(5);
+		types.add(PiviElementTypes.IfEndStatement_2001);
+		types.add(PiviElementTypes.Start_2002);
+		types.add(PiviElementTypes.Instruction_2003);
+		types.add(PiviElementTypes.IfStartStatement_2004);
+		types.add(PiviElementTypes.WhileStatement_2005);
 		return types;
 	}
 

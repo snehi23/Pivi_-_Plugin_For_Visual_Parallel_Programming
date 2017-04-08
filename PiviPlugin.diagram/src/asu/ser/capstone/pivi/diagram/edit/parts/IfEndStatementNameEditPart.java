@@ -57,7 +57,7 @@ public class IfEndStatementNameEditPart extends CompartmentEditPart implements I
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5005;
+	public static final int VISUAL_ID = 5001;
 
 	/**
 	* @generated
@@ -236,7 +236,7 @@ public class IfEndStatementNameEditPart extends CompartmentEditPart implements I
 	* @generated
 	*/
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -292,7 +292,7 @@ public class IfEndStatementNameEditPart extends CompartmentEditPart implements I
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = PiviParserProvider.getParser(PiviElementTypes.IfEndStatement_2003, getParserElement(),
+			parser = PiviParserProvider.getParser(PiviElementTypes.IfEndStatement_2001, getParserElement(),
 					PiviVisualIDRegistry
 							.getType(asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementNameEditPart.VISUAL_ID));
 		}

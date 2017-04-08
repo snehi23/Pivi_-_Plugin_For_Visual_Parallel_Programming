@@ -1,4 +1,5 @@
 package asu.ser.capstone.pivi.diagram.part.custom;
+import org.eclipse.gmf.runtime.common.ui.services.parser.GetParserOperation;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuCreator;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -116,13 +117,21 @@ public class GenerateCodeAction implements IAction{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		System.out.println("reached run");
+		int a = 1;
+		
+		if (a == 2){
+			System.out.println("asas");
+		}
 	}
 
 	@Override
 	public void runWithEvent(Event event) {
 		// TODO Auto-generated method stub
+		int a = 1;
 		
+		if (a == 2){
+			System.out.println("asas");
+		}
 	}
 
 	@Override

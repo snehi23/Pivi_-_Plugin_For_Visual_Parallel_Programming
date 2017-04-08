@@ -76,7 +76,7 @@ public class PiviModelingAssistantProviderOfOutputPortEditPart extends PiviModel
 	public List<IElementType> doGetTypesForTarget(OutputPortEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == PiviElementTypes.OutputPortResult_4002) {
-			types.add(PiviElementTypes.Result_2006);
+			types.add(PiviElementTypes.Result_3003);
 		}
 		return types;
 	}

@@ -59,9 +59,9 @@ public class PiviPaletteFactory {
 	private ToolEntry createIfEndStatement1CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.IfEndStatement1CreationTool_title,
 				Messages.IfEndStatement1CreationTool_desc,
-				Collections.singletonList(PiviElementTypes.IfEndStatement_2003));
+				Collections.singletonList(PiviElementTypes.IfEndStatement_2001));
 		entry.setId("createIfEndStatement1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.IfEndStatement_2003));
+		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.IfEndStatement_2001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -72,9 +72,9 @@ public class PiviPaletteFactory {
 	private ToolEntry createIfStartStatement2CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.IfStartStatement2CreationTool_title,
 				Messages.IfStartStatement2CreationTool_desc,
-				Collections.singletonList(PiviElementTypes.IfStartStatement_2001));
+				Collections.singletonList(PiviElementTypes.IfStartStatement_2004));
 		entry.setId("createIfStartStatement2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.IfStartStatement_2001));
+		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.IfStartStatement_2004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -84,9 +84,9 @@ public class PiviPaletteFactory {
 	*/
 	private ToolEntry createInstruction3CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Instruction3CreationTool_title,
-				Messages.Instruction3CreationTool_desc, Collections.singletonList(PiviElementTypes.Instruction_2004));
+				Messages.Instruction3CreationTool_desc, Collections.singletonList(PiviElementTypes.Instruction_2003));
 		entry.setId("createInstruction3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.Instruction_2004));
+		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.Instruction_2003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -95,11 +95,10 @@ public class PiviPaletteFactory {
 	* @generated
 	*/
 	private ToolEntry createResult4CreationTool() {
-		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Result4CreationTool_title,
-				Messages.Result4CreationTool_desc, Collections.singletonList(PiviElementTypes.Result_2006));
+		ToolEntry entry = new ToolEntry(Messages.Result4CreationTool_title, Messages.Result4CreationTool_desc, null,
+				null) {
+		};
 		entry.setId("createResult4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.Result_2006));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -108,9 +107,9 @@ public class PiviPaletteFactory {
 	*/
 	private ToolEntry createStart5CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.Start5CreationTool_title,
-				Messages.Start5CreationTool_desc, Collections.singletonList(PiviElementTypes.Start_2005));
+				Messages.Start5CreationTool_desc, Collections.singletonList(PiviElementTypes.Start_2002));
 		entry.setId("createStart5CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.Start_2005));
+		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.Start_2002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -121,9 +120,9 @@ public class PiviPaletteFactory {
 	private ToolEntry createWhileStatement6CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(Messages.WhileStatement6CreationTool_title,
 				Messages.WhileStatement6CreationTool_desc,
-				Collections.singletonList(PiviElementTypes.WhileStatement_2002));
+				Collections.singletonList(PiviElementTypes.WhileStatement_2005));
 		entry.setId("createWhileStatement6CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.WhileStatement_2002));
+		entry.setSmallIcon(PiviElementTypes.getImageDescriptor(PiviElementTypes.WhileStatement_2005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

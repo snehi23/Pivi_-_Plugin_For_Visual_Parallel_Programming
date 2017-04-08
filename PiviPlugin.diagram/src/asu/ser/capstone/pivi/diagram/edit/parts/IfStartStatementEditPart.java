@@ -39,7 +39,7 @@ public class IfStartStatementEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 2004;
 
 	/**
 	* @generated
@@ -121,10 +121,10 @@ public class IfStartStatementEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureIfStartStatementConditionFigure());
 			return true;
 		}
-		if (childEditPart instanceof IfStartStatementIfStartFigureCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getFigureIfStartFigureCompartment();
+		if (childEditPart instanceof IfStartStatementIfStartCompartmentFigureEditPart) {
+			IFigure pane = getPrimaryShape().getFigureIfStartCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((IfStartStatementIfStartFigureCompartmentEditPart) childEditPart).getFigure());
+			pane.add(((IfStartStatementIfStartCompartmentFigureEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -140,9 +140,9 @@ public class IfStartStatementEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof IfStartStatementConditionEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof IfStartStatementIfStartFigureCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getFigureIfStartFigureCompartment();
-			pane.remove(((IfStartStatementIfStartFigureCompartmentEditPart) childEditPart).getFigure());
+		if (childEditPart instanceof IfStartStatementIfStartCompartmentFigureEditPart) {
+			IFigure pane = getPrimaryShape().getFigureIfStartCompartmentFigure();
+			pane.remove(((IfStartStatementIfStartCompartmentFigureEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -172,8 +172,8 @@ public class IfStartStatementEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof IfStartStatementIfStartFigureCompartmentEditPart) {
-			return getPrimaryShape().getFigureIfStartFigureCompartment();
+		if (editPart instanceof IfStartStatementIfStartCompartmentFigureEditPart) {
+			return getPrimaryShape().getFigureIfStartCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -238,10 +238,11 @@ public class IfStartStatementEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
+			color = new Color(color.getDevice(), 174, 242, 192);
 			primaryShape.setBackgroundColor(color);
 		}
 	}
@@ -281,11 +282,15 @@ public class IfStartStatementEditPart extends ShapeNodeEditPart {
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
 			if (type == PiviElementTypes.InputPort_3001) {
 				return getChildBySemanticHint(
-						PiviVisualIDRegistry.getType(IfStartStatementIfStartFigureCompartmentEditPart.VISUAL_ID));
+						PiviVisualIDRegistry.getType(IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID));
 			}
 			if (type == PiviElementTypes.OutputPort_3002) {
 				return getChildBySemanticHint(
-						PiviVisualIDRegistry.getType(IfStartStatementIfStartFigureCompartmentEditPart.VISUAL_ID));
+						PiviVisualIDRegistry.getType(IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID));
+			}
+			if (type == PiviElementTypes.Result_3003) {
+				return getChildBySemanticHint(
+						PiviVisualIDRegistry.getType(IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);
@@ -299,15 +304,15 @@ public class IfStartStatementEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private RectangleFigure fFigureIfStartCompartmentFigure;
+		/**
+		 * @generated
+		 */
 		private WrappingLabel fFigureIfStartStatementNameFigure;
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureIfStartStatementConditionFigure;
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fFigureIfStartFigureCompartment;
 
 		/**
 		 * @generated
@@ -335,20 +340,27 @@ public class IfStartStatementEditPart extends ShapeNodeEditPart {
 
 			fFigureIfStartStatementNameFigure = new WrappingLabel();
 
-			fFigureIfStartStatementNameFigure.setText("IfStart");
+			fFigureIfStartStatementNameFigure.setText("<...>");
 
 			this.add(fFigureIfStartStatementNameFigure);
 
 			fFigureIfStartStatementConditionFigure = new WrappingLabel();
 
-			fFigureIfStartStatementConditionFigure.setText("");
+			fFigureIfStartStatementConditionFigure.setText("<...>");
 
 			this.add(fFigureIfStartStatementConditionFigure);
 
-			fFigureIfStartFigureCompartment = new RectangleFigure();
+			fFigureIfStartCompartmentFigure = new RectangleFigure();
 
-			this.add(fFigureIfStartFigureCompartment, BorderLayout.CENTER);
+			this.add(fFigureIfStartCompartmentFigure, BorderLayout.CENTER);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureIfStartCompartmentFigure() {
+			return fFigureIfStartCompartmentFigure;
 		}
 
 		/**
@@ -363,13 +375,6 @@ public class IfStartStatementEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureIfStartStatementConditionFigure() {
 			return fFigureIfStartStatementConditionFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getFigureIfStartFigureCompartment() {
-			return fFigureIfStartFigureCompartment;
 		}
 
 	}

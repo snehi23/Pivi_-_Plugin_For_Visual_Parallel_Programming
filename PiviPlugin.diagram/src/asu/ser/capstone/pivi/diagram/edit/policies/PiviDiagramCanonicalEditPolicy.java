@@ -76,7 +76,6 @@ public class PiviDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
 			myFeaturesToSynchronize.add(PiviPackage.eINSTANCE.getPiviDiagram_Statements());
 			myFeaturesToSynchronize.add(PiviPackage.eINSTANCE.getPiviDiagram_Start());
-			myFeaturesToSynchronize.add(PiviPackage.eINSTANCE.getPiviDiagram_Results());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -109,12 +108,11 @@ public class PiviDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 	private boolean isMyDiagramElement(View view) {
 		int visualID = PiviVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
+		case IfEndStatementEditPart.VISUAL_ID:
+		case StartEditPart.VISUAL_ID:
+		case InstructionEditPart.VISUAL_ID:
 		case IfStartStatementEditPart.VISUAL_ID:
 		case WhileStatementEditPart.VISUAL_ID:
-		case IfEndStatementEditPart.VISUAL_ID:
-		case InstructionEditPart.VISUAL_ID:
-		case StartEditPart.VISUAL_ID:
-		case ResultEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
@@ -261,44 +259,37 @@ public class PiviDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case IfStartStatementEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getIfStartStatement_2001ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case WhileStatementEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getWhileStatement_2002ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
 		case IfEndStatementEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getIfEndStatement_2003ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case InstructionEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getInstruction_2004ContainedLinks(view));
+				result.addAll(PiviDiagramUpdater.getIfEndStatement_2001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case StartEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getStart_2005ContainedLinks(view));
+				result.addAll(PiviDiagramUpdater.getStart_2002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case ResultEditPart.VISUAL_ID: {
+		case InstructionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getResult_2006ContainedLinks(view));
+				result.addAll(PiviDiagramUpdater.getInstruction_2003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case IfStartStatementEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PiviDiagramUpdater.getIfStartStatement_2004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case WhileStatementEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PiviDiagramUpdater.getWhileStatement_2005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -313,6 +304,13 @@ public class PiviDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 		case OutputPortEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PiviDiagramUpdater.getOutputPort_3002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ResultEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PiviDiagramUpdater.getResult_3003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

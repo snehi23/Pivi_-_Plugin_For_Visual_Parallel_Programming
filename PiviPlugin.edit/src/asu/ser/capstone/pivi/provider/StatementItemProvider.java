@@ -103,6 +103,7 @@ public class StatementItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PiviPackage.Literals.STATEMENT__INPUTS);
+			childrenFeatures.add(PiviPackage.Literals.STATEMENT__RESULTS);
 			childrenFeatures.add(PiviPackage.Literals.STATEMENT__OUTPUTS);
 		}
 		return childrenFeatures;
@@ -152,6 +153,7 @@ public class StatementItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PiviPackage.STATEMENT__INPUTS:
+			case PiviPackage.STATEMENT__RESULTS:
 			case PiviPackage.STATEMENT__OUTPUTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -174,6 +176,11 @@ public class StatementItemProvider
 			(createChildParameter
 				(PiviPackage.Literals.STATEMENT__INPUTS,
 				 PiviFactory.eINSTANCE.createInputPort()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PiviPackage.Literals.STATEMENT__RESULTS,
+				 PiviFactory.eINSTANCE.createResult()));
 
 		newChildDescriptors.add
 			(createChildParameter

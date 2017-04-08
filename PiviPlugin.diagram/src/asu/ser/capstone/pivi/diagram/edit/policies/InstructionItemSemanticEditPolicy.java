@@ -16,9 +16,10 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import asu.ser.capstone.pivi.diagram.edit.parts.InputPortEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionCompartmentFigureEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortResultEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.ResultEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.TerminalInputPortsEditPart;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
@@ -32,7 +33,7 @@ public class InstructionItemSemanticEditPolicy extends PiviBaseItemSemanticEditP
 	* @generated
 	*/
 	public InstructionItemSemanticEditPolicy() {
-		super(PiviElementTypes.Instruction_2004);
+		super(PiviElementTypes.Instruction_2003);
 	}
 
 	/**
@@ -63,7 +64,7 @@ public class InstructionItemSemanticEditPolicy extends PiviBaseItemSemanticEditP
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (PiviVisualIDRegistry.getVisualID(node)) {
-			case InstructionInstructionFigureCompartmentEditPart.VISUAL_ID:
+			case InstructionInstructionCompartmentFigureEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (PiviVisualIDRegistry.getVisualID(cnode)) {
@@ -72,6 +73,23 @@ public class InstructionItemSemanticEditPolicy extends PiviBaseItemSemanticEditP
 							Edge incomingLink = (Edge) it.next();
 							if (PiviVisualIDRegistry
 									.getVisualID(incomingLink) == TerminalInputPortsEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(), null,
+										incomingLink.getTarget().getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(), cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case ResultEditPart.VISUAL_ID:
+						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (PiviVisualIDRegistry.getVisualID(incomingLink) == OutputPortResultEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
 										incomingLink.getSource().getElement(), null,
 										incomingLink.getTarget().getElement(), false);
