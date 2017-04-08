@@ -21,13 +21,11 @@ import org.xml.sax.SAXException;
 public class PiviParser {
 
 	StartNode startNode;
-	List<ResultNode> results;
 	List<StatementNode> statements;
 	StringBuilder generatedCode;
 
 	public PiviParser() {
 		startNode = new StartNode();
-		results = new ArrayList<>();
 		statements = new ArrayList<>();
 		generatedCode = new StringBuilder();
 	}
@@ -44,7 +42,6 @@ public class PiviParser {
 
 			PiviParser pivi = new PiviParser();
 			pivi.setStartNode(doc);
-			pivi.setResults(doc);
 			pivi.setStatements(doc);
 			pivi.generateCode();
 			pivi.saveToFile();
@@ -91,45 +88,34 @@ public class PiviParser {
 
 		Stack<StatementNode> stack = new Stack<>();
 		int index = startNode.outputIndex;
-		boolean flag = true;
 		while (index != -1) {
-			if (flag) {
-				StatementNode statement = statements.get(index);
-				if (statement instanceof IfStartNode) {
-					stack.push(statement);
-					generatedCode.append("if(");
-					generatedCode.append(((IfStartNode) statement).condition);
-					generatedCode.append("){\n");
-					index = ((IfStartNode) statement).firstOutputIndex;
-					flag = false;
-				} else if (statement instanceof IfEndNode) {
-					if (!stack.empty()) {
-						generatedCode.append("} else {\n");
-						StatementNode ifStatement = stack.pop();
-						if (ifStatement instanceof IfStartNode) {
-							index = ((IfStartNode) ifStatement).secondOutputIndex;
-							if(index == -1){
-								index = ((IfEndNode) statement).firstOutputIndex;
-							}else{
-								flag = false;
-							}
+			StatementNode statement = statements.get(index);
+			if (statement instanceof IfStartNode) {
+				stack.push(statement);
+				generatedCode.append("if(");
+				generatedCode.append(((IfStartNode) statement).condition);
+				generatedCode.append("){\n");
+				index = ((IfStartNode) statement).firstOutputIndex;
+			} else if (statement instanceof IfEndNode) {
+				if (!stack.empty()) {					
+					StatementNode ifStatement = stack.pop();
+					if (ifStatement instanceof IfStartNode) {
+						index = ((IfStartNode) ifStatement).secondOutputIndex;
+						if (index == -1) {
+							index = ((IfEndNode) statement).firstOutputIndex;
+							generatedCode.append("}\n");
+						}else{
+							generatedCode.append("} else {\n");
 						}
-					} else {
-						index = ((IfEndNode) statement).firstOutputIndex;
-						generatedCode.append("}\n");
-						flag = false;
 					}
-				} else if (statement instanceof InstructionNode) {
-					generatedCode.append(((InstructionNode) statement).instructions);
-					generatedCode.append("\n");
-					index = ((InstructionNode) statement).firstOutputIndex;
-					flag = false;
+				} else {
+					index = ((IfEndNode) statement).firstOutputIndex;
+					generatedCode.append("}\n");
 				}
-				
-			} else {
-				ResultNode result = results.get(index);
-				index = result.outputIndex;
-				flag = true;
+			} else if (statement instanceof InstructionNode) {
+				generatedCode.append(((InstructionNode) statement).instructions);
+				generatedCode.append("\n");
+				index = ((InstructionNode) statement).firstOutputIndex;
 			}
 		}
 		generatedCode.append("}\n}");
@@ -199,12 +185,12 @@ public class PiviParser {
 		IfEndNode ifEnd = new IfEndNode();
 		statements.add(ifEnd);
 
-		NodeList nInputs = element.getElementsByTagName("inputs");
+		NodeList nInputs = element.getElementsByTagName("results");
 		for (int i = 0; i < nInputs.getLength(); i++) {
 			Node nInput = nInputs.item(i);
 			if (nInput.getNodeType() == Node.ELEMENT_NODE) {
 				Element inputElement = (Element) nInput;
-				String previousPointer = inputElement.getAttribute("terminal");
+				String previousPointer = inputElement.getAttribute("outputPort");
 				if (!previousPointer.isEmpty()) {
 					int begin = previousPointer.indexOf('.');
 					if (i == 0) {
@@ -253,10 +239,10 @@ public class PiviParser {
 
 		ifStart.condition = element.getAttribute("condition");
 
-		Node nInput = element.getElementsByTagName("inputs").item(0);
+		Node nInput = element.getElementsByTagName("results").item(0);
 		if (nInput.getNodeType() == Node.ELEMENT_NODE) {
 			Element inputElement = (Element) nInput;
-			String previousPointer = inputElement.getAttribute("terminal");
+			String previousPointer = inputElement.getAttribute("outputPort");
 			if (!previousPointer.isEmpty()) {
 				int begin = previousPointer.indexOf('.');
 				if (begin != -1) {
@@ -298,39 +284,6 @@ public class PiviParser {
 					}
 				}
 			}
-		}
-	}
-
-	private void setResults(Document doc) {
-		NodeList nResultList = doc.getElementsByTagName("results");
-		for (int i = 0; i < nResultList.getLength(); i++) {
-			Node nResult = nResultList.item(i);
-
-			if (nResult.getNodeType() == Node.ELEMENT_NODE) {
-				Element element = (Element) nResult;
-				ResultNode result = new ResultNode();
-				results.add(result);
-
-				String nextPointer = element.getAttribute("inputPorts");
-				if (!nextPointer.isEmpty()) {
-					int begin = nextPointer.indexOf('.') + 1;
-					result.outputIndex = Integer.parseInt(nextPointer.substring(begin, begin + 1));
-				} else {
-					result.outputIndex = -1;
-				}
-
-				String previousPointer = element.getAttribute("outputPort");
-				if (!previousPointer.isEmpty()) {
-					int begin = previousPointer.indexOf('.') + 1;
-					result.inputIndex = Integer.parseInt(previousPointer.substring(begin, begin + 1));
-				} else {
-					result.inputIndex = -1;
-				}
-
-				// System.out.println(result.inputIndex + ", " +
-				// result.outputIndex);
-			}
-
 		}
 	}
 
