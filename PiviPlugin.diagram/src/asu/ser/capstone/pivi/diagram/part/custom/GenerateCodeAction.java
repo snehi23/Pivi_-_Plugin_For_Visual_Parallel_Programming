@@ -69,7 +69,7 @@ public class GenerateCodeAction implements IAction{
 	@Override
 	public IMenuCreator getMenuCreator() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.menuCreator;
 	}
 
 	@Override
