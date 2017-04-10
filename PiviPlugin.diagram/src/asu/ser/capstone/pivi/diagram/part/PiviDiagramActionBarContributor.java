@@ -1,5 +1,7 @@
 package asu.ser.capstone.pivi.diagram.part;
 
+import asu.ser.capstone.pivi.diagram.part.custom.*;
+
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramActionBarContributor;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.ui.IActionBars;
@@ -33,6 +35,8 @@ public class PiviDiagramActionBarContributor extends DiagramActionBarContributor
 		// print preview
 		IMenuManager fileMenu = bars.getMenuManager().findMenuUsingPath(IWorkbenchActionConstants.M_FILE);
 		assert fileMenu != null;
+		GenerateCodeAction codeGenAction = new GenerateCodeAction();
+		fileMenu.add(codeGenAction);
 		fileMenu.remove("pageSetupAction"); //$NON-NLS-1$
 	}
 }
