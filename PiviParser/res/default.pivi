@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<asu.ser.capstone.pivi:PiviDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asu.ser.capstone.pivi="http:///asu/ser/capstone/pivi.ecore">
+  <statements xsi:type="asu.ser.capstone.pivi:IfStartStatement" condition="a==5">
+    <inputs/>
+    <results outputPort="//@statements.4/@outputs.0"/>
+    <outputs result="//@statements.1/@results.0"/>
+    <outputs result="//@statements.2/@results.0"/>
+  </statements>
+  <statements xsi:type="asu.ser.capstone.pivi:Instruction" instructions="System.out.println(&quot;equal to 5&quot;);">
+    <inputs/>
+    <results outputPort="//@statements.0/@outputs.0"/>
+    <outputs result="//@statements.3/@results.0"/>
+  </statements>
+  <statements xsi:type="asu.ser.capstone.pivi:Instruction" instructions="System.out.println(&quot;not equal to 5&quot;);">
+    <inputs/>
+    <results outputPort="//@statements.0/@outputs.1"/>
+    <outputs result="//@statements.3/@results.1"/>
+  </statements>
+  <statements xsi:type="asu.ser.capstone.pivi:IfEndStatement">
+    <results outputPort="//@statements.1/@outputs.0"/>
+    <results outputPort="//@statements.2/@outputs.0"/>
+    <outputs/>
+  </statements>
+  <statements xsi:type="asu.ser.capstone.pivi:Instruction" instructions="int a = 10;">
+    <inputs terminal="//@start"/>
+    <results/>
+    <outputs result="//@statements.0/@results.0"/>
+  </statements>
+  <start inputPorts="//@statements.4/@inputs.0"/>
+</asu.ser.capstone.pivi:PiviDiagram>
