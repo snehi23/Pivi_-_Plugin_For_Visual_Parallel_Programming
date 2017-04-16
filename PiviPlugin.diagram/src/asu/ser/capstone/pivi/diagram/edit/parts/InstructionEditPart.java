@@ -1,5 +1,14 @@
 package asu.ser.capstone.pivi.diagram.edit.parts;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
@@ -15,7 +24,9 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ContainerEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -24,6 +35,9 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.PlatformUI;
 
 import asu.ser.capstone.pivi.diagram.edit.policies.InstructionItemSemanticEditPolicy;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
@@ -34,6 +48,9 @@ import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
  */
 public class InstructionEditPart extends ShapeNodeEditPart {
 
+	public static Integer count = 1;
+	
+	private static String XML_FILE_NAME = "default.pivi"; 
 	/**
 	* @generated
 	*/
@@ -65,6 +82,77 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InstructionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicy.CONTAINER_ROLE, new ContainerEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenEditPolicy() {
+			
+			@Override
+			protected Command getOpenCommand(Request request) {
+				
+				try {
+					getXMLFile(request);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				BufferedWriter bw = null;
+				FileWriter fw = null;
+				
+				try {
+					fw = new FileWriter(getProjectPath(request) + "/" +"Instruction_"+count+".txt");
+					count++;
+					bw = new BufferedWriter(fw);
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						if (bw != null) {
+							bw.close();
+						}
+						if (fw != null) {
+							fw.close();
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				
+				return null;
+			}
+			
+			
+			protected void getXMLFile(Request request) throws IOException {
+				
+			    File source = new File(getProjectPath(request) + "/" + XML_FILE_NAME);
+			   
+			    System.out.println(source.canRead());
+				
+			}
+			
+			protected String getProjectPath(Request request) throws IOException {
+				
+				IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+
+				IFileEditorInput input = (IFileEditorInput)editor.getEditorInput();
+				IFile file = input.getFile();
+				IProject project = file.getProject();
+				
+				String projectName = project.getFullPath().toString();
+				
+				IWorkspace workspace = ResourcesPlugin.getWorkspace();
+				
+			    java.io.File workspaceDirectory = workspace.getRoot().getLocation()
+			            .toFile();
+			    
+			    System.out.println("my source : "+workspaceDirectory.getAbsoluteFile() + projectName);
+			    
+			    return workspaceDirectory.getAbsoluteFile() +projectName;
+			    
+			}
+			
+			
+		});
+		
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}

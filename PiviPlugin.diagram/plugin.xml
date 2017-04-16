@@ -25,7 +25,7 @@
          default="true"
          class="asu.ser.capstone.pivi.diagram.part.PiviDiagramEditor"
          matchingStrategy="asu.ser.capstone.pivi.diagram.part.PiviMatchingStrategy"
-         contributorClass="asu.ser.capstone.pivi.diagram.part.PiviDiagramActionBarContributor">
+         contributorClass="asu.ser.capstone.pivi.diagram.part.custom.CustomPiviDiagramActionBarContributor">
       </editor>
    </extension>
    
