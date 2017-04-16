@@ -83,7 +83,6 @@ public class PiviParser {
 	}
 
 	private void generateCode() {
-		generatedCode.append("package asu.ser.capstone.pivi.test;\n\n");
 		generatedCode.append("public class Solution {\n");
 		generatedCode.append("public static void main(String[] args) { \n");
 
