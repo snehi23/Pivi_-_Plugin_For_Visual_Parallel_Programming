@@ -11,7 +11,7 @@ public interface OutputPort extends EObject {
 	 * @model
 	 */
 	public Statement getStatement();
-
+	
 	/**
 	 * Sets the value of the '{@link asu.ser.capstone.pivi.OutputPort#getStatement <em>Statement</em>}' container reference.
 	 * <!-- begin-user-doc -->
@@ -25,15 +25,15 @@ public interface OutputPort extends EObject {
 	/**
 	 * @model
 	 */
-	public Result getResult();
+	public InputPort getInputPort();
 
 	/**
-	 * Sets the value of the '{@link asu.ser.capstone.pivi.OutputPort#getResult <em>Result</em>}' reference.
+	 * Sets the value of the '{@link asu.ser.capstone.pivi.OutputPort#getInputPort <em>Input Port</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Result</em>' reference.
-	 * @see #getResult()
+	 * @param value the new value of the '<em>Input Port</em>' reference.
+	 * @see #getInputPort()
 	 * @generated
 	 */
-	void setResult(Result value);
+	void setInputPort(InputPort value);
 }

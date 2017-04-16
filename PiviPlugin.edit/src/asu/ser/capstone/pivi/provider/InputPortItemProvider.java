@@ -58,7 +58,7 @@ public class InputPortItemProvider
 			super.getPropertyDescriptors(object);
 
 			addStatementPropertyDescriptor(object);
-			addTerminalPropertyDescriptor(object);
+			addOutputPortPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,19 +86,19 @@ public class InputPortItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Terminal feature.
+	 * This adds a property descriptor for the Output Port feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTerminalPropertyDescriptor(Object object) {
+	protected void addOutputPortPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InputPort_terminal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InputPort_terminal_feature", "_UI_InputPort_type"),
-				 PiviPackage.Literals.INPUT_PORT__TERMINAL,
+				 getString("_UI_InputPort_outputPort_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InputPort_outputPort_feature", "_UI_InputPort_type"),
+				 PiviPackage.Literals.INPUT_PORT__OUTPUT_PORT,
 				 true,
 				 false,
 				 true,

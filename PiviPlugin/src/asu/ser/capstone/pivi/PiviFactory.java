@@ -22,22 +22,22 @@ public interface PiviFactory extends EFactory {
 	PiviFactory eINSTANCE = asu.ser.capstone.pivi.impl.PiviFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>If End Statement</em>'.
+	 * Returns a new object of class '<em>If End</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>If End Statement</em>'.
+	 * @return a new object of class '<em>If End</em>'.
 	 * @generated
 	 */
-	IfEndStatement createIfEndStatement();
+	IfEnd createIfEnd();
 
 	/**
-	 * Returns a new object of class '<em>If Start Statement</em>'.
+	 * Returns a new object of class '<em>If Start</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>If Start Statement</em>'.
+	 * @return a new object of class '<em>If Start</em>'.
 	 * @generated
 	 */
-	IfStartStatement createIfStartStatement();
+	IfStart createIfStart();
 
 	/**
 	 * Returns a new object of class '<em>Input Port</em>'.
@@ -58,6 +58,24 @@ public interface PiviFactory extends EFactory {
 	Instruction createInstruction();
 
 	/**
+	 * Returns a new object of class '<em>Method End</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Method End</em>'.
+	 * @generated
+	 */
+	MethodEnd createMethodEnd();
+
+	/**
+	 * Returns a new object of class '<em>Method Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Method Start</em>'.
+	 * @generated
+	 */
+	MethodStart createMethodStart();
+
+	/**
 	 * Returns a new object of class '<em>Output Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,15 +94,6 @@ public interface PiviFactory extends EFactory {
 	PiviDiagram createPiviDiagram();
 
 	/**
-	 * Returns a new object of class '<em>Result</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Result</em>'.
-	 * @generated
-	 */
-	Result createResult();
-
-	/**
 	 * Returns a new object of class '<em>Start</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,13 +103,31 @@ public interface PiviFactory extends EFactory {
 	Start createStart();
 
 	/**
-	 * Returns a new object of class '<em>While Statement</em>'.
+	 * Returns a new object of class '<em>Start Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>While Statement</em>'.
+	 * @return a new object of class '<em>Start Port</em>'.
 	 * @generated
 	 */
-	WhileStatement createWhileStatement();
+	StartPort createStartPort();
+
+	/**
+	 * Returns a new object of class '<em>While End</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>While End</em>'.
+	 * @generated
+	 */
+	WhileEnd createWhileEnd();
+
+	/**
+	 * Returns a new object of class '<em>While Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>While Start</em>'.
+	 * @generated
+	 */
+	WhileStart createWhileStart();
 
 	/**
 	 * Returns the package supported by this factory.

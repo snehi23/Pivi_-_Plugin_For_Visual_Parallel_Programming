@@ -11,8 +11,8 @@
         title="nodes">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="IfEndStatement"
-          description="Create new IfEndStatement">
+          title="IfEnd"
+          description="Create new IfEnd">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -20,8 +20,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="IfStartStatement"
-          description="Create new IfStartStatement">
+          title="IfStart"
+          description="Create new IfStart">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -38,8 +38,26 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Result"
-          description="Create new Result">
+          title="MethodEnd"
+          description="Create new MethodEnd">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="MethodStart"
+          description="Create new MethodStart">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="OutputPort"
+          description="Create new OutputPort">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -56,8 +74,17 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="WhileStatement"
-          description="Create new WhileStatement">
+          title="WhileEnd"
+          description="Create new WhileEnd">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="WhileStart"
+          description="Create new WhileStart">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -69,8 +96,8 @@
         title="connections">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="OutputPortResult"
-          description="Create new OutputPortResult">
+          title="OutputPortInputPort"
+          description="Create new OutputPortInputPort">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -78,8 +105,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="TerminalInputPorts"
-          description="Create new TerminalInputPorts">
+          title="StartStartPort"
+          description="Create new StartStartPort">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

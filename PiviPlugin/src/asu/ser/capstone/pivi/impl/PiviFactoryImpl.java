@@ -56,15 +56,18 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PiviPackage.IF_END_STATEMENT: return createIfEndStatement();
-			case PiviPackage.IF_START_STATEMENT: return createIfStartStatement();
+			case PiviPackage.IF_END: return createIfEnd();
+			case PiviPackage.IF_START: return createIfStart();
 			case PiviPackage.INPUT_PORT: return createInputPort();
 			case PiviPackage.INSTRUCTION: return createInstruction();
+			case PiviPackage.METHOD_END: return createMethodEnd();
+			case PiviPackage.METHOD_START: return createMethodStart();
 			case PiviPackage.OUTPUT_PORT: return createOutputPort();
 			case PiviPackage.PIVI_DIAGRAM: return createPiviDiagram();
-			case PiviPackage.RESULT: return createResult();
 			case PiviPackage.START: return createStart();
-			case PiviPackage.WHILE_STATEMENT: return createWhileStatement();
+			case PiviPackage.START_PORT: return createStartPort();
+			case PiviPackage.WHILE_END: return createWhileEnd();
+			case PiviPackage.WHILE_START: return createWhileStart();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -75,9 +78,9 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IfEndStatement createIfEndStatement() {
-		IfEndStatementImpl ifEndStatement = new IfEndStatementImpl();
-		return ifEndStatement;
+	public IfEnd createIfEnd() {
+		IfEndImpl ifEnd = new IfEndImpl();
+		return ifEnd;
 	}
 
 	/**
@@ -85,9 +88,9 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IfStartStatement createIfStartStatement() {
-		IfStartStatementImpl ifStartStatement = new IfStartStatementImpl();
-		return ifStartStatement;
+	public IfStart createIfStart() {
+		IfStartImpl ifStart = new IfStartImpl();
+		return ifStart;
 	}
 
 	/**
@@ -115,6 +118,26 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MethodEnd createMethodEnd() {
+		MethodEndImpl methodEnd = new MethodEndImpl();
+		return methodEnd;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MethodStart createMethodStart() {
+		MethodStartImpl methodStart = new MethodStartImpl();
+		return methodStart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OutputPort createOutputPort() {
 		OutputPortImpl outputPort = new OutputPortImpl();
 		return outputPort;
@@ -135,16 +158,6 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Result createResult() {
-		ResultImpl result = new ResultImpl();
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Start createStart() {
 		StartImpl start = new StartImpl();
 		return start;
@@ -155,9 +168,29 @@ public class PiviFactoryImpl extends EFactoryImpl implements PiviFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public WhileStatement createWhileStatement() {
-		WhileStatementImpl whileStatement = new WhileStatementImpl();
-		return whileStatement;
+	public StartPort createStartPort() {
+		StartPortImpl startPort = new StartPortImpl();
+		return startPort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WhileEnd createWhileEnd() {
+		WhileEndImpl whileEnd = new WhileEndImpl();
+		return whileEnd;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WhileStart createWhileStart() {
+		WhileStartImpl whileStart = new WhileStartImpl();
+		return whileStart;
 	}
 
 	/**

@@ -49,14 +49,14 @@ public class InstructionCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		Instruction newElement = PiviFactory.eINSTANCE.createInstruction();
 		
+		newElement.getStart().add(PiviFactory.eINSTANCE.createStartPort());
 		newElement.getInputs().add(PiviFactory.eINSTANCE.createInputPort());
 		newElement.getOutputs().add(PiviFactory.eINSTANCE.createOutputPort());
-		newElement.getResults().add(PiviFactory.eINSTANCE.createResult());
 
 		PiviDiagram owner = (PiviDiagram) getElementToEdit();
 		owner.getStatements().add(newElement);

@@ -72,49 +72,49 @@ public class PiviItemProviderAdapterFactory extends PiviAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.IfEndStatement} instances.
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.IfEnd} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IfEndStatementItemProvider ifEndStatementItemProvider;
+	protected IfEndItemProvider ifEndItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link asu.ser.capstone.pivi.IfEndStatement}.
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.IfEnd}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createIfEndStatementAdapter() {
-		if (ifEndStatementItemProvider == null) {
-			ifEndStatementItemProvider = new IfEndStatementItemProvider(this);
+	public Adapter createIfEndAdapter() {
+		if (ifEndItemProvider == null) {
+			ifEndItemProvider = new IfEndItemProvider(this);
 		}
 
-		return ifEndStatementItemProvider;
+		return ifEndItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.IfStartStatement} instances.
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.IfStart} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IfStartStatementItemProvider ifStartStatementItemProvider;
+	protected IfStartItemProvider ifStartItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link asu.ser.capstone.pivi.IfStartStatement}.
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.IfStart}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createIfStartStatementAdapter() {
-		if (ifStartStatementItemProvider == null) {
-			ifStartStatementItemProvider = new IfStartStatementItemProvider(this);
+	public Adapter createIfStartAdapter() {
+		if (ifStartItemProvider == null) {
+			ifStartItemProvider = new IfStartItemProvider(this);
 		}
 
-		return ifStartStatementItemProvider;
+		return ifStartItemProvider;
 	}
 
 	/**
@@ -164,6 +164,52 @@ public class PiviItemProviderAdapterFactory extends PiviAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.MethodEnd} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodEndItemProvider methodEndItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.MethodEnd}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodEndAdapter() {
+		if (methodEndItemProvider == null) {
+			methodEndItemProvider = new MethodEndItemProvider(this);
+		}
+
+		return methodEndItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.MethodStart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodStartItemProvider methodStartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.MethodStart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodStartAdapter() {
+		if (methodStartItemProvider == null) {
+			methodStartItemProvider = new MethodStartItemProvider(this);
+		}
+
+		return methodStartItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.OutputPort} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,29 +256,6 @@ public class PiviItemProviderAdapterFactory extends PiviAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.Result} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResultItemProvider resultItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link asu.ser.capstone.pivi.Result}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResultAdapter() {
-		if (resultItemProvider == null) {
-			resultItemProvider = new ResultItemProvider(this);
-		}
-
-		return resultItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.Start} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -256,26 +279,72 @@ public class PiviItemProviderAdapterFactory extends PiviAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.WhileStatement} instances.
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.StartPort} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected WhileStatementItemProvider whileStatementItemProvider;
+	protected StartPortItemProvider startPortItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link asu.ser.capstone.pivi.WhileStatement}.
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.StartPort}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createWhileStatementAdapter() {
-		if (whileStatementItemProvider == null) {
-			whileStatementItemProvider = new WhileStatementItemProvider(this);
+	public Adapter createStartPortAdapter() {
+		if (startPortItemProvider == null) {
+			startPortItemProvider = new StartPortItemProvider(this);
 		}
 
-		return whileStatementItemProvider;
+		return startPortItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.WhileEnd} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WhileEndItemProvider whileEndItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.WhileEnd}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWhileEndAdapter() {
+		if (whileEndItemProvider == null) {
+			whileEndItemProvider = new WhileEndItemProvider(this);
+		}
+
+		return whileEndItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link asu.ser.capstone.pivi.WhileStart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WhileStartItemProvider whileStartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link asu.ser.capstone.pivi.WhileStart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWhileStartAdapter() {
+		if (whileStartItemProvider == null) {
+			whileStartItemProvider = new WhileStartItemProvider(this);
+		}
+
+		return whileStartItemProvider;
 	}
 
 	/**
@@ -377,15 +446,18 @@ public class PiviItemProviderAdapterFactory extends PiviAdapterFactory implement
 	 * @generated
 	 */
 	public void dispose() {
-		if (ifEndStatementItemProvider != null) ifEndStatementItemProvider.dispose();
-		if (ifStartStatementItemProvider != null) ifStartStatementItemProvider.dispose();
+		if (ifEndItemProvider != null) ifEndItemProvider.dispose();
+		if (ifStartItemProvider != null) ifStartItemProvider.dispose();
 		if (inputPortItemProvider != null) inputPortItemProvider.dispose();
 		if (instructionItemProvider != null) instructionItemProvider.dispose();
+		if (methodEndItemProvider != null) methodEndItemProvider.dispose();
+		if (methodStartItemProvider != null) methodStartItemProvider.dispose();
 		if (outputPortItemProvider != null) outputPortItemProvider.dispose();
 		if (piviDiagramItemProvider != null) piviDiagramItemProvider.dispose();
-		if (resultItemProvider != null) resultItemProvider.dispose();
 		if (startItemProvider != null) startItemProvider.dispose();
-		if (whileStatementItemProvider != null) whileStatementItemProvider.dispose();
+		if (startPortItemProvider != null) startPortItemProvider.dispose();
+		if (whileEndItemProvider != null) whileEndItemProvider.dispose();
+		if (whileStartItemProvider != null) whileStartItemProvider.dispose();
 	}
 
 }

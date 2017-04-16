@@ -58,7 +58,7 @@ public class OutputPortItemProvider
 			super.getPropertyDescriptors(object);
 
 			addStatementPropertyDescriptor(object);
-			addResultPropertyDescriptor(object);
+			addInputPortPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,19 +86,19 @@ public class OutputPortItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Result feature.
+	 * This adds a property descriptor for the Input Port feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addResultPropertyDescriptor(Object object) {
+	protected void addInputPortPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OutputPort_result_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OutputPort_result_feature", "_UI_OutputPort_type"),
-				 PiviPackage.Literals.OUTPUT_PORT__RESULT,
+				 getString("_UI_OutputPort_inputPort_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OutputPort_inputPort_feature", "_UI_OutputPort_type"),
+				 PiviPackage.Literals.OUTPUT_PORT__INPUT_PORT,
 				 true,
 				 false,
 				 true,

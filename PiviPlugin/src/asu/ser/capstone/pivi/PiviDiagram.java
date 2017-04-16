@@ -12,12 +12,12 @@ public interface PiviDiagram extends EObject {
 	 * @model containment="true"
 	 */
 	public EList<Statement> getStatements();
- 
+
 	/**
 	 * @model containment="true"
 	 */
 	public Start getStart();
-
+	
 	/**
 	 * Sets the value of the '{@link asu.ser.capstone.pivi.PiviDiagram#getStart <em>Start</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -31,5 +31,6 @@ public interface PiviDiagram extends EObject {
 	/**
 	 * @model containment="true"
 	 */
-	public EList<Result> getResults();
+	public EList<InputPort> getInputPort();
+
 }

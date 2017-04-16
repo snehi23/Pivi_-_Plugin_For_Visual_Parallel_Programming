@@ -32,15 +32,18 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import asu.ser.capstone.pivi.PiviPackage;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfStartEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InstructionEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodStartEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.PiviDiagramEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.ResultEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.StartEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.StartPortEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileStartEditPart;
 import asu.ser.capstone.pivi.diagram.part.PiviDiagramUpdater;
 import asu.ser.capstone.pivi.diagram.part.PiviLinkDescriptor;
 import asu.ser.capstone.pivi.diagram.part.PiviNodeDescriptor;
@@ -108,11 +111,14 @@ public class PiviDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 	private boolean isMyDiagramElement(View view) {
 		int visualID = PiviVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-		case IfEndStatementEditPart.VISUAL_ID:
-		case StartEditPart.VISUAL_ID:
+		case IfStartEditPart.VISUAL_ID:
+		case WhileEndEditPart.VISUAL_ID:
+		case MethodEndEditPart.VISUAL_ID:
+		case IfEndEditPart.VISUAL_ID:
 		case InstructionEditPart.VISUAL_ID:
-		case IfStartStatementEditPart.VISUAL_ID:
-		case WhileStatementEditPart.VISUAL_ID:
+		case MethodStartEditPart.VISUAL_ID:
+		case WhileStartEditPart.VISUAL_ID:
+		case StartEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
@@ -259,37 +265,58 @@ public class PiviDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case IfEndStatementEditPart.VISUAL_ID: {
+		case IfStartEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getIfEndStatement_2001ContainedLinks(view));
+				result.addAll(PiviDiagramUpdater.getIfStart_2001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case StartEditPart.VISUAL_ID: {
+		case WhileEndEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getStart_2002ContainedLinks(view));
+				result.addAll(PiviDiagramUpdater.getWhileEnd_2002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case MethodEndEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PiviDiagramUpdater.getMethodEnd_2003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case IfEndEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PiviDiagramUpdater.getIfEnd_2004ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case InstructionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getInstruction_2003ContainedLinks(view));
+				result.addAll(PiviDiagramUpdater.getInstruction_2005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case IfStartStatementEditPart.VISUAL_ID: {
+		case MethodStartEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getIfStartStatement_2004ContainedLinks(view));
+				result.addAll(PiviDiagramUpdater.getMethodStart_2006ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case WhileStatementEditPart.VISUAL_ID: {
+		case WhileStartEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getWhileStatement_2005ContainedLinks(view));
+				result.addAll(PiviDiagramUpdater.getWhileStart_2007ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case StartEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PiviDiagramUpdater.getStart_2008ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -301,16 +328,16 @@ public class PiviDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case OutputPortEditPart.VISUAL_ID: {
+		case StartPortEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getOutputPort_3002ContainedLinks(view));
+				result.addAll(PiviDiagramUpdater.getStartPort_3002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case ResultEditPart.VISUAL_ID: {
+		case OutputPortEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PiviDiagramUpdater.getResult_3003ContainedLinks(view));
+				result.addAll(PiviDiagramUpdater.getOutputPort_3003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

@@ -8,8 +8,8 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
-import asu.ser.capstone.pivi.diagram.edit.parts.InputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.StartEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.StartPortEditPart;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
 import asu.ser.capstone.pivi.diagram.providers.PiviModelingAssistantProvider;
 
@@ -33,7 +33,7 @@ public class PiviModelingAssistantProviderOfStartEditPart extends PiviModelingAs
 	*/
 	public List<IElementType> doGetRelTypesOnSource(StartEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(PiviElementTypes.TerminalInputPorts_4001);
+		types.add(PiviElementTypes.StartStartPort_4004);
 		return types;
 	}
 
@@ -53,8 +53,8 @@ public class PiviModelingAssistantProviderOfStartEditPart extends PiviModelingAs
 	*/
 	public List<IElementType> doGetRelTypesOnSourceAndTarget(StartEditPart source, IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof InputPortEditPart) {
-			types.add(PiviElementTypes.TerminalInputPorts_4001);
+		if (targetEditPart instanceof StartPortEditPart) {
+			types.add(PiviElementTypes.StartStartPort_4004);
 		}
 		return types;
 	}
@@ -74,8 +74,8 @@ public class PiviModelingAssistantProviderOfStartEditPart extends PiviModelingAs
 	*/
 	public List<IElementType> doGetTypesForTarget(StartEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == PiviElementTypes.TerminalInputPorts_4001) {
-			types.add(PiviElementTypes.InputPort_3001);
+		if (relationshipType == PiviElementTypes.StartStartPort_4004) {
+			types.add(PiviElementTypes.StartPort_3002);
 		}
 		return types;
 	}

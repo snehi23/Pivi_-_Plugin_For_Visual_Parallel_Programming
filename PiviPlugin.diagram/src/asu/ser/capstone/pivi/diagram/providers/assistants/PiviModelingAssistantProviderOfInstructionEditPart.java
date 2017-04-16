@@ -22,8 +22,8 @@ public class PiviModelingAssistantProviderOfInstructionEditPart extends PiviMode
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(PiviElementTypes.InputPort_3001);
-		types.add(PiviElementTypes.Result_3003);
-		types.add(PiviElementTypes.OutputPort_3002);
+		types.add(PiviElementTypes.StartPort_3002);
+		types.add(PiviElementTypes.OutputPort_3003);
 		return types;
 	}
 

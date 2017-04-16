@@ -91,7 +91,7 @@ public class InstructionItemProvider extends StatementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Instruction)object).getName();
+		String label = ((Instruction)object).getInstructions();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Instruction_type") :
 			getString("_UI_Instruction_type") + " " + label;

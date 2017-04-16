@@ -5,6 +5,8 @@ package asu.ser.capstone.pivi.tests;
 import asu.ser.capstone.pivi.PiviFactory;
 import asu.ser.capstone.pivi.Start;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,7 +15,15 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StartTest extends TerminalTest {
+public class StartTest extends TestCase {
+
+	/**
+	 * The fixture for this Start test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Start fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,14 +45,23 @@ public class StartTest extends TerminalTest {
 	}
 
 	/**
+	 * Sets the fixture for this Start test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Start fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Start test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected Start getFixture() {
-		return (Start)fixture;
+		return fixture;
 	}
 
 	/**

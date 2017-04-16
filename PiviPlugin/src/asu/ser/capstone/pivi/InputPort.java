@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  */
 public interface InputPort extends EObject {
+
 	/**
 	 * @model
 	 */
@@ -24,15 +25,15 @@ public interface InputPort extends EObject {
 	/**
 	 * @model
 	 */
-	public Terminal getTerminal();
+	public OutputPort getOutputPort();
 
 	/**
-	 * Sets the value of the '{@link asu.ser.capstone.pivi.InputPort#getTerminal <em>Terminal</em>}' reference.
+	 * Sets the value of the '{@link asu.ser.capstone.pivi.InputPort#getOutputPort <em>Output Port</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Terminal</em>' reference.
-	 * @see #getTerminal()
+	 * @param value the new value of the '<em>Output Port</em>' reference.
+	 * @see #getOutputPort()
 	 * @generated
 	 */
-	void setTerminal(Terminal value);
+	void setOutputPort(OutputPort value);
 }

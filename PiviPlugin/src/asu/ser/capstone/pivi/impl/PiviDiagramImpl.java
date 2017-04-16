@@ -2,9 +2,9 @@
  */
 package asu.ser.capstone.pivi.impl;
 
+import asu.ser.capstone.pivi.InputPort;
 import asu.ser.capstone.pivi.PiviDiagram;
 import asu.ser.capstone.pivi.PiviPackage;
-import asu.ser.capstone.pivi.Result;
 import asu.ser.capstone.pivi.Start;
 import asu.ser.capstone.pivi.Statement;
 
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link asu.ser.capstone.pivi.impl.PiviDiagramImpl#getStatements <em>Statements</em>}</li>
  *   <li>{@link asu.ser.capstone.pivi.impl.PiviDiagramImpl#getStart <em>Start</em>}</li>
- *   <li>{@link asu.ser.capstone.pivi.impl.PiviDiagramImpl#getResults <em>Results</em>}</li>
+ *   <li>{@link asu.ser.capstone.pivi.impl.PiviDiagramImpl#getInputPort <em>Input Port</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,14 +61,14 @@ public class PiviDiagramImpl extends MinimalEObjectImpl.Container implements Piv
 	protected Start start;
 
 	/**
-	 * The cached value of the '{@link #getResults() <em>Results</em>}' containment reference list.
+	 * The cached value of the '{@link #getInputPort() <em>Input Port</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResults()
+	 * @see #getInputPort()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Result> results;
+	protected EList<InputPort> inputPort;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,11 +149,11 @@ public class PiviDiagramImpl extends MinimalEObjectImpl.Container implements Piv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Result> getResults() {
-		if (results == null) {
-			results = new EObjectContainmentEList<Result>(Result.class, this, PiviPackage.PIVI_DIAGRAM__RESULTS);
+	public EList<InputPort> getInputPort() {
+		if (inputPort == null) {
+			inputPort = new EObjectContainmentEList<InputPort>(InputPort.class, this, PiviPackage.PIVI_DIAGRAM__INPUT_PORT);
 		}
-		return results;
+		return inputPort;
 	}
 
 	/**
@@ -168,8 +168,8 @@ public class PiviDiagramImpl extends MinimalEObjectImpl.Container implements Piv
 				return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
 			case PiviPackage.PIVI_DIAGRAM__START:
 				return basicSetStart(null, msgs);
-			case PiviPackage.PIVI_DIAGRAM__RESULTS:
-				return ((InternalEList<?>)getResults()).basicRemove(otherEnd, msgs);
+			case PiviPackage.PIVI_DIAGRAM__INPUT_PORT:
+				return ((InternalEList<?>)getInputPort()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -186,8 +186,8 @@ public class PiviDiagramImpl extends MinimalEObjectImpl.Container implements Piv
 				return getStatements();
 			case PiviPackage.PIVI_DIAGRAM__START:
 				return getStart();
-			case PiviPackage.PIVI_DIAGRAM__RESULTS:
-				return getResults();
+			case PiviPackage.PIVI_DIAGRAM__INPUT_PORT:
+				return getInputPort();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,9 +208,9 @@ public class PiviDiagramImpl extends MinimalEObjectImpl.Container implements Piv
 			case PiviPackage.PIVI_DIAGRAM__START:
 				setStart((Start)newValue);
 				return;
-			case PiviPackage.PIVI_DIAGRAM__RESULTS:
-				getResults().clear();
-				getResults().addAll((Collection<? extends Result>)newValue);
+			case PiviPackage.PIVI_DIAGRAM__INPUT_PORT:
+				getInputPort().clear();
+				getInputPort().addAll((Collection<? extends InputPort>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -230,8 +230,8 @@ public class PiviDiagramImpl extends MinimalEObjectImpl.Container implements Piv
 			case PiviPackage.PIVI_DIAGRAM__START:
 				setStart((Start)null);
 				return;
-			case PiviPackage.PIVI_DIAGRAM__RESULTS:
-				getResults().clear();
+			case PiviPackage.PIVI_DIAGRAM__INPUT_PORT:
+				getInputPort().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -249,8 +249,8 @@ public class PiviDiagramImpl extends MinimalEObjectImpl.Container implements Piv
 				return statements != null && !statements.isEmpty();
 			case PiviPackage.PIVI_DIAGRAM__START:
 				return start != null;
-			case PiviPackage.PIVI_DIAGRAM__RESULTS:
-				return results != null && !results.isEmpty();
+			case PiviPackage.PIVI_DIAGRAM__INPUT_PORT:
+				return inputPort != null && !inputPort.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

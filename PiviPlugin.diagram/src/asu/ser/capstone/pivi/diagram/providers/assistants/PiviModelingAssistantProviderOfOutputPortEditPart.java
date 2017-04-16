@@ -8,8 +8,8 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
+import asu.ser.capstone.pivi.diagram.edit.parts.InputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.ResultEditPart;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
 import asu.ser.capstone.pivi.diagram.providers.PiviModelingAssistantProvider;
 
@@ -33,7 +33,7 @@ public class PiviModelingAssistantProviderOfOutputPortEditPart extends PiviModel
 	*/
 	public List<IElementType> doGetRelTypesOnSource(OutputPortEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(PiviElementTypes.OutputPortResult_4002);
+		types.add(PiviElementTypes.OutputPortInputPort_4002);
 		return types;
 	}
 
@@ -54,8 +54,8 @@ public class PiviModelingAssistantProviderOfOutputPortEditPart extends PiviModel
 	public List<IElementType> doGetRelTypesOnSourceAndTarget(OutputPortEditPart source,
 			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof ResultEditPart) {
-			types.add(PiviElementTypes.OutputPortResult_4002);
+		if (targetEditPart instanceof InputPortEditPart) {
+			types.add(PiviElementTypes.OutputPortInputPort_4002);
 		}
 		return types;
 	}
@@ -75,8 +75,8 @@ public class PiviModelingAssistantProviderOfOutputPortEditPart extends PiviModel
 	*/
 	public List<IElementType> doGetTypesForTarget(OutputPortEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == PiviElementTypes.OutputPortResult_4002) {
-			types.add(PiviElementTypes.Result_3003);
+		if (relationshipType == PiviElementTypes.OutputPortInputPort_4002) {
+			types.add(PiviElementTypes.InputPort_3001);
 		}
 		return types;
 	}

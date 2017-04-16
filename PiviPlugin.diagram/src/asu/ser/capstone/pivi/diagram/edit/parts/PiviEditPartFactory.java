@@ -25,71 +25,65 @@ public class PiviEditPartFactory implements EditPartFactory {
 			case PiviDiagramEditPart.VISUAL_ID:
 				return new PiviDiagramEditPart(view);
 
-			case IfEndStatementEditPart.VISUAL_ID:
-				return new IfEndStatementEditPart(view);
+			case IfStartEditPart.VISUAL_ID:
+				return new IfStartEditPart(view);
 
-			case IfEndStatementNameEditPart.VISUAL_ID:
-				return new IfEndStatementNameEditPart(view);
+			case WhileEndEditPart.VISUAL_ID:
+				return new WhileEndEditPart(view);
 
-			case StartEditPart.VISUAL_ID:
-				return new StartEditPart(view);
+			case MethodEndEditPart.VISUAL_ID:
+				return new MethodEndEditPart(view);
 
-			case StartNameEditPart.VISUAL_ID:
-				return new StartNameEditPart(view);
+			case IfEndEditPart.VISUAL_ID:
+				return new IfEndEditPart(view);
 
 			case InstructionEditPart.VISUAL_ID:
 				return new InstructionEditPart(view);
 
-			case InstructionNameEditPart.VISUAL_ID:
-				return new InstructionNameEditPart(view);
+			case MethodStartEditPart.VISUAL_ID:
+				return new MethodStartEditPart(view);
 
-			case InstructionInstructionsEditPart.VISUAL_ID:
-				return new InstructionInstructionsEditPart(view);
+			case WhileStartEditPart.VISUAL_ID:
+				return new WhileStartEditPart(view);
 
-			case IfStartStatementEditPart.VISUAL_ID:
-				return new IfStartStatementEditPart(view);
-
-			case IfStartStatementNameEditPart.VISUAL_ID:
-				return new IfStartStatementNameEditPart(view);
-
-			case IfStartStatementConditionEditPart.VISUAL_ID:
-				return new IfStartStatementConditionEditPart(view);
-
-			case WhileStatementEditPart.VISUAL_ID:
-				return new WhileStatementEditPart(view);
-
-			case WhileStatementNameEditPart.VISUAL_ID:
-				return new WhileStatementNameEditPart(view);
-
-			case WhileStatementConditionEditPart.VISUAL_ID:
-				return new WhileStatementConditionEditPart(view);
+			case StartEditPart.VISUAL_ID:
+				return new StartEditPart(view);
 
 			case InputPortEditPart.VISUAL_ID:
 				return new InputPortEditPart(view);
 
+			case StartPortEditPart.VISUAL_ID:
+				return new StartPortEditPart(view);
+
 			case OutputPortEditPart.VISUAL_ID:
 				return new OutputPortEditPart(view);
 
-			case ResultEditPart.VISUAL_ID:
-				return new ResultEditPart(view);
+			case IfStartIfStartFigureCompartmentEditPart.VISUAL_ID:
+				return new IfStartIfStartFigureCompartmentEditPart(view);
 
-			case IfEndStatementIfEndCompartmentFigureEditPart.VISUAL_ID:
-				return new IfEndStatementIfEndCompartmentFigureEditPart(view);
+			case WhileEndWhileEndFigureCompartmentEditPart.VISUAL_ID:
+				return new WhileEndWhileEndFigureCompartmentEditPart(view);
 
-			case InstructionInstructionCompartmentFigureEditPart.VISUAL_ID:
-				return new InstructionInstructionCompartmentFigureEditPart(view);
+			case MethodEndMethodEndFigureCompartmentEditPart.VISUAL_ID:
+				return new MethodEndMethodEndFigureCompartmentEditPart(view);
 
-			case IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID:
-				return new IfStartStatementIfStartCompartmentFigureEditPart(view);
+			case IfEndIfEndFigureCompartmentEditPart.VISUAL_ID:
+				return new IfEndIfEndFigureCompartmentEditPart(view);
 
-			case WhileStatementWhileCompartmentFigureEditPart.VISUAL_ID:
-				return new WhileStatementWhileCompartmentFigureEditPart(view);
+			case InstructionInstructionFigureCompartmentEditPart.VISUAL_ID:
+				return new InstructionInstructionFigureCompartmentEditPart(view);
 
-			case TerminalInputPortsEditPart.VISUAL_ID:
-				return new TerminalInputPortsEditPart(view);
+			case MethodStartMethodStartFigureCompartmentEditPart.VISUAL_ID:
+				return new MethodStartMethodStartFigureCompartmentEditPart(view);
 
-			case OutputPortResultEditPart.VISUAL_ID:
-				return new OutputPortResultEditPart(view);
+			case WhileStartWhileStartFigureCompartmentEditPart.VISUAL_ID:
+				return new WhileStartWhileStartFigureCompartmentEditPart(view);
+
+			case StartStartPortEditPart.VISUAL_ID:
+				return new StartStartPortEditPart(view);
+
+			case OutputPortInputPortEditPart.VISUAL_ID:
+				return new OutputPortInputPortEditPart(view);
 
 			}
 		}

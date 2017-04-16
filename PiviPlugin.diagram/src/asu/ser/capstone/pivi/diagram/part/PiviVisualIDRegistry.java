@@ -9,27 +9,25 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import asu.ser.capstone.pivi.PiviDiagram;
 import asu.ser.capstone.pivi.PiviPackage;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementIfEndCompartmentFigureEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementNameEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementConditionEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementIfStartCompartmentFigureEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementNameEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfEndIfEndFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfStartEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfStartIfStartFigureCompartmentEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InstructionEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionCompartmentFigureEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionsEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.InstructionNameEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodEndMethodEndFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodStartEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodStartMethodStartFigureCompartmentEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.PiviDiagramEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.ResultEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.StartEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.StartNameEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementConditionEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementNameEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementWhileCompartmentFigureEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.StartPortEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileEndWhileEndFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileStartEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileStartWhileStartFigureCompartmentEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -133,64 +131,106 @@ public class PiviVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case PiviDiagramEditPart.VISUAL_ID:
-			if (PiviPackage.eINSTANCE.getIfEndStatement().isSuperTypeOf(domainElement.eClass())) {
-				return IfEndStatementEditPart.VISUAL_ID;
+			if (PiviPackage.eINSTANCE.getIfStart().isSuperTypeOf(domainElement.eClass())) {
+				return IfStartEditPart.VISUAL_ID;
 			}
-			if (PiviPackage.eINSTANCE.getStart().isSuperTypeOf(domainElement.eClass())) {
-				return StartEditPart.VISUAL_ID;
+			if (PiviPackage.eINSTANCE.getWhileEnd().isSuperTypeOf(domainElement.eClass())) {
+				return WhileEndEditPart.VISUAL_ID;
+			}
+			if (PiviPackage.eINSTANCE.getMethodEnd().isSuperTypeOf(domainElement.eClass())) {
+				return MethodEndEditPart.VISUAL_ID;
+			}
+			if (PiviPackage.eINSTANCE.getIfEnd().isSuperTypeOf(domainElement.eClass())) {
+				return IfEndEditPart.VISUAL_ID;
 			}
 			if (PiviPackage.eINSTANCE.getInstruction().isSuperTypeOf(domainElement.eClass())) {
 				return InstructionEditPart.VISUAL_ID;
 			}
-			if (PiviPackage.eINSTANCE.getIfStartStatement().isSuperTypeOf(domainElement.eClass())) {
-				return IfStartStatementEditPart.VISUAL_ID;
+			if (PiviPackage.eINSTANCE.getMethodStart().isSuperTypeOf(domainElement.eClass())) {
+				return MethodStartEditPart.VISUAL_ID;
 			}
-			if (PiviPackage.eINSTANCE.getWhileStatement().isSuperTypeOf(domainElement.eClass())) {
-				return WhileStatementEditPart.VISUAL_ID;
+			if (PiviPackage.eINSTANCE.getWhileStart().isSuperTypeOf(domainElement.eClass())) {
+				return WhileStartEditPart.VISUAL_ID;
+			}
+			if (PiviPackage.eINSTANCE.getStart().isSuperTypeOf(domainElement.eClass())) {
+				return StartEditPart.VISUAL_ID;
 			}
 			break;
-		case IfEndStatementIfEndCompartmentFigureEditPart.VISUAL_ID:
+		case IfStartIfStartFigureCompartmentEditPart.VISUAL_ID:
+			if (PiviPackage.eINSTANCE.getInputPort().isSuperTypeOf(domainElement.eClass())) {
+				return InputPortEditPart.VISUAL_ID;
+			}
+			if (PiviPackage.eINSTANCE.getStartPort().isSuperTypeOf(domainElement.eClass())) {
+				return StartPortEditPart.VISUAL_ID;
+			}
+			if (PiviPackage.eINSTANCE.getOutputPort().isSuperTypeOf(domainElement.eClass())) {
+				return OutputPortEditPart.VISUAL_ID;
+			}
+			break;
+		case WhileEndWhileEndFigureCompartmentEditPart.VISUAL_ID:
 			if (PiviPackage.eINSTANCE.getInputPort().isSuperTypeOf(domainElement.eClass())) {
 				return InputPortEditPart.VISUAL_ID;
 			}
 			if (PiviPackage.eINSTANCE.getOutputPort().isSuperTypeOf(domainElement.eClass())) {
 				return OutputPortEditPart.VISUAL_ID;
 			}
-			if (PiviPackage.eINSTANCE.getResult().isSuperTypeOf(domainElement.eClass())) {
-				return ResultEditPart.VISUAL_ID;
+			if (PiviPackage.eINSTANCE.getStartPort().isSuperTypeOf(domainElement.eClass())) {
+				return StartPortEditPart.VISUAL_ID;
 			}
 			break;
-		case InstructionInstructionCompartmentFigureEditPart.VISUAL_ID:
+		case MethodEndMethodEndFigureCompartmentEditPart.VISUAL_ID:
 			if (PiviPackage.eINSTANCE.getInputPort().isSuperTypeOf(domainElement.eClass())) {
 				return InputPortEditPart.VISUAL_ID;
 			}
-			if (PiviPackage.eINSTANCE.getResult().isSuperTypeOf(domainElement.eClass())) {
-				return ResultEditPart.VISUAL_ID;
+			if (PiviPackage.eINSTANCE.getStartPort().isSuperTypeOf(domainElement.eClass())) {
+				return StartPortEditPart.VISUAL_ID;
 			}
 			if (PiviPackage.eINSTANCE.getOutputPort().isSuperTypeOf(domainElement.eClass())) {
 				return OutputPortEditPart.VISUAL_ID;
 			}
 			break;
-		case IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID:
+		case IfEndIfEndFigureCompartmentEditPart.VISUAL_ID:
 			if (PiviPackage.eINSTANCE.getInputPort().isSuperTypeOf(domainElement.eClass())) {
 				return InputPortEditPart.VISUAL_ID;
 			}
 			if (PiviPackage.eINSTANCE.getOutputPort().isSuperTypeOf(domainElement.eClass())) {
 				return OutputPortEditPart.VISUAL_ID;
 			}
-			if (PiviPackage.eINSTANCE.getResult().isSuperTypeOf(domainElement.eClass())) {
-				return ResultEditPart.VISUAL_ID;
+			if (PiviPackage.eINSTANCE.getStartPort().isSuperTypeOf(domainElement.eClass())) {
+				return StartPortEditPart.VISUAL_ID;
 			}
 			break;
-		case WhileStatementWhileCompartmentFigureEditPart.VISUAL_ID:
+		case InstructionInstructionFigureCompartmentEditPart.VISUAL_ID:
 			if (PiviPackage.eINSTANCE.getInputPort().isSuperTypeOf(domainElement.eClass())) {
 				return InputPortEditPart.VISUAL_ID;
 			}
-			if (PiviPackage.eINSTANCE.getResult().isSuperTypeOf(domainElement.eClass())) {
-				return ResultEditPart.VISUAL_ID;
+			if (PiviPackage.eINSTANCE.getStartPort().isSuperTypeOf(domainElement.eClass())) {
+				return StartPortEditPart.VISUAL_ID;
 			}
 			if (PiviPackage.eINSTANCE.getOutputPort().isSuperTypeOf(domainElement.eClass())) {
 				return OutputPortEditPart.VISUAL_ID;
+			}
+			break;
+		case MethodStartMethodStartFigureCompartmentEditPart.VISUAL_ID:
+			if (PiviPackage.eINSTANCE.getInputPort().isSuperTypeOf(domainElement.eClass())) {
+				return InputPortEditPart.VISUAL_ID;
+			}
+			if (PiviPackage.eINSTANCE.getOutputPort().isSuperTypeOf(domainElement.eClass())) {
+				return OutputPortEditPart.VISUAL_ID;
+			}
+			if (PiviPackage.eINSTANCE.getStartPort().isSuperTypeOf(domainElement.eClass())) {
+				return StartPortEditPart.VISUAL_ID;
+			}
+			break;
+		case WhileStartWhileStartFigureCompartmentEditPart.VISUAL_ID:
+			if (PiviPackage.eINSTANCE.getInputPort().isSuperTypeOf(domainElement.eClass())) {
+				return InputPortEditPart.VISUAL_ID;
+			}
+			if (PiviPackage.eINSTANCE.getOutputPort().isSuperTypeOf(domainElement.eClass())) {
+				return OutputPortEditPart.VISUAL_ID;
+			}
+			if (PiviPackage.eINSTANCE.getStartPort().isSuperTypeOf(domainElement.eClass())) {
+				return StartPortEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -217,109 +257,140 @@ public class PiviVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case PiviDiagramEditPart.VISUAL_ID:
-			if (IfEndStatementEditPart.VISUAL_ID == nodeVisualID) {
+			if (IfStartEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (StartEditPart.VISUAL_ID == nodeVisualID) {
+			if (WhileEndEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (MethodEndEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (IfEndEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (InstructionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (IfStartStatementEditPart.VISUAL_ID == nodeVisualID) {
+			if (MethodStartEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (WhileStatementEditPart.VISUAL_ID == nodeVisualID) {
+			if (WhileStartEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			break;
-		case IfEndStatementEditPart.VISUAL_ID:
-			if (IfEndStatementNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (IfEndStatementIfEndCompartmentFigureEditPart.VISUAL_ID == nodeVisualID) {
+			if (StartEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case StartEditPart.VISUAL_ID:
-			if (StartNameEditPart.VISUAL_ID == nodeVisualID) {
+		case IfStartEditPart.VISUAL_ID:
+			if (IfStartIfStartFigureCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case WhileEndEditPart.VISUAL_ID:
+			if (WhileEndWhileEndFigureCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case MethodEndEditPart.VISUAL_ID:
+			if (MethodEndMethodEndFigureCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case IfEndEditPart.VISUAL_ID:
+			if (IfEndIfEndFigureCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case InstructionEditPart.VISUAL_ID:
-			if (InstructionNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (InstructionInstructionsEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (InstructionInstructionCompartmentFigureEditPart.VISUAL_ID == nodeVisualID) {
+			if (InstructionInstructionFigureCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case IfStartStatementEditPart.VISUAL_ID:
-			if (IfStartStatementNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (IfStartStatementConditionEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID == nodeVisualID) {
+		case MethodStartEditPart.VISUAL_ID:
+			if (MethodStartMethodStartFigureCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case WhileStatementEditPart.VISUAL_ID:
-			if (WhileStatementNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (WhileStatementConditionEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (WhileStatementWhileCompartmentFigureEditPart.VISUAL_ID == nodeVisualID) {
+		case WhileStartEditPart.VISUAL_ID:
+			if (WhileStartWhileStartFigureCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case IfEndStatementIfEndCompartmentFigureEditPart.VISUAL_ID:
+		case IfStartIfStartFigureCompartmentEditPart.VISUAL_ID:
 			if (InputPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (OutputPortEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ResultEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case InstructionInstructionCompartmentFigureEditPart.VISUAL_ID:
-			if (InputPortEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (ResultEditPart.VISUAL_ID == nodeVisualID) {
+			if (StartPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (OutputPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID:
+		case WhileEndWhileEndFigureCompartmentEditPart.VISUAL_ID:
 			if (InputPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (OutputPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ResultEditPart.VISUAL_ID == nodeVisualID) {
+			if (StartPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case WhileStatementWhileCompartmentFigureEditPart.VISUAL_ID:
+		case MethodEndMethodEndFigureCompartmentEditPart.VISUAL_ID:
 			if (InputPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ResultEditPart.VISUAL_ID == nodeVisualID) {
+			if (StartPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (OutputPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case IfEndIfEndFigureCompartmentEditPart.VISUAL_ID:
+			if (InputPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (OutputPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (StartPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case InstructionInstructionFigureCompartmentEditPart.VISUAL_ID:
+			if (InputPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (StartPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (OutputPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case MethodStartMethodStartFigureCompartmentEditPart.VISUAL_ID:
+			if (InputPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (OutputPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (StartPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case WhileStartWhileStartFigureCompartmentEditPart.VISUAL_ID:
+			if (InputPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (OutputPortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (StartPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -364,10 +435,13 @@ public class PiviVisualIDRegistry {
 	*/
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
-		case IfEndStatementIfEndCompartmentFigureEditPart.VISUAL_ID:
-		case InstructionInstructionCompartmentFigureEditPart.VISUAL_ID:
-		case IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID:
-		case WhileStatementWhileCompartmentFigureEditPart.VISUAL_ID:
+		case IfStartIfStartFigureCompartmentEditPart.VISUAL_ID:
+		case WhileEndWhileEndFigureCompartmentEditPart.VISUAL_ID:
+		case MethodEndMethodEndFigureCompartmentEditPart.VISUAL_ID:
+		case IfEndIfEndFigureCompartmentEditPart.VISUAL_ID:
+		case InstructionInstructionFigureCompartmentEditPart.VISUAL_ID:
+		case MethodStartMethodStartFigureCompartmentEditPart.VISUAL_ID:
+		case WhileStartWhileStartFigureCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -384,8 +458,8 @@ public class PiviVisualIDRegistry {
 			return false;
 		case StartEditPart.VISUAL_ID:
 		case InputPortEditPart.VISUAL_ID:
+		case StartPortEditPart.VISUAL_ID:
 		case OutputPortEditPart.VISUAL_ID:
-		case ResultEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

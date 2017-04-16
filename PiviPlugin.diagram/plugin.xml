@@ -25,7 +25,7 @@
          default="true"
          class="asu.ser.capstone.pivi.diagram.part.PiviDiagramEditor"
          matchingStrategy="asu.ser.capstone.pivi.diagram.part.PiviMatchingStrategy"
-         contributorClass="asu.ser.capstone.pivi.diagram.part.custom.CustomPiviDiagramActionBarContributor">
+         contributorClass="asu.ser.capstone.pivi.diagram.part.PiviDiagramActionBarContributor">
       </editor>
    </extension>
    
@@ -217,8 +217,8 @@
       <viewProvider class="asu.ser.capstone.pivi.diagram.providers.PiviViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Pivi"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,3001,3002,3003"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,2006,2007,2008,3001,3002,3003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4004,4002"/>
       </viewProvider>
    </extension>
 
@@ -230,16 +230,16 @@
             <method name="getType()" value="Pivi"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,2002,2003,2004,2005,3001,3002,3003"/>
+            <method name="getType()" value="2001,2002,2003,2004,2005,2006,2007,2008,3001,3002,3003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001,4002"/>
+            <method name="getType()" value="4004,4002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5001,5002,5003,5004,5005,5006,5007,5008"/>
+            <method name="getType()" value=""/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7002,7003,7004"/>
+            <method name="getType()" value="7001,7002,7003,7004,7005,7007,7008"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -253,45 +253,60 @@
          <object class="asu.ser.capstone.pivi.diagram.edit.parts.PiviDiagramEditPart" id="PiviDiagram_1000"/>
          <context elements="PiviDiagram_1000"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfIfEndStatementEditPart">
+            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfIfStartEditPart">
          <Priority name="Lowest"/>
-         <object class="asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementEditPart" id="IfEndStatement_2001"/>
-         <context elements="IfEndStatement_2001"/>
+         <object class="asu.ser.capstone.pivi.diagram.edit.parts.IfStartEditPart" id="IfStart_2001"/>
+         <context elements="IfStart_2001"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfStartEditPart">
+            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfWhileEndEditPart">
          <Priority name="Lowest"/>
-         <object class="asu.ser.capstone.pivi.diagram.edit.parts.StartEditPart" id="Start_2002"/>
-         <context elements="Start_2002"/>
+         <object class="asu.ser.capstone.pivi.diagram.edit.parts.WhileEndEditPart" id="WhileEnd_2002"/>
+         <context elements="WhileEnd_2002"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfMethodEndEditPart">
+         <Priority name="Lowest"/>
+         <object class="asu.ser.capstone.pivi.diagram.edit.parts.MethodEndEditPart" id="MethodEnd_2003"/>
+         <context elements="MethodEnd_2003"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfIfEndEditPart">
+         <Priority name="Lowest"/>
+         <object class="asu.ser.capstone.pivi.diagram.edit.parts.IfEndEditPart" id="IfEnd_2004"/>
+         <context elements="IfEnd_2004"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfInstructionEditPart">
          <Priority name="Lowest"/>
-         <object class="asu.ser.capstone.pivi.diagram.edit.parts.InstructionEditPart" id="Instruction_2003"/>
-         <context elements="Instruction_2003"/>
+         <object class="asu.ser.capstone.pivi.diagram.edit.parts.InstructionEditPart" id="Instruction_2005"/>
+         <context elements="Instruction_2005"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfIfStartStatementEditPart">
+            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfMethodStartEditPart">
          <Priority name="Lowest"/>
-         <object class="asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementEditPart" id="IfStartStatement_2004"/>
-         <context elements="IfStartStatement_2004"/>
+         <object class="asu.ser.capstone.pivi.diagram.edit.parts.MethodStartEditPart" id="MethodStart_2006"/>
+         <context elements="MethodStart_2006"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfWhileStatementEditPart">
+            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfWhileStartEditPart">
          <Priority name="Lowest"/>
-         <object class="asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementEditPart" id="WhileStatement_2005"/>
-         <context elements="WhileStatement_2005"/>
+         <object class="asu.ser.capstone.pivi.diagram.edit.parts.WhileStartEditPart" id="WhileStart_2007"/>
+         <context elements="WhileStart_2007"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfStartEditPart">
+         <Priority name="Lowest"/>
+         <object class="asu.ser.capstone.pivi.diagram.edit.parts.StartEditPart" id="Start_2008"/>
+         <context elements="Start_2008"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfInputPortEditPart">
          <Priority name="Lowest"/>
          <object class="asu.ser.capstone.pivi.diagram.edit.parts.InputPortEditPart" id="InputPort_3001"/>
          <context elements="InputPort_3001"/>
       </modelingAssistantProvider>
+            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfStartPortEditPart">
+         <Priority name="Lowest"/>
+         <object class="asu.ser.capstone.pivi.diagram.edit.parts.StartPortEditPart" id="StartPort_3002"/>
+         <context elements="StartPort_3002"/>
+      </modelingAssistantProvider>
             <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfOutputPortEditPart">
          <Priority name="Lowest"/>
-         <object class="asu.ser.capstone.pivi.diagram.edit.parts.OutputPortEditPart" id="OutputPort_3002"/>
-         <context elements="OutputPort_3002"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="asu.ser.capstone.pivi.diagram.providers.assistants.PiviModelingAssistantProviderOfResultEditPart">
-         <Priority name="Lowest"/>
-         <object class="asu.ser.capstone.pivi.diagram.edit.parts.ResultEditPart" id="Result_3003"/>
-         <context elements="Result_3003"/>
+         <object class="asu.ser.capstone.pivi.diagram.edit.parts.OutputPortEditPart" id="OutputPort_3003"/>
+         <context elements="OutputPort_3003"/>
       </modelingAssistantProvider>
       
    </extension>
@@ -302,13 +317,6 @@
       <IconProvider class="asu.ser.capstone.pivi.diagram.providers.PiviIconProvider">
          <Priority name="Low"/>
       </IconProvider>
-   </extension>
-
-   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
-      <?gmfgen generated="true"?>
-      <ParserProvider class="asu.ser.capstone.pivi.diagram.providers.PiviParserProvider">
-         <Priority name="Lowest"/>
-      </ParserProvider>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
@@ -325,52 +333,82 @@
       </metamodel>
       <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
          <metamodelType
-               id="PiviPlugin.diagram.IfEndStatement_2001"
-               name="%metatype.name.IfEndStatement_2001"
+               id="PiviPlugin.diagram.IfStart_2001"
+               name="%metatype.name.IfStart_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="IfEndStatement"
-               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.IfEndStatementEditHelper">
+               eclass="IfStart"
+               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.IfStartEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
          <metamodelType
-               id="PiviPlugin.diagram.Start_2002"
-               name="%metatype.name.Start_2002"
+               id="PiviPlugin.diagram.WhileEnd_2002"
+               name="%metatype.name.WhileEnd_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Start"
-               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.StartEditHelper">
+               eclass="WhileEnd"
+               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.WhileEndEditHelper">
             <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
          <metamodelType
-               id="PiviPlugin.diagram.Instruction_2003"
-               name="%metatype.name.Instruction_2003"
+               id="PiviPlugin.diagram.MethodEnd_2003"
+               name="%metatype.name.MethodEnd_2003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Instruction"
-               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.InstructionEditHelper">
+               eclass="MethodEnd"
+               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.MethodEndEditHelper">
             <param name="semanticHint" value="2003"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
          <metamodelType
-               id="PiviPlugin.diagram.IfStartStatement_2004"
-               name="%metatype.name.IfStartStatement_2004"
+               id="PiviPlugin.diagram.IfEnd_2004"
+               name="%metatype.name.IfEnd_2004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="IfStartStatement"
-               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.IfStartStatementEditHelper">
+               eclass="IfEnd"
+               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.IfEndEditHelper">
             <param name="semanticHint" value="2004"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
          <metamodelType
-               id="PiviPlugin.diagram.WhileStatement_2005"
-               name="%metatype.name.WhileStatement_2005"
+               id="PiviPlugin.diagram.Instruction_2005"
+               name="%metatype.name.Instruction_2005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="WhileStatement"
-               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.WhileStatementEditHelper">
+               eclass="Instruction"
+               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.InstructionEditHelper">
             <param name="semanticHint" value="2005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
+         <metamodelType
+               id="PiviPlugin.diagram.MethodStart_2006"
+               name="%metatype.name.MethodStart_2006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="MethodStart"
+               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.MethodStartEditHelper">
+            <param name="semanticHint" value="2006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
+         <metamodelType
+               id="PiviPlugin.diagram.WhileStart_2007"
+               name="%metatype.name.WhileStart_2007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="WhileStart"
+               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.WhileStartEditHelper">
+            <param name="semanticHint" value="2007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
+         <metamodelType
+               id="PiviPlugin.diagram.Start_2008"
+               name="%metatype.name.Start_2008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Start"
+               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.StartEditHelper">
+            <param name="semanticHint" value="2008"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
@@ -385,37 +423,37 @@
       </metamodel>
       <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
          <metamodelType
-               id="PiviPlugin.diagram.OutputPort_3002"
-               name="%metatype.name.OutputPort_3002"
+               id="PiviPlugin.diagram.StartPort_3002"
+               name="%metatype.name.StartPort_3002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="OutputPort"
-               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.OutputPortEditHelper">
+               eclass="StartPort"
+               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.StartPortEditHelper">
             <param name="semanticHint" value="3002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
          <metamodelType
-               id="PiviPlugin.diagram.Result_3003"
-               name="%metatype.name.Result_3003"
+               id="PiviPlugin.diagram.OutputPort_3003"
+               name="%metatype.name.OutputPort_3003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Result"
-               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.ResultEditHelper">
+               eclass="OutputPort"
+               edithelper="asu.ser.capstone.pivi.diagram.edit.helpers.OutputPortEditHelper">
             <param name="semanticHint" value="3003"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
          <specializationType
-               id="PiviPlugin.diagram.TerminalInputPorts_4001"
-               name="%metatype.name.TerminalInputPorts_4001"
+               id="PiviPlugin.diagram.StartStartPort_4004"
+               name="%metatype.name.StartStartPort_4004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4001"/>
+            <param name="semanticHint" value="4004"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http:///asu/ser/capstone/pivi.ecore">
          <specializationType
-               id="PiviPlugin.diagram.OutputPortResult_4002"
-               name="%metatype.name.OutputPortResult_4002"
+               id="PiviPlugin.diagram.OutputPortInputPort_4002"
+               name="%metatype.name.OutputPortInputPort_4002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
             <param name="semanticHint" value="4002"/>
@@ -434,16 +472,19 @@
       </clientContext> 
       <binding context="PiviPlugin.diagram.TypeContext">
          <elementType ref="PiviPlugin.diagram.PiviDiagram_1000"/>
-         <elementType ref="PiviPlugin.diagram.IfEndStatement_2001"/>
-         <elementType ref="PiviPlugin.diagram.Start_2002"/>
-         <elementType ref="PiviPlugin.diagram.Instruction_2003"/>
-         <elementType ref="PiviPlugin.diagram.IfStartStatement_2004"/>
-         <elementType ref="PiviPlugin.diagram.WhileStatement_2005"/>
+         <elementType ref="PiviPlugin.diagram.IfStart_2001"/>
+         <elementType ref="PiviPlugin.diagram.WhileEnd_2002"/>
+         <elementType ref="PiviPlugin.diagram.MethodEnd_2003"/>
+         <elementType ref="PiviPlugin.diagram.IfEnd_2004"/>
+         <elementType ref="PiviPlugin.diagram.Instruction_2005"/>
+         <elementType ref="PiviPlugin.diagram.MethodStart_2006"/>
+         <elementType ref="PiviPlugin.diagram.WhileStart_2007"/>
+         <elementType ref="PiviPlugin.diagram.Start_2008"/>
          <elementType ref="PiviPlugin.diagram.InputPort_3001"/>
-         <elementType ref="PiviPlugin.diagram.OutputPort_3002"/>
-         <elementType ref="PiviPlugin.diagram.Result_3003"/>
-         <elementType ref="PiviPlugin.diagram.TerminalInputPorts_4001"/>
-         <elementType ref="PiviPlugin.diagram.OutputPortResult_4002"/>
+         <elementType ref="PiviPlugin.diagram.StartPort_3002"/>
+         <elementType ref="PiviPlugin.diagram.OutputPort_3003"/>
+         <elementType ref="PiviPlugin.diagram.StartStartPort_4004"/>
+         <elementType ref="PiviPlugin.diagram.OutputPortInputPort_4002"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

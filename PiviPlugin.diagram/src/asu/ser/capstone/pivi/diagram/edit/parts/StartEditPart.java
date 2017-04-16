@@ -1,28 +1,25 @@
 package asu.ser.capstone.pivi.diagram.edit.parts;
 
-import org.eclipse.draw2d.FlowLayout;
+
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import asu.ser.capstone.pivi.diagram.edit.parts.custom.StartRoundedRectangle;
 import asu.ser.capstone.pivi.diagram.edit.policies.StartItemSemanticEditPolicy;
-import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
 
 /**
  * @generated
@@ -32,7 +29,7 @@ public class StartEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 2008;
 
 	/**
 	* @generated
@@ -66,14 +63,17 @@ public class StartEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected LayoutEditPolicy createLayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-		FlowLayoutEditPolicy lep = new FlowLayoutEditPolicy() {
-
-			protected Command createAddCommand(EditPart child, EditPart after) {
-				return null;
+			protected EditPolicy createChildEditPolicy(EditPart child) {
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				if (result == null) {
+					result = new NonResizableEditPolicy();
+				}
+				return result;
 			}
 
-			protected Command createMoveChildCommand(EditPart child, EditPart after) {
+			protected Command getMoveChildrenCommand(Request request) {
 				return null;
 			}
 
@@ -85,72 +85,24 @@ public class StartEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected IFigure createNodeShape() {
-		return primaryShape = new StartFigure();
+		return primaryShape = new StartRoundedRectangle();
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
-	public StartFigure getPrimaryShape() {
-		return (StartFigure) primaryShape;
-	}
-
-	/**
-	* @generated
-	*/
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof StartNameEditPart) {
-			((StartNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureStartNameFigure());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	* @generated
-	*/
-	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof StartNameEditPart) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	* @generated
-	*/
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	* @generated
-	*/
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
-
-	/**
-	* @generated
-	*/
-	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		return getContentPane();
+	public StartRoundedRectangle getPrimaryShape() {
+		return (StartRoundedRectangle) primaryShape;
 	}
 
 	/**
 	* @generated
 	*/
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(70, 70);
 		return result;
 	}
 
@@ -178,11 +130,6 @@ public class StartEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(5);
-			nodeShape.setLayoutManager(layout);
-		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -200,17 +147,16 @@ public class StartEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected void setForegroundColor(Color color) {
-		if (primaryShape != null) {			
+		if (primaryShape != null) {
 			primaryShape.setForegroundColor(color);
 		}
 	}
 
 	/**
-	* @generated NOT
+	* @generated
 	*/
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
-			color = new Color(color.getDevice(), 255, 249, 94);
 			primaryShape.setBackgroundColor(color);
 		}
 	}
@@ -231,64 +177,6 @@ public class StartEditPart extends ShapeNodeEditPart {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
 		}
-	}
-
-	/**
-	* @generated
-	*/
-	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(PiviVisualIDRegistry.getType(StartNameEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public class StartFigure extends RectangleFigure {
-
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureStartNameFigure;
-
-		/**
-		 * @generated
-		 */
-		public StartFigure() {
-
-			FlowLayout layoutThis = new FlowLayout();
-			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
-
-			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorSpacing(5);
-			layoutThis.setMinorSpacing(5);
-			layoutThis.setHorizontal(true);
-
-			this.setLayoutManager(layoutThis);
-
-			createContents();
-		}
-
-		/**
-		 * @generated NOT
-		 */
-		private void createContents() {
-
-			fFigureStartNameFigure = new WrappingLabel();
-
-			fFigureStartNameFigure.setText("");
-
-//			this.add(fFigureStartNameFigure);
-
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureStartNameFigure() {
-			return fFigureStartNameFigure;
-		}
-
 	}
 
 }

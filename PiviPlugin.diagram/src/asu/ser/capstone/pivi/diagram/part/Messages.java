@@ -253,22 +253,22 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String IfEndStatement1CreationTool_title;
+	public static String IfEnd1CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String IfEndStatement1CreationTool_desc;
+	public static String IfEnd1CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String IfStartStatement2CreationTool_title;
+	public static String IfStart2CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String IfStartStatement2CreationTool_desc;
+	public static String IfStart2CreationTool_desc;
 
 	/**
 	* @generated
@@ -283,72 +283,117 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String Result4CreationTool_title;
+	public static String MethodEnd4CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String Result4CreationTool_desc;
+	public static String MethodEnd4CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String Start5CreationTool_title;
+	public static String MethodStart5CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String Start5CreationTool_desc;
+	public static String MethodStart5CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String WhileStatement6CreationTool_title;
+	public static String OutputPort6CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String WhileStatement6CreationTool_desc;
+	public static String OutputPort6CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String OutputPortResult1CreationTool_title;
+	public static String Start7CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String OutputPortResult1CreationTool_desc;
+	public static String Start7CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String TerminalInputPorts2CreationTool_title;
+	public static String WhileEnd8CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String TerminalInputPorts2CreationTool_desc;
+	public static String WhileEnd8CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String IfEndStatementIfEndCompartmentFigureEditPart_title;
+	public static String WhileStart9CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String InstructionInstructionCompartmentFigureEditPart_title;
+	public static String WhileStart9CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String IfStartStatementIfStartCompartmentFigureEditPart_title;
+	public static String OutputPortInputPort1CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String WhileStatementWhileCompartmentFigureEditPart_title;
+	public static String OutputPortInputPort1CreationTool_desc;
+
+	/**
+	* @generated
+	*/
+	public static String StartStartPort2CreationTool_title;
+
+	/**
+	* @generated
+	*/
+	public static String StartStartPort2CreationTool_desc;
+
+	/**
+	* @generated
+	*/
+	public static String IfStartIfStartFigureCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String WhileEndWhileEndFigureCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String MethodEndMethodEndFigureCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String IfEndIfEndFigureCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String InstructionInstructionFigureCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String MethodStartMethodStartFigureCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String WhileStartWhileStartFigureCompartmentEditPart_title;
 
 	/**
 	* @generated
@@ -363,7 +408,7 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Start_2002_outgoinglinks;
+	public static String NavigatorGroupName_Start_2008_outgoinglinks;
 
 	/**
 	* @generated
@@ -373,42 +418,37 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_OutputPort_3002_outgoinglinks;
+	public static String NavigatorGroupName_StartPort_3002_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Result_3003_incominglinks;
+	public static String NavigatorGroupName_OutputPort_3003_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TerminalInputPorts_4001_target;
+	public static String NavigatorGroupName_OutputPortInputPort_4002_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TerminalInputPorts_4001_source;
+	public static String NavigatorGroupName_OutputPortInputPort_4002_source;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_OutputPortResult_4002_target;
+	public static String NavigatorGroupName_StartStartPort_4004_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_OutputPortResult_4002_source;
+	public static String NavigatorGroupName_StartStartPort_4004_source;
 
 	/**
 	* @generated
 	*/
 	public static String NavigatorActionProvider_OpenDiagramActionName;
-
-	/**
-	* @generated
-	*/
-	public static String MessageFormatParser_InvalidInputError;
 
 	/**
 	* @generated

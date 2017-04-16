@@ -28,7 +28,7 @@ public class OutputPortEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 3002;
+	public static final int VISUAL_ID = 3003;
 
 	/**
 	* @generated
@@ -156,7 +156,7 @@ public class OutputPortEditPart extends ShapeNodeEditPart {
 	*/
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
-			color = new Color(color.getDevice(), 0, 0, 255);
+			color = new Color(color.getDevice(), 120, 0, 255);
 			primaryShape.setBackgroundColor(color);
 		}
 	}

@@ -7,11 +7,14 @@ import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsComma
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
-import asu.ser.capstone.pivi.diagram.edit.commands.IfEndStatementCreateCommand;
-import asu.ser.capstone.pivi.diagram.edit.commands.IfStartStatementCreateCommand;
+import asu.ser.capstone.pivi.diagram.edit.commands.IfEndCreateCommand;
+import asu.ser.capstone.pivi.diagram.edit.commands.IfStartCreateCommand;
 import asu.ser.capstone.pivi.diagram.edit.commands.InstructionCreateCommand;
+import asu.ser.capstone.pivi.diagram.edit.commands.MethodEndCreateCommand;
+import asu.ser.capstone.pivi.diagram.edit.commands.MethodStartCreateCommand;
 import asu.ser.capstone.pivi.diagram.edit.commands.StartCreateCommand;
-import asu.ser.capstone.pivi.diagram.edit.commands.WhileStatementCreateCommand;
+import asu.ser.capstone.pivi.diagram.edit.commands.WhileEndCreateCommand;
+import asu.ser.capstone.pivi.diagram.edit.commands.WhileStartCreateCommand;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
 
 /**
@@ -30,20 +33,29 @@ public class PiviDiagramItemSemanticEditPolicy extends PiviBaseItemSemanticEditP
 	* @generated
 	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PiviElementTypes.IfEndStatement_2001 == req.getElementType()) {
-			return getGEFWrapper(new IfEndStatementCreateCommand(req));
+		if (PiviElementTypes.IfStart_2001 == req.getElementType()) {
+			return getGEFWrapper(new IfStartCreateCommand(req));
 		}
-		if (PiviElementTypes.Start_2002 == req.getElementType()) {
-			return getGEFWrapper(new StartCreateCommand(req));
+		if (PiviElementTypes.WhileEnd_2002 == req.getElementType()) {
+			return getGEFWrapper(new WhileEndCreateCommand(req));
 		}
-		if (PiviElementTypes.Instruction_2003 == req.getElementType()) {
+		if (PiviElementTypes.MethodEnd_2003 == req.getElementType()) {
+			return getGEFWrapper(new MethodEndCreateCommand(req));
+		}
+		if (PiviElementTypes.IfEnd_2004 == req.getElementType()) {
+			return getGEFWrapper(new IfEndCreateCommand(req));
+		}
+		if (PiviElementTypes.Instruction_2005 == req.getElementType()) {
 			return getGEFWrapper(new InstructionCreateCommand(req));
 		}
-		if (PiviElementTypes.IfStartStatement_2004 == req.getElementType()) {
-			return getGEFWrapper(new IfStartStatementCreateCommand(req));
+		if (PiviElementTypes.MethodStart_2006 == req.getElementType()) {
+			return getGEFWrapper(new MethodStartCreateCommand(req));
 		}
-		if (PiviElementTypes.WhileStatement_2005 == req.getElementType()) {
-			return getGEFWrapper(new WhileStatementCreateCommand(req));
+		if (PiviElementTypes.WhileStart_2007 == req.getElementType()) {
+			return getGEFWrapper(new WhileStartCreateCommand(req));
+		}
+		if (PiviElementTypes.Start_2008 == req.getElementType()) {
+			return getGEFWrapper(new StartCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

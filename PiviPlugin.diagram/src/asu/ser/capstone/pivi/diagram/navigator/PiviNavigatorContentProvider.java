@@ -23,21 +23,27 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
-import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementIfEndCompartmentFigureEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementIfStartCompartmentFigureEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfEndIfEndFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfStartEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfStartIfStartFigureCompartmentEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InstructionEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionCompartmentFigureEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodEndMethodEndFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodStartEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodStartMethodStartFigureCompartmentEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortResultEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortInputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.PiviDiagramEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.ResultEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.StartEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.TerminalInputPortsEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementWhileCompartmentFigureEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.StartPortEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.StartStartPortEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileEndWhileEndFigureCompartmentEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileStartEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileStartWhileStartFigureCompartmentEditPart;
 import asu.ser.capstone.pivi.diagram.part.Messages;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
 
@@ -228,25 +234,34 @@ public class PiviNavigatorContentProvider implements ICommonContentProvider {
 					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(IfEndStatementEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(IfStartEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(StartEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(WhileEndEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(MethodEndEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(IfEndEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					PiviVisualIDRegistry.getType(InstructionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(IfStartStatementEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(MethodStartEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(WhileStatementEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(WhileStartEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(StartEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(TerminalInputPortsEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(StartStartPortEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(OutputPortResultEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(OutputPortInputPortEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			if (!links.isEmpty()) {
 				result.add(links);
@@ -254,40 +269,91 @@ public class PiviNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case IfEndStatementEditPart.VISUAL_ID: {
+		case IfStartEditPart.VISUAL_ID: {
 			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(IfEndStatementIfEndCompartmentFigureEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(IfStartIfStartFigureCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PiviVisualIDRegistry.getType(InputPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(IfEndStatementIfEndCompartmentFigureEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(IfStartIfStartFigureCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
-					PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(StartPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(IfEndStatementIfEndCompartmentFigureEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, PiviVisualIDRegistry.getType(ResultEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(IfStartIfStartFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			return result.toArray();
 		}
 
-		case StartEditPart.VISUAL_ID: {
+		case WhileEndEditPart.VISUAL_ID: {
 			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
 			Node sv = (Node) view;
-			PiviNavigatorGroup outgoinglinks = new PiviNavigatorGroup(
-					Messages.NavigatorGroupName_Start_2002_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
-					parentElement);
 			Collection<View> connectedViews;
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(TerminalInputPortsEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(WhileEndWhileEndFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(InputPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(WhileEndWhileEndFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(WhileEndWhileEndFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(StartPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			return result.toArray();
+		}
+
+		case MethodEndEditPart.VISUAL_ID: {
+			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(MethodEndMethodEndFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(InputPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(MethodEndMethodEndFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(StartPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(MethodEndMethodEndFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			return result.toArray();
+		}
+
+		case IfEndEditPart.VISUAL_ID: {
+			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(IfEndIfEndFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(InputPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(IfEndIfEndFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(IfEndIfEndFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(StartPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			return result.toArray();
 		}
 
@@ -296,61 +362,80 @@ public class PiviNavigatorContentProvider implements ICommonContentProvider {
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(InstructionInstructionCompartmentFigureEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(InstructionInstructionFigureCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PiviVisualIDRegistry.getType(InputPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(InstructionInstructionCompartmentFigureEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, PiviVisualIDRegistry.getType(ResultEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(InstructionInstructionFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(StartPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(InstructionInstructionCompartmentFigureEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(InstructionInstructionFigureCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			return result.toArray();
 		}
 
-		case IfStartStatementEditPart.VISUAL_ID: {
+		case MethodStartEditPart.VISUAL_ID: {
 			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(MethodStartMethodStartFigureCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PiviVisualIDRegistry.getType(InputPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(MethodStartMethodStartFigureCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(IfStartStatementIfStartCompartmentFigureEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, PiviVisualIDRegistry.getType(ResultEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(MethodStartMethodStartFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(StartPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			return result.toArray();
 		}
 
-		case WhileStatementEditPart.VISUAL_ID: {
+		case WhileStartEditPart.VISUAL_ID: {
 			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(WhileStatementWhileCompartmentFigureEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(WhileStartWhileStartFigureCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PiviVisualIDRegistry.getType(InputPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(WhileStatementWhileCompartmentFigureEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, PiviVisualIDRegistry.getType(ResultEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(WhileStatementWhileCompartmentFigureEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(WhileStartWhileStartFigureCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(WhileStartWhileStartFigureCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PiviVisualIDRegistry.getType(StartPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			return result.toArray();
+		}
+
+		case StartEditPart.VISUAL_ID: {
+			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			PiviNavigatorGroup outgoinglinks = new PiviNavigatorGroup(
+					Messages.NavigatorGroupName_Start_2008_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
+					parentElement);
+			Collection<View> connectedViews;
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(StartStartPortEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
 			return result.toArray();
 		}
 
@@ -362,7 +447,23 @@ public class PiviNavigatorContentProvider implements ICommonContentProvider {
 					parentElement);
 			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(TerminalInputPortsEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(OutputPortInputPortEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case StartPortEditPart.VISUAL_ID: {
+			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			PiviNavigatorGroup incominglinks = new PiviNavigatorGroup(
+					Messages.NavigatorGroupName_StartPort_3002_incominglinks, "icons/incomingLinksNavigatorGroup.gif", //$NON-NLS-1$
+					parentElement);
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					PiviVisualIDRegistry.getType(StartStartPortEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			if (!incominglinks.isEmpty()) {
 				result.add(incominglinks);
@@ -374,11 +475,11 @@ public class PiviNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			PiviNavigatorGroup outgoinglinks = new PiviNavigatorGroup(
-					Messages.NavigatorGroupName_OutputPort_3002_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_OutputPort_3003_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(OutputPortResultEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(OutputPortInputPortEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
 			if (!outgoinglinks.isEmpty()) {
 				result.add(outgoinglinks);
@@ -386,37 +487,21 @@ public class PiviNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case ResultEditPart.VISUAL_ID: {
-			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			PiviNavigatorGroup incominglinks = new PiviNavigatorGroup(
-					Messages.NavigatorGroupName_Result_3003_incominglinks, "icons/incomingLinksNavigatorGroup.gif", //$NON-NLS-1$
-					parentElement);
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(OutputPortResultEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
-		case TerminalInputPortsEditPart.VISUAL_ID: {
+		case OutputPortInputPortEditPart.VISUAL_ID: {
 			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
 			Edge sv = (Edge) view;
 			PiviNavigatorGroup target = new PiviNavigatorGroup(
-					Messages.NavigatorGroupName_TerminalInputPorts_4001_target, "icons/linkTargetNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_OutputPortInputPort_4002_target, "icons/linkTargetNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			PiviNavigatorGroup source = new PiviNavigatorGroup(
-					Messages.NavigatorGroupName_TerminalInputPorts_4001_source, "icons/linkSourceNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_OutputPortInputPort_4002_source, "icons/linkSourceNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
 					PiviVisualIDRegistry.getType(InputPortEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target, true));
 			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(StartEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source, true));
 			if (!target.isEmpty()) {
 				result.add(target);
@@ -427,19 +512,19 @@ public class PiviNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case OutputPortResultEditPart.VISUAL_ID: {
+		case StartStartPortEditPart.VISUAL_ID: {
 			LinkedList<PiviAbstractNavigatorItem> result = new LinkedList<PiviAbstractNavigatorItem>();
 			Edge sv = (Edge) view;
-			PiviNavigatorGroup target = new PiviNavigatorGroup(Messages.NavigatorGroupName_OutputPortResult_4002_target,
+			PiviNavigatorGroup target = new PiviNavigatorGroup(Messages.NavigatorGroupName_StartStartPort_4004_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			PiviNavigatorGroup source = new PiviNavigatorGroup(Messages.NavigatorGroupName_OutputPortResult_4002_source,
+			PiviNavigatorGroup source = new PiviNavigatorGroup(Messages.NavigatorGroupName_StartStartPort_4004_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(ResultEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(StartPortEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target, true));
 			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					PiviVisualIDRegistry.getType(OutputPortEditPart.VISUAL_ID));
+					PiviVisualIDRegistry.getType(StartEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source, true));
 			if (!target.isEmpty()) {
 				result.add(target);

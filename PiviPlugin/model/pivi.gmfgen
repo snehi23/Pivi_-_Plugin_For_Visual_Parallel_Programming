@@ -28,7 +28,7 @@
         canonicalEditPolicyClassName="InputPortCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="InputPortGraphicalNodeEditPolicy"
         createCommandClassName="InputPortCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3">
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3 //@diagram/@compartments.4 //@diagram/@compartments.5 //@diagram/@compartments.6">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -48,12 +48,37 @@
     </childNodes>
     <childNodes
         visualID="3002"
+        editPartClassName="StartPortEditPart"
+        itemSemanticEditPolicyClassName="StartPortItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="StartPortCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="StartPortGraphicalNodeEditPolicy"
+        createCommandClassName="StartPortCreateCommand"
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3 //@diagram/@compartments.4 //@diagram/@compartments.5 //@diagram/@compartments.6">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="StartPortEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+      <modelFacet>
+        <metaClass
+            href="pivi.genmodel#//pivi/StartPort"/>
+        <containmentMetaFeature
+            href="pivi.genmodel#//pivi/Statement/start"/>
+        <childMetaFeature
+            href="pivi.genmodel#//pivi/Statement/start"/>
+      </modelFacet>
+    </childNodes>
+    <childNodes
+        visualID="3003"
         editPartClassName="OutputPortEditPart"
         itemSemanticEditPolicyClassName="OutputPortItemSemanticEditPolicy"
         canonicalEditPolicyClassName="OutputPortCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="OutputPortGraphicalNodeEditPolicy"
         createCommandClassName="OutputPortCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3">
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3 //@diagram/@compartments.4 //@diagram/@compartments.5 //@diagram/@compartments.6">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -71,80 +96,190 @@
             href="pivi.genmodel#//pivi/Statement/outputs"/>
       </modelFacet>
     </childNodes>
-    <childNodes
-        visualID="3003"
-        editPartClassName="ResultEditPart"
-        itemSemanticEditPolicyClassName="ResultItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="ResultCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="ResultGraphicalNodeEditPolicy"
-        createCommandClassName="ResultCreateCommand"
-        containers="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="ResultEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
-      <modelFacet>
-        <metaClass
-            href="pivi.genmodel#//pivi/Result"/>
-        <containmentMetaFeature
-            href="pivi.genmodel#//pivi/Statement/results"/>
-        <childMetaFeature
-            href="pivi.genmodel#//pivi/Statement/results"/>
-      </modelFacet>
-    </childNodes>
     <topLevelNodes
         visualID="2001"
-        editPartClassName="IfEndStatementEditPart"
-        itemSemanticEditPolicyClassName="IfEndStatementItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="IfEndStatementCanonicalEditPolicy"
+        editPartClassName="IfStartEditPart"
+        itemSemanticEditPolicyClassName="IfStartItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="IfStartCanonicalEditPolicy"
         compartments="//@diagram/@compartments.0"
-        graphicalNodeEditPolicyClassName="IfEndStatementGraphicalNodeEditPolicy"
-        createCommandClassName="IfEndStatementCreateCommand">
+        graphicalNodeEditPolicyClassName="IfStartGraphicalNodeEditPolicy"
+        createCommandClassName="IfStartCreateCommand">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="IfEndStatementEditHelper"/>
+          editHelperClassName="IfStartEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="IfEndStatementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class IfEndStatementFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureIfEndCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureIfEndStatementNameFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public IfEndStatementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureIfEndStatementNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureIfEndStatementNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureIfEndStatementNameFigure);&#xA;&#xA;&#xA;&#xA;fFigureIfEndCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureIfEndCompartmentFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureIfEndCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureIfEndCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureIfEndStatementNameFigure() {&#xA;&#x9;&#x9;return fFigureIfEndStatementNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="IfStartFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class IfStartFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureIfStartFigureCompartment; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public IfStartFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureIfStartFigureCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureIfStartFigureCompartment, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureIfStartFigureCompartment() {&#xA;&#x9;&#x9;return fFigureIfStartFigureCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="pivi.genmodel#//pivi/IfEndStatement"/>
+            href="pivi.genmodel#//pivi/IfStart"/>
         <containmentMetaFeature
             href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
         <childMetaFeature
             href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
       </modelFacet>
-      <labels
-          visualID="5001"
-          editPartClassName="IfEndStatementNameEditPart"
-          itemSemanticEditPolicyClassName="IfEndStatementNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureIfEndStatementNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="pivi.genmodel#//pivi/Statement/name"/>
-          <editableMetaFeatures
-              href="pivi.genmodel#//pivi/Statement/name"/>
-        </modelFacet>
-      </labels>
     </topLevelNodes>
     <topLevelNodes
         visualID="2002"
+        editPartClassName="WhileEndEditPart"
+        itemSemanticEditPolicyClassName="WhileEndItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="WhileEndCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.1"
+        graphicalNodeEditPolicyClassName="WhileEndGraphicalNodeEditPolicy"
+        createCommandClassName="WhileEndCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="WhileEndEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="WhileEndFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WhileEndFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureWhileEndFigureCompartment; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WhileEndFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureWhileEndFigureCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureWhileEndFigureCompartment, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureWhileEndFigureCompartment() {&#xA;&#x9;&#x9;return fFigureWhileEndFigureCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="pivi.genmodel#//pivi/WhileEnd"/>
+        <containmentMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+        <childMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+      </modelFacet>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2003"
+        editPartClassName="MethodEndEditPart"
+        itemSemanticEditPolicyClassName="MethodEndItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="MethodEndCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.2"
+        graphicalNodeEditPolicyClassName="MethodEndGraphicalNodeEditPolicy"
+        createCommandClassName="MethodEndCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="MethodEndEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="MethodEndFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MethodEndFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureMethodEndFigureCompartment; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MethodEndFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureMethodEndFigureCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureMethodEndFigureCompartment, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureMethodEndFigureCompartment() {&#xA;&#x9;&#x9;return fFigureMethodEndFigureCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="pivi.genmodel#//pivi/MethodEnd"/>
+        <containmentMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+        <childMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+      </modelFacet>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2004"
+        editPartClassName="IfEndEditPart"
+        itemSemanticEditPolicyClassName="IfEndItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="IfEndCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.3"
+        graphicalNodeEditPolicyClassName="IfEndGraphicalNodeEditPolicy"
+        createCommandClassName="IfEndCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="IfEndEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="IfEndFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class IfEndFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureIfEndFigureCompartment; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public IfEndFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureIfEndFigureCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureIfEndFigureCompartment, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureIfEndFigureCompartment() {&#xA;&#x9;&#x9;return fFigureIfEndFigureCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="pivi.genmodel#//pivi/IfEnd"/>
+        <containmentMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+        <childMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+      </modelFacet>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2005"
+        editPartClassName="InstructionEditPart"
+        itemSemanticEditPolicyClassName="InstructionItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="InstructionCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.4"
+        graphicalNodeEditPolicyClassName="InstructionGraphicalNodeEditPolicy"
+        createCommandClassName="InstructionCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="InstructionEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="InstructionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InstructionFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureInstructionFigureCompartment; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InstructionFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureInstructionFigureCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureInstructionFigureCompartment, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureInstructionFigureCompartment() {&#xA;&#x9;&#x9;return fFigureInstructionFigureCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="pivi.genmodel#//pivi/Instruction"/>
+        <containmentMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+        <childMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+      </modelFacet>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2006"
+        editPartClassName="MethodStartEditPart"
+        itemSemanticEditPolicyClassName="MethodStartItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="MethodStartCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.5"
+        graphicalNodeEditPolicyClassName="MethodStartGraphicalNodeEditPolicy"
+        createCommandClassName="MethodStartCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="MethodStartEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="MethodStartFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MethodStartFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureMethodStartFigureCompartment; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MethodStartFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureMethodStartFigureCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureMethodStartFigureCompartment, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureMethodStartFigureCompartment() {&#xA;&#x9;&#x9;return fFigureMethodStartFigureCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="pivi.genmodel#//pivi/MethodStart"/>
+        <containmentMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+        <childMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+      </modelFacet>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2007"
+        editPartClassName="WhileStartEditPart"
+        itemSemanticEditPolicyClassName="WhileStartItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="WhileStartCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.6"
+        graphicalNodeEditPolicyClassName="WhileStartGraphicalNodeEditPolicy"
+        createCommandClassName="WhileStartCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="WhileStartEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="WhileStartFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WhileStartFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureWhileStartFigureCompartment; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WhileStartFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureWhileStartFigureCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureWhileStartFigureCompartment, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureWhileStartFigureCompartment() {&#xA;&#x9;&#x9;return fFigureWhileStartFigureCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="pivi.genmodel#//pivi/WhileStart"/>
+        <containmentMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+        <childMetaFeature
+            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
+      </modelFacet>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2008"
         editPartClassName="StartEditPart"
         itemSemanticEditPolicyClassName="StartItemSemanticEditPolicy"
         canonicalEditPolicyClassName="StartCanonicalEditPolicy"
@@ -156,10 +291,8 @@
           xsi:type="gmfgen:MetamodelType"
           editHelperClassName="StartEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="StartFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StartFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureStartNameFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StartFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureStartNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureStartNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureStartNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureStartNameFigure() {&#xA;&#x9;&#x9;return fFigureStartNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
       <modelFacet>
         <metaClass
             href="pivi.genmodel#//pivi/Start"/>
@@ -168,273 +301,54 @@
         <childMetaFeature
             href="pivi.genmodel#//pivi/PiviDiagram/start"/>
       </modelFacet>
-      <labels
-          visualID="5002"
-          editPartClassName="StartNameEditPart"
-          itemSemanticEditPolicyClassName="StartNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureStartNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="pivi.genmodel#//pivi/Terminal/name"/>
-        </modelFacet>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2003"
-        editPartClassName="InstructionEditPart"
-        itemSemanticEditPolicyClassName="InstructionItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="InstructionCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.1"
-        graphicalNodeEditPolicyClassName="InstructionGraphicalNodeEditPolicy"
-        createCommandClassName="InstructionCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="InstructionEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="InstructionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InstructionFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureInstructionCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInstructionNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureInstructionInstructionsFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InstructionFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureInstructionNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureInstructionNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureInstructionNameFigure);&#xA;&#xA;&#xA;&#xA;fFigureInstructionInstructionsFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureInstructionInstructionsFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureInstructionInstructionsFigure);&#xA;&#xA;&#xA;&#xA;fFigureInstructionCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureInstructionCompartmentFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureInstructionCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureInstructionCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInstructionNameFigure() {&#xA;&#x9;&#x9;return fFigureInstructionNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureInstructionInstructionsFigure() {&#xA;&#x9;&#x9;return fFigureInstructionInstructionsFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="pivi.genmodel#//pivi/Instruction"/>
-        <containmentMetaFeature
-            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
-        <childMetaFeature
-            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
-      </modelFacet>
-      <labels
-          visualID="5003"
-          editPartClassName="InstructionNameEditPart"
-          itemSemanticEditPolicyClassName="InstructionNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInstructionNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="pivi.genmodel#//pivi/Statement/name"/>
-          <editableMetaFeatures
-              href="pivi.genmodel#//pivi/Statement/name"/>
-        </modelFacet>
-      </labels>
-      <labels
-          visualID="5004"
-          editPartClassName="InstructionInstructionsEditPart"
-          itemSemanticEditPolicyClassName="InstructionInstructionsItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureInstructionInstructionsFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="pivi.genmodel#//pivi/Instruction/instructions"/>
-          <editableMetaFeatures
-              href="pivi.genmodel#//pivi/Instruction/instructions"/>
-        </modelFacet>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2004"
-        editPartClassName="IfStartStatementEditPart"
-        itemSemanticEditPolicyClassName="IfStartStatementItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="IfStartStatementCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.2"
-        graphicalNodeEditPolicyClassName="IfStartStatementGraphicalNodeEditPolicy"
-        createCommandClassName="IfStartStatementCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="IfStartStatementEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="IfStartStatementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class IfStartStatementFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureIfStartCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureIfStartStatementNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureIfStartStatementConditionFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public IfStartStatementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureIfStartStatementNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureIfStartStatementNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureIfStartStatementNameFigure);&#xA;&#xA;&#xA;&#xA;fFigureIfStartStatementConditionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureIfStartStatementConditionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureIfStartStatementConditionFigure);&#xA;&#xA;&#xA;&#xA;fFigureIfStartCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureIfStartCompartmentFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureIfStartCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureIfStartCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureIfStartStatementNameFigure() {&#xA;&#x9;&#x9;return fFigureIfStartStatementNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureIfStartStatementConditionFigure() {&#xA;&#x9;&#x9;return fFigureIfStartStatementConditionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="pivi.genmodel#//pivi/IfStartStatement"/>
-        <containmentMetaFeature
-            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
-        <childMetaFeature
-            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
-      </modelFacet>
-      <labels
-          visualID="5005"
-          editPartClassName="IfStartStatementNameEditPart"
-          itemSemanticEditPolicyClassName="IfStartStatementNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureIfStartStatementNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="pivi.genmodel#//pivi/Statement/name"/>
-          <editableMetaFeatures
-              href="pivi.genmodel#//pivi/Statement/name"/>
-        </modelFacet>
-      </labels>
-      <labels
-          visualID="5006"
-          editPartClassName="IfStartStatementConditionEditPart"
-          itemSemanticEditPolicyClassName="IfStartStatementConditionItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureIfStartStatementConditionFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="pivi.genmodel#//pivi/IfStartStatement/condition"/>
-          <editableMetaFeatures
-              href="pivi.genmodel#//pivi/IfStartStatement/condition"/>
-        </modelFacet>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="2005"
-        editPartClassName="WhileStatementEditPart"
-        itemSemanticEditPolicyClassName="WhileStatementItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="WhileStatementCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.3"
-        graphicalNodeEditPolicyClassName="WhileStatementGraphicalNodeEditPolicy"
-        createCommandClassName="WhileStatementCreateCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="WhileStatementEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="WhileStatementFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WhileStatementFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureWhileStatementNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureWhileStatementConditionFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureWhileCompartmentFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WhileStatementFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureWhileStatementNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureWhileStatementNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureWhileStatementNameFigure);&#xA;&#xA;&#xA;&#xA;fFigureWhileStatementConditionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureWhileStatementConditionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureWhileStatementConditionFigure);&#xA;&#xA;&#xA;&#xA;fFigureWhileCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureWhileCompartmentFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureWhileStatementNameFigure() {&#xA;&#x9;&#x9;return fFigureWhileStatementNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureWhileStatementConditionFigure() {&#xA;&#x9;&#x9;return fFigureWhileStatementConditionFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureWhileCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureWhileCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet>
-        <metaClass
-            href="pivi.genmodel#//pivi/WhileStatement"/>
-        <containmentMetaFeature
-            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
-        <childMetaFeature
-            href="pivi.genmodel#//pivi/PiviDiagram/statements"/>
-      </modelFacet>
-      <labels
-          visualID="5007"
-          editPartClassName="WhileStatementNameEditPart"
-          itemSemanticEditPolicyClassName="WhileStatementNameItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureWhileStatementNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="pivi.genmodel#//pivi/Statement/name"/>
-          <editableMetaFeatures
-              href="pivi.genmodel#//pivi/Statement/name"/>
-        </modelFacet>
-      </labels>
-      <labels
-          visualID="5008"
-          editPartClassName="WhileStatementConditionEditPart"
-          itemSemanticEditPolicyClassName="WhileStatementConditionItemSemanticEditPolicy"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureWhileStatementConditionFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
-          <metaFeatures
-              href="pivi.genmodel#//pivi/WhileStatement/condition"/>
-          <editableMetaFeatures
-              href="pivi.genmodel#//pivi/WhileStatement/condition"/>
-        </modelFacet>
-      </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
-        editPartClassName="TerminalInputPortsEditPart"
-        itemSemanticEditPolicyClassName="TerminalInputPortsItemSemanticEditPolicy"
-        createCommandClassName="TerminalInputPortsCreateCommand"
-        reorientCommandClassName="TerminalInputPortsReorientCommand">
+        visualID="4004"
+        editPartClassName="StartStartPortEditPart"
+        itemSemanticEditPolicyClassName="StartStartPortItemSemanticEditPolicy"
+        createCommandClassName="StartStartPortCreateCommand"
+        reorientCommandClassName="StartStartPortReorientCommand">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="StartInputPortsFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StartInputPortsFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StartInputPortsFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="StartStartPortFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StartStartPortFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StartStartPortFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
           xsi:type="gmfgen:FeatureLinkModelFacet">
         <metaFeature
-            href="pivi.genmodel#//pivi/Terminal/inputPorts"/>
+            href="pivi.genmodel#//pivi/Start/startPort"/>
       </modelFacet>
     </links>
     <links
         visualID="4002"
-        editPartClassName="OutputPortResultEditPart"
-        itemSemanticEditPolicyClassName="OutputPortResultItemSemanticEditPolicy"
-        createCommandClassName="OutputPortResultCreateCommand"
-        reorientCommandClassName="OutputPortResultReorientCommand">
+        editPartClassName="OutputPortInputPortEditPart"
+        itemSemanticEditPolicyClassName="OutputPortInputPortItemSemanticEditPolicy"
+        createCommandClassName="OutputPortInputPortCreateCommand"
+        reorientCommandClassName="OutputPortInputPortReorientCommand">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="OutputPortResultFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OutputPortResultFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OutputPortResultFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="OutputPortInputPortFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OutputPortInputPortFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OutputPortInputPortFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
           xsi:type="gmfgen:FeatureLinkModelFacet">
         <metaFeature
-            href="pivi.genmodel#//pivi/OutputPort/result"/>
+            href="pivi.genmodel#//pivi/OutputPort/inputPort"/>
       </modelFacet>
     </links>
     <compartments
         visualID="7001"
-        editPartClassName="IfEndStatementIfEndCompartmentFigureEditPart"
-        itemSemanticEditPolicyClassName="IfEndStatementIfEndCompartmentFigureItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="IfEndStatementIfEndCompartmentFigureCanonicalEditPolicy"
+        editPartClassName="IfStartIfStartFigureCompartmentEditPart"
+        itemSemanticEditPolicyClassName="IfStartIfStartFigureCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="IfStartIfStartFigureCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2"
-        title="IfEndCompartmentFigure"
+        title="IfStartFigureCompartment"
         canCollapse="false"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.0">
@@ -442,16 +356,33 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getFigureIfEndCompartmentFigure"
+          getterName="getFigureIfStartFigureCompartment"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
         visualID="7002"
-        editPartClassName="InstructionInstructionCompartmentFigureEditPart"
-        itemSemanticEditPolicyClassName="InstructionInstructionCompartmentFigureItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="InstructionInstructionCompartmentFigureCanonicalEditPolicy"
+        editPartClassName="WhileEndWhileEndFigureCompartmentEditPart"
+        itemSemanticEditPolicyClassName="WhileEndWhileEndFigureCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="WhileEndWhileEndFigureCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2 //@diagram/@childNodes.1"
-        title="InstructionCompartmentFigure"
+        title="WhileEndFigureCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.1">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getFigureWhileEndFigureCompartment"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
+        visualID="7003"
+        editPartClassName="MethodEndMethodEndFigureCompartmentEditPart"
+        itemSemanticEditPolicyClassName="MethodEndMethodEndFigureCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="MethodEndMethodEndFigureCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2"
+        title="MethodEndFigureCompartment"
         canCollapse="false"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.2">
@@ -459,16 +390,16 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getFigureInstructionCompartmentFigure"
+          getterName="getFigureMethodEndFigureCompartment"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7003"
-        editPartClassName="IfStartStatementIfStartCompartmentFigureEditPart"
-        itemSemanticEditPolicyClassName="IfStartStatementIfStartCompartmentFigureItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="IfStartStatementIfStartCompartmentFigureCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2"
-        title="IfStartCompartmentFigure"
+        visualID="7004"
+        editPartClassName="IfEndIfEndFigureCompartmentEditPart"
+        itemSemanticEditPolicyClassName="IfEndIfEndFigureCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="IfEndIfEndFigureCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2 //@diagram/@childNodes.1"
+        title="IfEndFigureCompartment"
         canCollapse="false"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.3">
@@ -476,16 +407,16 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getFigureIfStartCompartmentFigure"
+          getterName="getFigureIfEndFigureCompartment"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7004"
-        editPartClassName="WhileStatementWhileCompartmentFigureEditPart"
-        itemSemanticEditPolicyClassName="WhileStatementWhileCompartmentFigureItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="WhileStatementWhileCompartmentFigureCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2 //@diagram/@childNodes.1"
-        title="WhileCompartmentFigure"
+        visualID="7005"
+        editPartClassName="InstructionInstructionFigureCompartmentEditPart"
+        itemSemanticEditPolicyClassName="InstructionInstructionFigureCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="InstructionInstructionFigureCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2"
+        title="InstructionFigureCompartment"
         canCollapse="false"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.4">
@@ -493,53 +424,102 @@
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getFigureWhileStatementConditionFigure"
-          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          getterName="getFigureInstructionFigureCompartment"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
+        visualID="7007"
+        editPartClassName="MethodStartMethodStartFigureCompartmentEditPart"
+        itemSemanticEditPolicyClassName="MethodStartMethodStartFigureCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="MethodStartMethodStartFigureCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2 //@diagram/@childNodes.1"
+        title="MethodStartFigureCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.5">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getFigureMethodStartFigureCompartment"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
+        visualID="7008"
+        editPartClassName="WhileStartWhileStartFigureCompartmentEditPart"
+        itemSemanticEditPolicyClassName="WhileStartWhileStartFigureCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="WhileStartWhileStartFigureCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.2 //@diagram/@childNodes.1"
+        title="WhileStartFigureCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.6">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:ParentAssignedViewmap"
+          getterName="getFigureWhileStartFigureCompartment"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <palette>
       <groups
           title="nodes">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="IfEndStatement"
-            description="Create new IfEndStatement"
-            genNodes="//@diagram/@topLevelNodes.0"/>
+            title="IfEnd"
+            description="Create new IfEnd"
+            genNodes="//@diagram/@topLevelNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="IfStartStatement"
-            description="Create new IfStartStatement"
-            genNodes="//@diagram/@topLevelNodes.3"/>
+            title="IfStart"
+            description="Create new IfStart"
+            genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Instruction"
             description="Create new Instruction"
+            genNodes="//@diagram/@topLevelNodes.4"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="MethodEnd"
+            description="Create new MethodEnd"
             genNodes="//@diagram/@topLevelNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Result"
-            description="Create new Result"/>
+            title="MethodStart"
+            description="Create new MethodStart"
+            genNodes="//@diagram/@topLevelNodes.5"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="OutputPort"
+            description="Create new OutputPort"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Start"
             description="Create new Start"
+            genNodes="//@diagram/@topLevelNodes.7"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="WhileEnd"
+            description="Create new WhileEnd"
             genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="WhileStatement"
-            description="Create new WhileStatement"
-            genNodes="//@diagram/@topLevelNodes.4"/>
+            title="WhileStart"
+            description="Create new WhileStart"
+            genNodes="//@diagram/@topLevelNodes.6"/>
       </groups>
       <groups
           title="connections">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="OutputPortResult"
-            description="Create new OutputPortResult"
+            title="OutputPortInputPort"
+            description="Create new OutputPortInputPort"
             genLinks="//@diagram/@links.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="TerminalInputPorts"
-            description="Create new TerminalInputPorts"
+            title="StartStartPort"
+            description="Create new StartStartPort"
             genLinks="//@diagram/@links.0"/>
       </groups>
     </palette>
@@ -591,6 +571,15 @@
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
     <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.0"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@childNodes.1"/>
+    <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.1"/>
     <childReferences
@@ -598,10 +587,10 @@
         child="//@diagram/@childNodes.0"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.2"
-        child="//@diagram/@childNodes.2"/>
+        child="//@diagram/@childNodes.1"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.2"
-        child="//@diagram/@childNodes.1"/>
+        child="//@diagram/@childNodes.2"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.2"/>
@@ -610,10 +599,10 @@
         child="//@diagram/@childNodes.0"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.3"
-        child="//@diagram/@childNodes.1"/>
+        child="//@diagram/@childNodes.2"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.3"
-        child="//@diagram/@childNodes.2"/>
+        child="//@diagram/@childNodes.1"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.3"/>
@@ -622,13 +611,40 @@
         child="//@diagram/@childNodes.0"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.4"
-        child="//@diagram/@childNodes.2"/>
+        child="//@diagram/@childNodes.1"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.4"
-        child="//@diagram/@childNodes.1"/>
+        child="//@diagram/@childNodes.2"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.4"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.5"
+        child="//@diagram/@childNodes.0"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.5"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.5"
+        child="//@diagram/@childNodes.1"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.5"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.6"
+        child="//@diagram/@childNodes.0"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.6"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.6"
+        child="//@diagram/@childNodes.1"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.6"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.7"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@links.0"
@@ -636,24 +652,24 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.0"
+        child="//@diagram/@childNodes.1"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@childNodes.0"
+        parent="//@diagram/@childNodes.1"
         child="//@diagram/@links.0"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@topLevelNodes.7"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@topLevelNodes.1"
+        parent="//@diagram/@topLevelNodes.7"
         child="//@diagram/@links.0"
         referenceType="out_target"
         groupName="outgoing links"
@@ -665,24 +681,24 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.1"
-        child="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.0"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@childNodes.2"
+        parent="//@diagram/@childNodes.0"
         child="//@diagram/@links.1"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.1"
-        child="//@diagram/@childNodes.1"
+        child="//@diagram/@childNodes.2"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@childNodes.1"
+        parent="//@diagram/@childNodes.2"
         child="//@diagram/@links.1"
         referenceType="out_target"
         groupName="outgoing links"
@@ -710,12 +726,6 @@
   </propertySheet>
   <domainGenModel
       href="pivi.genmodel#/"/>
-  <labelParsers
-      extensibleViaService="true">
-    <implementations
-        xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.1/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.1/@modelFacet //@diagram/@topLevelNodes.4/@labels.0/@modelFacet //@diagram/@topLevelNodes.4/@labels.1/@modelFacet"/>
-  </labelParsers>
   <contextMenus
       context="//@diagram">
     <items

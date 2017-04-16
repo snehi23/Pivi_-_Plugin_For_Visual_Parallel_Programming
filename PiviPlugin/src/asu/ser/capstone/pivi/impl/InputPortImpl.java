@@ -3,9 +3,9 @@
 package asu.ser.capstone.pivi.impl;
 
 import asu.ser.capstone.pivi.InputPort;
+import asu.ser.capstone.pivi.OutputPort;
 import asu.ser.capstone.pivi.PiviPackage;
 import asu.ser.capstone.pivi.Statement;
-import asu.ser.capstone.pivi.Terminal;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -27,21 +27,21 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link asu.ser.capstone.pivi.impl.InputPortImpl#getStatement <em>Statement</em>}</li>
- *   <li>{@link asu.ser.capstone.pivi.impl.InputPortImpl#getTerminal <em>Terminal</em>}</li>
+ *   <li>{@link asu.ser.capstone.pivi.impl.InputPortImpl#getOutputPort <em>Output Port</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class InputPortImpl extends MinimalEObjectImpl.Container implements InputPort {
 	/**
-	 * The cached value of the '{@link #getTerminal() <em>Terminal</em>}' reference.
+	 * The cached value of the '{@link #getOutputPort() <em>Output Port</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTerminal()
+	 * @see #getOutputPort()
 	 * @generated
 	 * @ordered
 	 */
-	protected Terminal terminal;
+	protected OutputPort outputPort;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,16 +108,16 @@ public class InputPortImpl extends MinimalEObjectImpl.Container implements Input
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Terminal getTerminal() {
-		if (terminal != null && terminal.eIsProxy()) {
-			InternalEObject oldTerminal = (InternalEObject)terminal;
-			terminal = (Terminal)eResolveProxy(oldTerminal);
-			if (terminal != oldTerminal) {
+	public OutputPort getOutputPort() {
+		if (outputPort != null && outputPort.eIsProxy()) {
+			InternalEObject oldOutputPort = (InternalEObject)outputPort;
+			outputPort = (OutputPort)eResolveProxy(oldOutputPort);
+			if (outputPort != oldOutputPort) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PiviPackage.INPUT_PORT__TERMINAL, oldTerminal, terminal));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PiviPackage.INPUT_PORT__OUTPUT_PORT, oldOutputPort, outputPort));
 			}
 		}
-		return terminal;
+		return outputPort;
 	}
 
 	/**
@@ -125,8 +125,8 @@ public class InputPortImpl extends MinimalEObjectImpl.Container implements Input
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Terminal basicGetTerminal() {
-		return terminal;
+	public OutputPort basicGetOutputPort() {
+		return outputPort;
 	}
 
 	/**
@@ -134,11 +134,11 @@ public class InputPortImpl extends MinimalEObjectImpl.Container implements Input
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTerminal(Terminal newTerminal, NotificationChain msgs) {
-		Terminal oldTerminal = terminal;
-		terminal = newTerminal;
+	public NotificationChain basicSetOutputPort(OutputPort newOutputPort, NotificationChain msgs) {
+		OutputPort oldOutputPort = outputPort;
+		outputPort = newOutputPort;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PiviPackage.INPUT_PORT__TERMINAL, oldTerminal, newTerminal);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PiviPackage.INPUT_PORT__OUTPUT_PORT, oldOutputPort, newOutputPort);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -149,18 +149,18 @@ public class InputPortImpl extends MinimalEObjectImpl.Container implements Input
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTerminal(Terminal newTerminal) {
-		if (newTerminal != terminal) {
+	public void setOutputPort(OutputPort newOutputPort) {
+		if (newOutputPort != outputPort) {
 			NotificationChain msgs = null;
-			if (terminal != null)
-				msgs = ((InternalEObject)terminal).eInverseRemove(this, PiviPackage.TERMINAL__INPUT_PORTS, Terminal.class, msgs);
-			if (newTerminal != null)
-				msgs = ((InternalEObject)newTerminal).eInverseAdd(this, PiviPackage.TERMINAL__INPUT_PORTS, Terminal.class, msgs);
-			msgs = basicSetTerminal(newTerminal, msgs);
+			if (outputPort != null)
+				msgs = ((InternalEObject)outputPort).eInverseRemove(this, PiviPackage.OUTPUT_PORT__INPUT_PORT, OutputPort.class, msgs);
+			if (newOutputPort != null)
+				msgs = ((InternalEObject)newOutputPort).eInverseAdd(this, PiviPackage.OUTPUT_PORT__INPUT_PORT, OutputPort.class, msgs);
+			msgs = basicSetOutputPort(newOutputPort, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PiviPackage.INPUT_PORT__TERMINAL, newTerminal, newTerminal));
+			eNotify(new ENotificationImpl(this, Notification.SET, PiviPackage.INPUT_PORT__OUTPUT_PORT, newOutputPort, newOutputPort));
 	}
 
 	/**
@@ -175,10 +175,10 @@ public class InputPortImpl extends MinimalEObjectImpl.Container implements Input
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetStatement((Statement)otherEnd, msgs);
-			case PiviPackage.INPUT_PORT__TERMINAL:
-				if (terminal != null)
-					msgs = ((InternalEObject)terminal).eInverseRemove(this, PiviPackage.TERMINAL__INPUT_PORTS, Terminal.class, msgs);
-				return basicSetTerminal((Terminal)otherEnd, msgs);
+			case PiviPackage.INPUT_PORT__OUTPUT_PORT:
+				if (outputPort != null)
+					msgs = ((InternalEObject)outputPort).eInverseRemove(this, PiviPackage.OUTPUT_PORT__INPUT_PORT, OutputPort.class, msgs);
+				return basicSetOutputPort((OutputPort)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -193,8 +193,8 @@ public class InputPortImpl extends MinimalEObjectImpl.Container implements Input
 		switch (featureID) {
 			case PiviPackage.INPUT_PORT__STATEMENT:
 				return basicSetStatement(null, msgs);
-			case PiviPackage.INPUT_PORT__TERMINAL:
-				return basicSetTerminal(null, msgs);
+			case PiviPackage.INPUT_PORT__OUTPUT_PORT:
+				return basicSetOutputPort(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -223,9 +223,9 @@ public class InputPortImpl extends MinimalEObjectImpl.Container implements Input
 		switch (featureID) {
 			case PiviPackage.INPUT_PORT__STATEMENT:
 				return getStatement();
-			case PiviPackage.INPUT_PORT__TERMINAL:
-				if (resolve) return getTerminal();
-				return basicGetTerminal();
+			case PiviPackage.INPUT_PORT__OUTPUT_PORT:
+				if (resolve) return getOutputPort();
+				return basicGetOutputPort();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,8 +241,8 @@ public class InputPortImpl extends MinimalEObjectImpl.Container implements Input
 			case PiviPackage.INPUT_PORT__STATEMENT:
 				setStatement((Statement)newValue);
 				return;
-			case PiviPackage.INPUT_PORT__TERMINAL:
-				setTerminal((Terminal)newValue);
+			case PiviPackage.INPUT_PORT__OUTPUT_PORT:
+				setOutputPort((OutputPort)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -259,8 +259,8 @@ public class InputPortImpl extends MinimalEObjectImpl.Container implements Input
 			case PiviPackage.INPUT_PORT__STATEMENT:
 				setStatement((Statement)null);
 				return;
-			case PiviPackage.INPUT_PORT__TERMINAL:
-				setTerminal((Terminal)null);
+			case PiviPackage.INPUT_PORT__OUTPUT_PORT:
+				setOutputPort((OutputPort)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -276,8 +276,8 @@ public class InputPortImpl extends MinimalEObjectImpl.Container implements Input
 		switch (featureID) {
 			case PiviPackage.INPUT_PORT__STATEMENT:
 				return getStatement() != null;
-			case PiviPackage.INPUT_PORT__TERMINAL:
-				return terminal != null;
+			case PiviPackage.INPUT_PORT__OUTPUT_PORT:
+				return outputPort != null;
 		}
 		return super.eIsSet(featureID);
 	}

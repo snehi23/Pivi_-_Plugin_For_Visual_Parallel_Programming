@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelations
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import asu.ser.capstone.pivi.diagram.edit.commands.TerminalInputPortsCreateCommand;
-import asu.ser.capstone.pivi.diagram.edit.commands.TerminalInputPortsReorientCommand;
-import asu.ser.capstone.pivi.diagram.edit.parts.TerminalInputPortsEditPart;
+import asu.ser.capstone.pivi.diagram.edit.commands.StartStartPortCreateCommand;
+import asu.ser.capstone.pivi.diagram.edit.commands.StartStartPortReorientCommand;
+import asu.ser.capstone.pivi.diagram.edit.parts.StartStartPortEditPart;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
 
@@ -30,7 +30,7 @@ public class StartItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy 
 	* @generated
 	*/
 	public StartItemSemanticEditPolicy() {
-		super(PiviElementTypes.Start_2002);
+		super(PiviElementTypes.Start_2008);
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class StartItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy 
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
-			if (PiviVisualIDRegistry.getVisualID(outgoingLink) == TerminalInputPortsEditPart.VISUAL_ID) {
+			if (PiviVisualIDRegistry.getVisualID(outgoingLink) == StartStartPortEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
@@ -75,8 +75,8 @@ public class StartItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy 
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (PiviElementTypes.TerminalInputPorts_4001 == req.getElementType()) {
-			return getGEFWrapper(new TerminalInputPortsCreateCommand(req, req.getSource(), req.getTarget()));
+		if (PiviElementTypes.StartStartPort_4004 == req.getElementType()) {
+			return getGEFWrapper(new StartStartPortCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -85,7 +85,7 @@ public class StartItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy 
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (PiviElementTypes.TerminalInputPorts_4001 == req.getElementType()) {
+		if (PiviElementTypes.StartStartPort_4004 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -99,8 +99,8 @@ public class StartItemSemanticEditPolicy extends PiviBaseItemSemanticEditPolicy 
 	 */
 	protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case TerminalInputPortsEditPart.VISUAL_ID:
-			return getGEFWrapper(new TerminalInputPortsReorientCommand(req));
+		case StartStartPortEditPart.VISUAL_ID:
+			return getGEFWrapper(new StartStartPortReorientCommand(req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

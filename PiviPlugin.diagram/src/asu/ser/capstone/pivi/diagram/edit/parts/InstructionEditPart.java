@@ -1,14 +1,6 @@
 package asu.ser.capstone.pivi.diagram.edit.parts;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.draw2d.FlowLayout;
+import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
@@ -18,26 +10,20 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ContainerEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.PlatformUI;
 
 import asu.ser.capstone.pivi.diagram.edit.policies.InstructionItemSemanticEditPolicy;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
@@ -48,14 +34,10 @@ import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
  */
 public class InstructionEditPart extends ShapeNodeEditPart {
 
-	public static Integer count = 1;
-	
-	private static String XML_FILE_NAME = "default.pivi"; 
-	
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 2004;
+	public static final int VISUAL_ID = 2005;
 
 	/**
 	* @generated
@@ -75,7 +57,7 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	* @generated NOT
+	* @generated
 	*/
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -83,77 +65,6 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InstructionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicy.CONTAINER_ROLE, new ContainerEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenEditPolicy() {
-			
-			@Override
-			protected Command getOpenCommand(Request request) {
-				
-				try {
-					getXMLFile(request);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				BufferedWriter bw = null;
-				FileWriter fw = null;
-				
-				try {
-					fw = new FileWriter(getProjectPath(request) + "/" +"Instruction_"+count+".txt");
-					count++;
-					bw = new BufferedWriter(fw);
-				} catch (IOException e) {
-					e.printStackTrace();
-				} finally {
-					try {
-						if (bw != null) {
-							bw.close();
-						}
-						if (fw != null) {
-							fw.close();
-						}
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-				
-				return null;
-			}
-			
-			
-			protected void getXMLFile(Request request) throws IOException {
-				
-			    File source = new File(getProjectPath(request) + "/" + XML_FILE_NAME);
-			   
-			    System.out.println(source.canRead());
-				
-			}
-			
-			protected String getProjectPath(Request request) throws IOException {
-				
-				IEditorPart editor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-
-				IFileEditorInput input = (IFileEditorInput)editor.getEditorInput();
-				IFile file = input.getFile();
-				IProject project = file.getProject();
-				
-				String projectName = project.getFullPath().toString();
-				
-				IWorkspace workspace = ResourcesPlugin.getWorkspace();
-				
-			    java.io.File workspaceDirectory = workspace.getRoot().getLocation()
-			            .toFile();
-			    
-			    System.out.println("my source : "+workspaceDirectory.getAbsoluteFile() + projectName);
-			    
-			    return workspaceDirectory.getAbsoluteFile() +projectName;
-			    
-			}
-			
-			
-		});
-		
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -162,14 +73,17 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected LayoutEditPolicy createLayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-		FlowLayoutEditPolicy lep = new FlowLayoutEditPolicy() {
-
-			protected Command createAddCommand(EditPart child, EditPart after) {
-				return null;
+			protected EditPolicy createChildEditPolicy(EditPart child) {
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				if (result == null) {
+					result = new NonResizableEditPolicy();
+				}
+				return result;
 			}
 
-			protected Command createMoveChildCommand(EditPart child, EditPart after) {
+			protected Command getMoveChildrenCommand(Request request) {
 				return null;
 			}
 
@@ -198,15 +112,6 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof InstructionNameEditPart) {
-			((InstructionNameEditPart) childEditPart).setLabel(getPrimaryShape().getFigureInstructionNameFigure());
-			return true;
-		}
-		if (childEditPart instanceof InstructionInstructionsEditPart) {
-			((InstructionInstructionsEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureInstructionInstructionsFigure());
-			return true;
-		}
 		if (childEditPart instanceof InstructionInstructionFigureCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureInstructionFigureCompartment();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
@@ -220,12 +125,6 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof InstructionNameEditPart) {
-			return true;
-		}
-		if (childEditPart instanceof InstructionInstructionsEditPart) {
-			return true;
-		}
 		if (childEditPart instanceof InstructionInstructionFigureCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getFigureInstructionFigureCompartment();
 			pane.remove(((InstructionInstructionFigureCompartmentEditPart) childEditPart).getFigure());
@@ -265,10 +164,10 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	* @generated
+	* @generated NOT
 	*/
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(70, 70);
 		return result;
 	}
 
@@ -353,13 +252,6 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(PiviVisualIDRegistry.getType(InstructionNameEditPart.VISUAL_ID));
-	}
-
-	/**
-	* @generated
-	*/
 	public EditPart getTargetEditPart(Request request) {
 		if (request instanceof CreateViewAndElementRequest) {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
@@ -369,7 +261,11 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 				return getChildBySemanticHint(
 						PiviVisualIDRegistry.getType(InstructionInstructionFigureCompartmentEditPart.VISUAL_ID));
 			}
-			if (type == PiviElementTypes.OutputPort_3002) {
+			if (type == PiviElementTypes.StartPort_3002) {
+				return getChildBySemanticHint(
+						PiviVisualIDRegistry.getType(InstructionInstructionFigureCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == PiviElementTypes.OutputPort_3003) {
 				return getChildBySemanticHint(
 						PiviVisualIDRegistry.getType(InstructionInstructionFigureCompartmentEditPart.VISUAL_ID));
 			}
@@ -385,14 +281,6 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureInstructionNameFigure;
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureInstructionInstructionsFigure;
-		/**
-		 * @generated
-		 */
 		private RectangleFigure fFigureInstructionFigureCompartment;
 
 		/**
@@ -400,15 +288,7 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 		 */
 		public InstructionFigure() {
 
-			FlowLayout layoutThis = new FlowLayout();
-			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
-
-			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorSpacing(5);
-			layoutThis.setMinorSpacing(5);
-			layoutThis.setHorizontal(true);
-
+			BorderLayout layoutThis = new BorderLayout();
 			this.setLayoutManager(layoutThis);
 
 			createContents();
@@ -419,36 +299,10 @@ public class InstructionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureInstructionNameFigure = new WrappingLabel();
-
-			fFigureInstructionNameFigure.setText("Instruction");
-
-			this.add(fFigureInstructionNameFigure);
-
-			fFigureInstructionInstructionsFigure = new WrappingLabel();
-
-			fFigureInstructionInstructionsFigure.setText("");
-
-			this.add(fFigureInstructionInstructionsFigure);
-
 			fFigureInstructionFigureCompartment = new RectangleFigure();
 
-			this.add(fFigureInstructionFigureCompartment);
+			this.add(fFigureInstructionFigureCompartment, BorderLayout.CENTER);
 
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureInstructionNameFigure() {
-			return fFigureInstructionNameFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureInstructionInstructionsFigure() {
-			return fFigureInstructionInstructionsFigure;
 		}
 
 		/**

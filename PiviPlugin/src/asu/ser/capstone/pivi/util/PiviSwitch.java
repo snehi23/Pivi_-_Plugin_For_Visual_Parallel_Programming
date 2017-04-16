@@ -66,17 +66,17 @@ public class PiviSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case PiviPackage.IF_END_STATEMENT: {
-				IfEndStatement ifEndStatement = (IfEndStatement)theEObject;
-				T result = caseIfEndStatement(ifEndStatement);
-				if (result == null) result = caseStatement(ifEndStatement);
+			case PiviPackage.IF_END: {
+				IfEnd ifEnd = (IfEnd)theEObject;
+				T result = caseIfEnd(ifEnd);
+				if (result == null) result = caseStatement(ifEnd);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PiviPackage.IF_START_STATEMENT: {
-				IfStartStatement ifStartStatement = (IfStartStatement)theEObject;
-				T result = caseIfStartStatement(ifStartStatement);
-				if (result == null) result = caseStatement(ifStartStatement);
+			case PiviPackage.IF_START: {
+				IfStart ifStart = (IfStart)theEObject;
+				T result = caseIfStart(ifStart);
+				if (result == null) result = caseStatement(ifStart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -93,6 +93,20 @@ public class PiviSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PiviPackage.METHOD_END: {
+				MethodEnd methodEnd = (MethodEnd)theEObject;
+				T result = caseMethodEnd(methodEnd);
+				if (result == null) result = caseStatement(methodEnd);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PiviPackage.METHOD_START: {
+				MethodStart methodStart = (MethodStart)theEObject;
+				T result = caseMethodStart(methodStart);
+				if (result == null) result = caseStatement(methodStart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PiviPackage.OUTPUT_PORT: {
 				OutputPort outputPort = (OutputPort)theEObject;
 				T result = caseOutputPort(outputPort);
@@ -105,16 +119,15 @@ public class PiviSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PiviPackage.RESULT: {
-				Result result = (Result)theEObject;
-				T theResult = caseResult(result);
-				if (theResult == null) theResult = defaultCase(theEObject);
-				return theResult;
-			}
 			case PiviPackage.START: {
 				Start start = (Start)theEObject;
 				T result = caseStart(start);
-				if (result == null) result = caseTerminal(start);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PiviPackage.START_PORT: {
+				StartPort startPort = (StartPort)theEObject;
+				T result = caseStartPort(startPort);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -124,16 +137,17 @@ public class PiviSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PiviPackage.TERMINAL: {
-				Terminal terminal = (Terminal)theEObject;
-				T result = caseTerminal(terminal);
+			case PiviPackage.WHILE_END: {
+				WhileEnd whileEnd = (WhileEnd)theEObject;
+				T result = caseWhileEnd(whileEnd);
+				if (result == null) result = caseStatement(whileEnd);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PiviPackage.WHILE_STATEMENT: {
-				WhileStatement whileStatement = (WhileStatement)theEObject;
-				T result = caseWhileStatement(whileStatement);
-				if (result == null) result = caseStatement(whileStatement);
+			case PiviPackage.WHILE_START: {
+				WhileStart whileStart = (WhileStart)theEObject;
+				T result = caseWhileStart(whileStart);
+				if (result == null) result = caseStatement(whileStart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -142,32 +156,32 @@ public class PiviSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>If End Statement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>If End</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>If End Statement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>If End</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIfEndStatement(IfEndStatement object) {
+	public T caseIfEnd(IfEnd object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>If Start Statement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>If Start</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>If Start Statement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>If Start</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIfStartStatement(IfStartStatement object) {
+	public T caseIfStart(IfStart object) {
 		return null;
 	}
 
@@ -202,6 +216,36 @@ public class PiviSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method End</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method End</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethodEnd(MethodEnd object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method Start</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethodStart(MethodStart object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Output Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -232,21 +276,6 @@ public class PiviSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Result</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Result</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResult(Result object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Start</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -258,6 +287,21 @@ public class PiviSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStart(Start object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Start Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Start Port</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStartPort(StartPort object) {
 		return null;
 	}
 
@@ -277,32 +321,32 @@ public class PiviSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Terminal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>While End</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Terminal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>While End</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTerminal(Terminal object) {
+	public T caseWhileEnd(WhileEnd object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>While Statement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>While Start</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>While Statement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>While Start</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseWhileStatement(WhileStatement object) {
+	public T caseWhileStart(WhileStart object) {
 		return null;
 	}
 

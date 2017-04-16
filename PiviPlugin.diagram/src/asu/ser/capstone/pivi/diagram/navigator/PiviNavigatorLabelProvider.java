@@ -1,8 +1,5 @@
 package asu.ser.capstone.pivi.diagram.navigator;
 
-import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
-import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
-import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -16,26 +13,27 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
-import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfEndStatementNameEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.IfStartStatementNameEditPart;
+import asu.ser.capstone.pivi.IfStart;
+import asu.ser.capstone.pivi.Instruction;
+import asu.ser.capstone.pivi.MethodStart;
+import asu.ser.capstone.pivi.WhileStart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.IfStartEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InstructionEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.InstructionNameEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.MethodStartEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortResultEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.OutputPortInputPortEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.PiviDiagramEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.ResultEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.StartEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.StartNameEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.TerminalInputPortsEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementEditPart;
-import asu.ser.capstone.pivi.diagram.edit.parts.WhileStatementNameEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.StartPortEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.StartStartPortEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileEndEditPart;
+import asu.ser.capstone.pivi.diagram.edit.parts.WhileStartEditPart;
 import asu.ser.capstone.pivi.diagram.part.PiviDiagramEditorPlugin;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
-import asu.ser.capstone.pivi.diagram.providers.PiviParserProvider;
 
 /**
  * @generated
@@ -92,35 +90,45 @@ public class PiviNavigatorLabelProvider extends LabelProvider implements ICommon
 		case PiviDiagramEditPart.VISUAL_ID:
 			return getImage("Navigator?Diagram?http:///asu/ser/capstone/pivi.ecore?PiviDiagram", //$NON-NLS-1$
 					PiviElementTypes.PiviDiagram_1000);
-		case IfEndStatementEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?IfEndStatement", //$NON-NLS-1$
-					PiviElementTypes.IfEndStatement_2001);
-		case StartEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?Start", //$NON-NLS-1$
-					PiviElementTypes.Start_2002);
+		case IfStartEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?IfStart", //$NON-NLS-1$
+					PiviElementTypes.IfStart_2001);
+		case WhileEndEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?WhileEnd", //$NON-NLS-1$
+					PiviElementTypes.WhileEnd_2002);
+		case MethodEndEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?MethodEnd", //$NON-NLS-1$
+					PiviElementTypes.MethodEnd_2003);
+		case IfEndEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?IfEnd", //$NON-NLS-1$
+					PiviElementTypes.IfEnd_2004);
 		case InstructionEditPart.VISUAL_ID:
 			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?Instruction", //$NON-NLS-1$
-					PiviElementTypes.Instruction_2003);
-		case IfStartStatementEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?IfStartStatement", //$NON-NLS-1$
-					PiviElementTypes.IfStartStatement_2004);
-		case WhileStatementEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?WhileStatement", //$NON-NLS-1$
-					PiviElementTypes.WhileStatement_2005);
+					PiviElementTypes.Instruction_2005);
+		case MethodStartEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?MethodStart", //$NON-NLS-1$
+					PiviElementTypes.MethodStart_2006);
+		case WhileStartEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?WhileStart", //$NON-NLS-1$
+					PiviElementTypes.WhileStart_2007);
+		case StartEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?http:///asu/ser/capstone/pivi.ecore?Start", //$NON-NLS-1$
+					PiviElementTypes.Start_2008);
 		case InputPortEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http:///asu/ser/capstone/pivi.ecore?InputPort", //$NON-NLS-1$
 					PiviElementTypes.InputPort_3001);
+		case StartPortEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?http:///asu/ser/capstone/pivi.ecore?StartPort", //$NON-NLS-1$
+					PiviElementTypes.StartPort_3002);
 		case OutputPortEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?http:///asu/ser/capstone/pivi.ecore?OutputPort", //$NON-NLS-1$
-					PiviElementTypes.OutputPort_3002);
-		case ResultEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?http:///asu/ser/capstone/pivi.ecore?Result", PiviElementTypes.Result_3003); //$NON-NLS-1$
-		case TerminalInputPortsEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?http:///asu/ser/capstone/pivi.ecore?Terminal?inputPorts", //$NON-NLS-1$
-					PiviElementTypes.TerminalInputPorts_4001);
-		case OutputPortResultEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?http:///asu/ser/capstone/pivi.ecore?OutputPort?result", //$NON-NLS-1$
-					PiviElementTypes.OutputPortResult_4002);
+					PiviElementTypes.OutputPort_3003);
+		case OutputPortInputPortEditPart.VISUAL_ID:
+			return getImage("Navigator?Link?http:///asu/ser/capstone/pivi.ecore?OutputPort?inputPort", //$NON-NLS-1$
+					PiviElementTypes.OutputPortInputPort_4002);
+		case StartStartPortEditPart.VISUAL_ID:
+			return getImage("Navigator?Link?http:///asu/ser/capstone/pivi.ecore?Start?startPort", //$NON-NLS-1$
+					PiviElementTypes.StartStartPort_4004);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -173,26 +181,32 @@ public class PiviNavigatorLabelProvider extends LabelProvider implements ICommon
 		switch (PiviVisualIDRegistry.getVisualID(view)) {
 		case PiviDiagramEditPart.VISUAL_ID:
 			return getPiviDiagram_1000Text(view);
-		case IfEndStatementEditPart.VISUAL_ID:
-			return getIfEndStatement_2001Text(view);
-		case StartEditPart.VISUAL_ID:
-			return getStart_2002Text(view);
+		case IfStartEditPart.VISUAL_ID:
+			return getIfStart_2001Text(view);
+		case WhileEndEditPart.VISUAL_ID:
+			return getWhileEnd_2002Text(view);
+		case MethodEndEditPart.VISUAL_ID:
+			return getMethodEnd_2003Text(view);
+		case IfEndEditPart.VISUAL_ID:
+			return getIfEnd_2004Text(view);
 		case InstructionEditPart.VISUAL_ID:
-			return getInstruction_2003Text(view);
-		case IfStartStatementEditPart.VISUAL_ID:
-			return getIfStartStatement_2004Text(view);
-		case WhileStatementEditPart.VISUAL_ID:
-			return getWhileStatement_2005Text(view);
+			return getInstruction_2005Text(view);
+		case MethodStartEditPart.VISUAL_ID:
+			return getMethodStart_2006Text(view);
+		case WhileStartEditPart.VISUAL_ID:
+			return getWhileStart_2007Text(view);
+		case StartEditPart.VISUAL_ID:
+			return getStart_2008Text(view);
 		case InputPortEditPart.VISUAL_ID:
 			return getInputPort_3001Text(view);
+		case StartPortEditPart.VISUAL_ID:
+			return getStartPort_3002Text(view);
 		case OutputPortEditPart.VISUAL_ID:
-			return getOutputPort_3002Text(view);
-		case ResultEditPart.VISUAL_ID:
-			return getResult_3003Text(view);
-		case TerminalInputPortsEditPart.VISUAL_ID:
-			return getTerminalInputPorts_4001Text(view);
-		case OutputPortResultEditPart.VISUAL_ID:
-			return getOutputPortResult_4002Text(view);
+			return getOutputPort_3003Text(view);
+		case OutputPortInputPortEditPart.VISUAL_ID:
+			return getOutputPortInputPort_4002Text(view);
+		case StartStartPortEditPart.VISUAL_ID:
+			return getStartStartPort_4004Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -207,15 +221,12 @@ public class PiviNavigatorLabelProvider extends LabelProvider implements ICommon
 	/**
 	* @generated
 	*/
-	private String getIfEndStatement_2001Text(View view) {
-		IParser parser = PiviParserProvider.getParser(PiviElementTypes.IfEndStatement_2001,
-				view.getElement() != null ? view.getElement() : view,
-				PiviVisualIDRegistry.getType(IfEndStatementNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
+	private String getIfStart_2001Text(View view) {
+		IfStart domainModelElement = (IfStart) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getCondition();
 		} else {
-			PiviDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5001); //$NON-NLS-1$
+			PiviDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 2001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -223,15 +234,33 @@ public class PiviNavigatorLabelProvider extends LabelProvider implements ICommon
 	/**
 	* @generated
 	*/
-	private String getStart_2002Text(View view) {
-		IParser parser = PiviParserProvider.getParser(PiviElementTypes.Start_2002,
-				view.getElement() != null ? view.getElement() : view,
-				PiviVisualIDRegistry.getType(StartNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
+	private String getWhileEnd_2002Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	* @generated
+	*/
+	private String getMethodEnd_2003Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	* @generated
+	*/
+	private String getIfEnd_2004Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	* @generated
+	*/
+	private String getInstruction_2005Text(View view) {
+		Instruction domainModelElement = (Instruction) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getInstructions();
 		} else {
-			PiviDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5002); //$NON-NLS-1$
+			PiviDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 2005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -239,15 +268,12 @@ public class PiviNavigatorLabelProvider extends LabelProvider implements ICommon
 	/**
 	* @generated
 	*/
-	private String getInstruction_2003Text(View view) {
-		IParser parser = PiviParserProvider.getParser(PiviElementTypes.Instruction_2003,
-				view.getElement() != null ? view.getElement() : view,
-				PiviVisualIDRegistry.getType(InstructionNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
+	private String getMethodStart_2006Text(View view) {
+		MethodStart domainModelElement = (MethodStart) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getName();
 		} else {
-			PiviDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5003); //$NON-NLS-1$
+			PiviDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 2006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -255,15 +281,12 @@ public class PiviNavigatorLabelProvider extends LabelProvider implements ICommon
 	/**
 	* @generated
 	*/
-	private String getIfStartStatement_2004Text(View view) {
-		IParser parser = PiviParserProvider.getParser(PiviElementTypes.IfStartStatement_2004,
-				view.getElement() != null ? view.getElement() : view,
-				PiviVisualIDRegistry.getType(IfStartStatementNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
+	private String getWhileStart_2007Text(View view) {
+		WhileStart domainModelElement = (WhileStart) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getCondition();
 		} else {
-			PiviDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5005); //$NON-NLS-1$
+			PiviDiagramEditorPlugin.getInstance().logError("No domain element for view with visualID = " + 2007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -271,17 +294,8 @@ public class PiviNavigatorLabelProvider extends LabelProvider implements ICommon
 	/**
 	* @generated
 	*/
-	private String getWhileStatement_2005Text(View view) {
-		IParser parser = PiviParserProvider.getParser(PiviElementTypes.WhileStatement_2005,
-				view.getElement() != null ? view.getElement() : view,
-				PiviVisualIDRegistry.getType(WhileStatementNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			PiviDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5007); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
+	private String getStart_2008Text(View view) {
+		return ""; //$NON-NLS-1$
 	}
 
 	/**
@@ -294,28 +308,28 @@ public class PiviNavigatorLabelProvider extends LabelProvider implements ICommon
 	/**
 	* @generated
 	*/
-	private String getOutputPort_3002Text(View view) {
+	private String getStartPort_3002Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 
 	/**
 	* @generated
 	*/
-	private String getResult_3003Text(View view) {
+	private String getOutputPort_3003Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 
 	/**
 	* @generated
 	*/
-	private String getTerminalInputPorts_4001Text(View view) {
+	private String getOutputPortInputPort_4002Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 
 	/**
 	* @generated
 	*/
-	private String getOutputPortResult_4002Text(View view) {
+	private String getStartStartPort_4004Text(View view) {
 		return ""; //$NON-NLS-1$
 	}
 

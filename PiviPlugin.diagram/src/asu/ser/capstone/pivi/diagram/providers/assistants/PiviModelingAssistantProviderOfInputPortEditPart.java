@@ -31,7 +31,7 @@ public class PiviModelingAssistantProviderOfInputPortEditPart extends PiviModeli
 	*/
 	public List<IElementType> doGetRelTypesOnTarget(InputPortEditPart target) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(PiviElementTypes.TerminalInputPorts_4001);
+		types.add(PiviElementTypes.OutputPortInputPort_4002);
 		return types;
 	}
 
@@ -50,8 +50,8 @@ public class PiviModelingAssistantProviderOfInputPortEditPart extends PiviModeli
 	*/
 	public List<IElementType> doGetTypesForSource(InputPortEditPart target, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == PiviElementTypes.TerminalInputPorts_4001) {
-			types.add(PiviElementTypes.Start_2002);
+		if (relationshipType == PiviElementTypes.OutputPortInputPort_4002) {
+			types.add(PiviElementTypes.OutputPort_3003);
 		}
 		return types;
 	}

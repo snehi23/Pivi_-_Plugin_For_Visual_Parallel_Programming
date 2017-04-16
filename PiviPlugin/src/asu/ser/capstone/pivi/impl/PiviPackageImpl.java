@@ -2,19 +2,21 @@
  */
 package asu.ser.capstone.pivi.impl;
 
-import asu.ser.capstone.pivi.IfEndStatement;
-import asu.ser.capstone.pivi.IfStartStatement;
+import asu.ser.capstone.pivi.IfEnd;
+import asu.ser.capstone.pivi.IfStart;
 import asu.ser.capstone.pivi.InputPort;
 import asu.ser.capstone.pivi.Instruction;
+import asu.ser.capstone.pivi.MethodEnd;
+import asu.ser.capstone.pivi.MethodStart;
 import asu.ser.capstone.pivi.OutputPort;
 import asu.ser.capstone.pivi.PiviDiagram;
 import asu.ser.capstone.pivi.PiviFactory;
 import asu.ser.capstone.pivi.PiviPackage;
-import asu.ser.capstone.pivi.Result;
 import asu.ser.capstone.pivi.Start;
+import asu.ser.capstone.pivi.StartPort;
 import asu.ser.capstone.pivi.Statement;
-import asu.ser.capstone.pivi.Terminal;
-import asu.ser.capstone.pivi.WhileStatement;
+import asu.ser.capstone.pivi.WhileEnd;
+import asu.ser.capstone.pivi.WhileStart;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -35,14 +37,14 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass ifEndStatementEClass = null;
+	private EClass ifEndEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass ifStartStatementEClass = null;
+	private EClass ifStartEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,6 +65,20 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass methodEndEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass methodStartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass outputPortEClass = null;
 
 	/**
@@ -77,14 +93,14 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resultEClass = null;
+	private EClass startEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass startEClass = null;
+	private EClass startPortEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,14 +114,14 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass terminalEClass = null;
+	private EClass whileEndEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass whileStatementEClass = null;
+	private EClass whileStartEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -173,8 +189,8 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIfEndStatement() {
-		return ifEndStatementEClass;
+	public EClass getIfEnd() {
+		return ifEndEClass;
 	}
 
 	/**
@@ -182,8 +198,8 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIfStartStatement() {
-		return ifStartStatementEClass;
+	public EClass getIfStart() {
+		return ifStartEClass;
 	}
 
 	/**
@@ -191,8 +207,8 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIfStartStatement_Condition() {
-		return (EAttribute)ifStartStatementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getIfStart_Condition() {
+		return (EAttribute)ifStartEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -218,7 +234,7 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInputPort_Terminal() {
+	public EReference getInputPort_OutputPort() {
 		return (EReference)inputPortEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -245,6 +261,33 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMethodEnd() {
+		return methodEndEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMethodStart() {
+		return methodStartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMethodStart_Name() {
+		return (EAttribute)methodStartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOutputPort() {
 		return outputPortEClass;
 	}
@@ -263,7 +306,7 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOutputPort_Result() {
+	public EReference getOutputPort_InputPort() {
 		return (EReference)outputPortEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -299,35 +342,8 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPiviDiagram_Results() {
+	public EReference getPiviDiagram_InputPort() {
 		return (EReference)piviDiagramEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getResult() {
-		return resultEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResult_Statement() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResult_OutputPort() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -344,6 +360,42 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStart_StartPort() {
+		return (EReference)startEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStartPort() {
+		return startPortEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStartPort_Statement() {
+		return (EReference)startPortEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStartPort_Start() {
+		return (EReference)startPortEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStatement() {
 		return statementEClass;
 	}
@@ -353,8 +405,8 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStatement_Name() {
-		return (EAttribute)statementEClass.getEStructuralFeatures().get(0);
+	public EReference getStatement_Start() {
+		return (EReference)statementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -371,7 +423,7 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStatement_Results() {
+	public EReference getStatement_Outputs() {
 		return (EReference)statementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -380,8 +432,8 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStatement_Outputs() {
-		return (EReference)statementEClass.getEStructuralFeatures().get(3);
+	public EClass getWhileEnd() {
+		return whileEndEClass;
 	}
 
 	/**
@@ -389,8 +441,8 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTerminal() {
-		return terminalEClass;
+	public EClass getWhileStart() {
+		return whileStartEClass;
 	}
 
 	/**
@@ -398,35 +450,8 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTerminal_Name() {
-		return (EAttribute)terminalEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTerminal_InputPorts() {
-		return (EReference)terminalEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getWhileStatement() {
-		return whileStatementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getWhileStatement_Condition() {
-		return (EAttribute)whileStatementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getWhileStart_Condition() {
+		return (EAttribute)whileStartEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -457,45 +482,48 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		ifEndStatementEClass = createEClass(IF_END_STATEMENT);
+		ifEndEClass = createEClass(IF_END);
 
-		ifStartStatementEClass = createEClass(IF_START_STATEMENT);
-		createEAttribute(ifStartStatementEClass, IF_START_STATEMENT__CONDITION);
+		ifStartEClass = createEClass(IF_START);
+		createEAttribute(ifStartEClass, IF_START__CONDITION);
 
 		inputPortEClass = createEClass(INPUT_PORT);
 		createEReference(inputPortEClass, INPUT_PORT__STATEMENT);
-		createEReference(inputPortEClass, INPUT_PORT__TERMINAL);
+		createEReference(inputPortEClass, INPUT_PORT__OUTPUT_PORT);
 
 		instructionEClass = createEClass(INSTRUCTION);
 		createEAttribute(instructionEClass, INSTRUCTION__INSTRUCTIONS);
 
+		methodEndEClass = createEClass(METHOD_END);
+
+		methodStartEClass = createEClass(METHOD_START);
+		createEAttribute(methodStartEClass, METHOD_START__NAME);
+
 		outputPortEClass = createEClass(OUTPUT_PORT);
 		createEReference(outputPortEClass, OUTPUT_PORT__STATEMENT);
-		createEReference(outputPortEClass, OUTPUT_PORT__RESULT);
+		createEReference(outputPortEClass, OUTPUT_PORT__INPUT_PORT);
 
 		piviDiagramEClass = createEClass(PIVI_DIAGRAM);
 		createEReference(piviDiagramEClass, PIVI_DIAGRAM__STATEMENTS);
 		createEReference(piviDiagramEClass, PIVI_DIAGRAM__START);
-		createEReference(piviDiagramEClass, PIVI_DIAGRAM__RESULTS);
-
-		resultEClass = createEClass(RESULT);
-		createEReference(resultEClass, RESULT__STATEMENT);
-		createEReference(resultEClass, RESULT__OUTPUT_PORT);
+		createEReference(piviDiagramEClass, PIVI_DIAGRAM__INPUT_PORT);
 
 		startEClass = createEClass(START);
+		createEReference(startEClass, START__START_PORT);
+
+		startPortEClass = createEClass(START_PORT);
+		createEReference(startPortEClass, START_PORT__STATEMENT);
+		createEReference(startPortEClass, START_PORT__START);
 
 		statementEClass = createEClass(STATEMENT);
-		createEAttribute(statementEClass, STATEMENT__NAME);
+		createEReference(statementEClass, STATEMENT__START);
 		createEReference(statementEClass, STATEMENT__INPUTS);
-		createEReference(statementEClass, STATEMENT__RESULTS);
 		createEReference(statementEClass, STATEMENT__OUTPUTS);
 
-		terminalEClass = createEClass(TERMINAL);
-		createEAttribute(terminalEClass, TERMINAL__NAME);
-		createEReference(terminalEClass, TERMINAL__INPUT_PORTS);
+		whileEndEClass = createEClass(WHILE_END);
 
-		whileStatementEClass = createEClass(WHILE_STATEMENT);
-		createEAttribute(whileStatementEClass, WHILE_STATEMENT__CONDITION);
+		whileStartEClass = createEClass(WHILE_START);
+		createEAttribute(whileStartEClass, WHILE_START__CONDITION);
 	}
 
 	/**
@@ -526,52 +554,57 @@ public class PiviPackageImpl extends EPackageImpl implements PiviPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		ifEndStatementEClass.getESuperTypes().add(this.getStatement());
-		ifStartStatementEClass.getESuperTypes().add(this.getStatement());
+		ifEndEClass.getESuperTypes().add(this.getStatement());
+		ifStartEClass.getESuperTypes().add(this.getStatement());
 		instructionEClass.getESuperTypes().add(this.getStatement());
-		startEClass.getESuperTypes().add(this.getTerminal());
-		whileStatementEClass.getESuperTypes().add(this.getStatement());
+		methodEndEClass.getESuperTypes().add(this.getStatement());
+		methodStartEClass.getESuperTypes().add(this.getStatement());
+		whileEndEClass.getESuperTypes().add(this.getStatement());
+		whileStartEClass.getESuperTypes().add(this.getStatement());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(ifEndStatementEClass, IfEndStatement.class, "IfEndStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(ifEndEClass, IfEnd.class, "IfEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(ifStartStatementEClass, IfStartStatement.class, "IfStartStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIfStartStatement_Condition(), ecorePackage.getEString(), "condition", "", 0, 1, IfStartStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(ifStartEClass, IfStart.class, "IfStart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIfStart_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, IfStart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputPortEClass, InputPort.class, "InputPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInputPort_Statement(), this.getStatement(), this.getStatement_Inputs(), "statement", null, 0, 1, InputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInputPort_Terminal(), this.getTerminal(), this.getTerminal_InputPorts(), "terminal", null, 0, 1, InputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInputPort_OutputPort(), this.getOutputPort(), this.getOutputPort_InputPort(), "outputPort", null, 0, 1, InputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInstruction_Instructions(), ecorePackage.getEString(), "instructions", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(methodEndEClass, MethodEnd.class, "MethodEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(methodStartEClass, MethodStart.class, "MethodStart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMethodStart_Name(), ecorePackage.getEString(), "name", null, 0, 1, MethodStart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(outputPortEClass, OutputPort.class, "OutputPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOutputPort_Statement(), this.getStatement(), this.getStatement_Outputs(), "statement", null, 0, 1, OutputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOutputPort_Result(), this.getResult(), this.getResult_OutputPort(), "result", null, 0, 1, OutputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputPort_InputPort(), this.getInputPort(), this.getInputPort_OutputPort(), "inputPort", null, 0, 1, OutputPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(piviDiagramEClass, PiviDiagram.class, "PiviDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPiviDiagram_Statements(), this.getStatement(), null, "statements", null, 0, -1, PiviDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPiviDiagram_Start(), this.getStart(), null, "start", null, 0, 1, PiviDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPiviDiagram_Results(), this.getResult(), null, "results", null, 0, -1, PiviDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(resultEClass, Result.class, "Result", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResult_Statement(), this.getStatement(), this.getStatement_Results(), "statement", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResult_OutputPort(), this.getOutputPort(), this.getOutputPort_Result(), "outputPort", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPiviDiagram_InputPort(), this.getInputPort(), null, "inputPort", null, 0, -1, PiviDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStart_StartPort(), this.getStartPort(), this.getStartPort_Start(), "startPort", null, 0, -1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(startPortEClass, StartPort.class, "StartPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStartPort_Statement(), this.getStatement(), this.getStatement_Start(), "statement", null, 0, 1, StartPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStartPort_Start(), this.getStart(), this.getStart_StartPort(), "start", null, 0, 1, StartPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(statementEClass, Statement.class, "Statement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStatement_Start(), this.getStartPort(), this.getStartPort_Statement(), "start", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStatement_Inputs(), this.getInputPort(), this.getInputPort_Statement(), "inputs", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStatement_Results(), this.getResult(), this.getResult_Statement(), "results", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStatement_Outputs(), this.getOutputPort(), this.getOutputPort_Statement(), "outputs", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(terminalEClass, Terminal.class, "Terminal", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTerminal_Name(), ecorePackage.getEString(), "name", null, 0, 1, Terminal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTerminal_InputPorts(), this.getInputPort(), this.getInputPort_Terminal(), "inputPorts", null, 0, -1, Terminal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(whileEndEClass, WhileEnd.class, "WhileEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(whileStatementEClass, WhileStatement.class, "WhileStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getWhileStatement_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, WhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(whileStartEClass, WhileStart.class, "WhileStart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getWhileStart_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, WhileStart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

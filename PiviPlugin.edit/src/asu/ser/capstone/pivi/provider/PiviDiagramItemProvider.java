@@ -79,7 +79,7 @@ public class PiviDiagramItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PiviPackage.Literals.PIVI_DIAGRAM__STATEMENTS);
 			childrenFeatures.add(PiviPackage.Literals.PIVI_DIAGRAM__START);
-			childrenFeatures.add(PiviPackage.Literals.PIVI_DIAGRAM__RESULTS);
+			childrenFeatures.add(PiviPackage.Literals.PIVI_DIAGRAM__INPUT_PORT);
 		}
 		return childrenFeatures;
 	}
@@ -134,7 +134,7 @@ public class PiviDiagramItemProvider
 		switch (notification.getFeatureID(PiviDiagram.class)) {
 			case PiviPackage.PIVI_DIAGRAM__STATEMENTS:
 			case PiviPackage.PIVI_DIAGRAM__START:
-			case PiviPackage.PIVI_DIAGRAM__RESULTS:
+			case PiviPackage.PIVI_DIAGRAM__INPUT_PORT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -155,12 +155,12 @@ public class PiviDiagramItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(PiviPackage.Literals.PIVI_DIAGRAM__STATEMENTS,
-				 PiviFactory.eINSTANCE.createIfEndStatement()));
+				 PiviFactory.eINSTANCE.createIfEnd()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(PiviPackage.Literals.PIVI_DIAGRAM__STATEMENTS,
-				 PiviFactory.eINSTANCE.createIfStartStatement()));
+				 PiviFactory.eINSTANCE.createIfStart()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -170,7 +170,22 @@ public class PiviDiagramItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(PiviPackage.Literals.PIVI_DIAGRAM__STATEMENTS,
-				 PiviFactory.eINSTANCE.createWhileStatement()));
+				 PiviFactory.eINSTANCE.createMethodEnd()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PiviPackage.Literals.PIVI_DIAGRAM__STATEMENTS,
+				 PiviFactory.eINSTANCE.createMethodStart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PiviPackage.Literals.PIVI_DIAGRAM__STATEMENTS,
+				 PiviFactory.eINSTANCE.createWhileEnd()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PiviPackage.Literals.PIVI_DIAGRAM__STATEMENTS,
+				 PiviFactory.eINSTANCE.createWhileStart()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -179,8 +194,8 @@ public class PiviDiagramItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PiviPackage.Literals.PIVI_DIAGRAM__RESULTS,
-				 PiviFactory.eINSTANCE.createResult()));
+				(PiviPackage.Literals.PIVI_DIAGRAM__INPUT_PORT,
+				 PiviFactory.eINSTANCE.createInputPort()));
 	}
 
 	/**

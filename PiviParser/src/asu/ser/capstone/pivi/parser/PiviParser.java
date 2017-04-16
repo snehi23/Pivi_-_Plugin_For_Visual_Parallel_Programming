@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -25,7 +27,6 @@ public class PiviParser {
 	StringBuilder generatedCode;
 
 	public PiviParser() {
-		startNode = new StartNode();
 		statements = new ArrayList<>();
 		generatedCode = new StringBuilder();
 	}
@@ -41,7 +42,7 @@ public class PiviParser {
 			doc.getDocumentElement().normalize();
 
 			PiviParser pivi = new PiviParser();
-			pivi.setStartNode(doc);
+			pivi.startNode = new StartNode(doc);
 			pivi.setStatements(doc);
 			pivi.generateCode();
 			pivi.saveToFile();
@@ -86,39 +87,89 @@ public class PiviParser {
 		generatedCode.append("public class Solution {\n");
 		generatedCode.append("public static void main(String[] args) { \n");
 
-		Stack<StatementNode> stack = new Stack<>();
+		Stack<StatementNode> ifStack = new Stack<>();
+		Stack<StatementNode> whileStack = new Stack<>();
+		Stack<StatementNode> methodStack = new Stack<>();
+		Map<String, Integer> methodMap = new HashMap<>();
+		List<StringBuilder> methodData = new ArrayList<>();
+		methodData.add(generatedCode);
+
 		int index = startNode.outputIndex;
+		StringBuilder code = methodData.get(0);
 		while (index != -1) {
 			StatementNode statement = statements.get(index);
 			if (statement instanceof IfStartNode) {
-				stack.push(statement);
-				generatedCode.append("if(");
-				generatedCode.append(((IfStartNode) statement).condition);
-				generatedCode.append("){\n");
+				ifStack.push(statement);
+				code.append("if(");
+				code.append(((IfStartNode) statement).condition);
+				code.append("){\n");
 				index = ((IfStartNode) statement).firstOutputIndex;
 			} else if (statement instanceof IfEndNode) {
-				if (!stack.empty()) {					
-					StatementNode ifStatement = stack.pop();
+				if (!ifStack.empty()) {
+					StatementNode ifStatement = ifStack.pop();
 					if (ifStatement instanceof IfStartNode) {
 						index = ((IfStartNode) ifStatement).secondOutputIndex;
 						if (index == -1) {
 							index = ((IfEndNode) statement).firstOutputIndex;
-							generatedCode.append("}\n");
-						}else{
-							generatedCode.append("} else {\n");
+							code.append("}\n");
+						} else {
+							code.append("} else {\n");
 						}
 					}
 				} else {
 					index = ((IfEndNode) statement).firstOutputIndex;
-					generatedCode.append("}\n");
+					code.append("}\n");
 				}
 			} else if (statement instanceof InstructionNode) {
-				generatedCode.append(((InstructionNode) statement).instructions);
-				generatedCode.append("\n");
+				code.append(((InstructionNode) statement).instructions);
+				code.append("\n");
 				index = ((InstructionNode) statement).firstOutputIndex;
+			} else if (statement instanceof WhileStartNode) {
+				whileStack.push(statement);
+				code.append("while(");
+				code.append(((WhileStartNode) statement).condition);
+				code.append("){\n");
+				index = ((WhileStartNode) statement).firstOutputIndex;
+			} else if (statement instanceof WhileEndNode) {
+				if (!whileStack.isEmpty()) {
+					whileStack.pop();
+					code.append("}\n");
+					index = ((WhileEndNode) statement).firstOutputIndex;
+				}
+			} else if (statement instanceof MethodStartNode) {
+				methodStack.push(statement);
+				StringBuilder newMethodData = new StringBuilder();
+
+				methodMap.put(((MethodStartNode) statement).name, methodData.size());
+				methodData.add(newMethodData);
+
+				newMethodData.append("public static void " + ((MethodStartNode) statement).name + "(){\n");
+				code = newMethodData;
+				index = ((MethodStartNode) statement).firstOutputIndex;
+			} else if (statement instanceof MethodEndNode) {
+				if (!methodStack.isEmpty()) {
+					code.append("}\n");
+					StatementNode calleeMethod = methodStack.pop();
+					if (!methodStack.isEmpty()) {
+						StatementNode callerMethod = methodStack.peek();
+						String callerName = ((MethodStartNode) callerMethod).name;
+						if (methodMap.containsKey(callerName)) {
+							code = methodData.get(methodMap.get(callerName));
+							code.append(((MethodStartNode) calleeMethod).name + "();\n");
+						}
+					} else {
+						code = methodData.get(0);
+						code.append(((MethodStartNode) calleeMethod).name + "();\n");
+					}
+					index = ((MethodEndNode) statement).firstOutputIndex;
+				}
 			}
 		}
-		generatedCode.append("}\n}");
+		generatedCode.append("}\n");
+		for (int i = 1; i < methodData.size(); i++) {
+			generatedCode.append(methodData.get(i));
+		}
+		generatedCode.append("}\n");
 	}
 
 	private void setStatements(Document doc) {
@@ -130,175 +181,21 @@ public class PiviParser {
 
 				String statementType = element.getAttribute("xsi:type");
 
-				if (statementType.contains("IfStartStatement")) {
-					setIfStart(element);
-				} else if (statementType.contains("IfEndStatement")) {
-					setIfEnd(element);
+				if (statementType.contains("IfStart")) {
+					statements.add(new IfStartNode(element));
+				} else if (statementType.contains("IfEnd")) {
+					statements.add(new IfEndNode(element));
 				} else if (statementType.contains("Instruction")) {
-					setInstuction(element);
+					statements.add(new InstructionNode(element));
+				} else if (statementType.contains("WhileStart")) {
+					statements.add(new WhileStartNode(element));
+				} else if (statementType.contains("WhileEnd")) {
+					statements.add(new WhileEndNode(element));
+				} else if (statementType.contains("MethodStart")) {
+					statements.add(new MethodStartNode(element));
+				} else if (statementType.contains("MethodEnd")) {
+					statements.add(new MethodEndNode(element));
 				}
-			}
-		}
-	}
-
-	private void setInstuction(Element element) {
-		InstructionNode instruction = new InstructionNode();
-		statements.add(instruction);
-
-		instruction.instructions = element.getAttribute("instructions");
-
-		Node nInput = element.getElementsByTagName("inputs").item(0);
-
-		if (nInput.getNodeType() == Node.ELEMENT_NODE) {
-			Element inputElement = (Element) nInput;
-			String previousPointer = inputElement.getAttribute("terminal");
-			if (!previousPointer.isEmpty()) {
-				int begin = previousPointer.indexOf('.');
-				if (begin != -1) {
-					instruction.firstInputIndex = Integer.parseInt(previousPointer.substring(begin + 1, begin + 2));
-				} else {
-					instruction.firstInputIndex = -1;
-				}
-			} else {
-				instruction.firstInputIndex = -1;
-			}
-		}
-
-		Node nOutput = element.getElementsByTagName("outputs").item(0);
-		if (nOutput.getNodeType() == Node.ELEMENT_NODE) {
-			Element inputElement = (Element) nOutput;
-			String nextPointer = inputElement.getAttribute("result");
-			if (!nextPointer.isEmpty()) {
-				int begin = nextPointer.indexOf('.');
-				if (begin != -1) {
-					instruction.firstOutputIndex = Integer.parseInt(nextPointer.substring(begin + 1, begin + 2));
-				} else {
-					instruction.firstOutputIndex = -1;
-				}
-			} else {
-				instruction.firstOutputIndex = -1;
-			}
-		}
-	}
-
-	private void setIfEnd(Element element) {
-		IfEndNode ifEnd = new IfEndNode();
-		statements.add(ifEnd);
-
-		NodeList nInputs = element.getElementsByTagName("results");
-		for (int i = 0; i < nInputs.getLength(); i++) {
-			Node nInput = nInputs.item(i);
-			if (nInput.getNodeType() == Node.ELEMENT_NODE) {
-				Element inputElement = (Element) nInput;
-				String previousPointer = inputElement.getAttribute("outputPort");
-				if (!previousPointer.isEmpty()) {
-					int begin = previousPointer.indexOf('.');
-					if (i == 0) {
-						if (begin != -1) {
-							ifEnd.firstInputIndex = Integer.parseInt(previousPointer.substring(begin + 1, begin + 2));
-						} else {
-							ifEnd.firstInputIndex = -1;
-						}
-					} else {
-						if (begin != -1) {
-							ifEnd.secondInputIndex = Integer.parseInt(previousPointer.substring(begin + 1, begin + 2));
-						} else {
-							ifEnd.secondInputIndex = -1;
-						}
-					}
-				} else {
-					if (i == 0) {
-						ifEnd.firstInputIndex = -1;
-					} else {
-						ifEnd.secondInputIndex = -1;
-					}
-				}
-			}
-		}
-
-		Node nOutput = element.getElementsByTagName("outputs").item(0);
-		if (nOutput.getNodeType() == Node.ELEMENT_NODE) {
-			Element inputElement = (Element) nOutput;
-			String nextPointer = inputElement.getAttribute("result");
-			if (!nextPointer.isEmpty()) {
-				int begin = nextPointer.indexOf('.');
-				if (begin != -1) {
-					ifEnd.firstOutputIndex = Integer.parseInt(nextPointer.substring(begin + 1, begin + 2));
-				} else {
-					ifEnd.firstOutputIndex = -1;
-				}
-			} else {
-				ifEnd.firstOutputIndex = -1;
-			}
-		}
-	}
-
-	private void setIfStart(Element element) {
-		IfStartNode ifStart = new IfStartNode();
-		statements.add(ifStart);
-
-		ifStart.condition = element.getAttribute("condition");
-
-		Node nInput = element.getElementsByTagName("results").item(0);
-		if (nInput.getNodeType() == Node.ELEMENT_NODE) {
-			Element inputElement = (Element) nInput;
-			String previousPointer = inputElement.getAttribute("outputPort");
-			if (!previousPointer.isEmpty()) {
-				int begin = previousPointer.indexOf('.');
-				if (begin != -1) {
-					ifStart.firstInputIndex = Integer.parseInt(previousPointer.substring(begin + 1, begin + 2));
-				} else {
-					ifStart.firstInputIndex = -1;
-				}
-			} else {
-				ifStart.firstInputIndex = -1;
-			}
-		}
-
-		NodeList nOutputs = element.getElementsByTagName("outputs");
-		for (int i = 0; i < nOutputs.getLength(); i++) {
-			Node nOutput = nOutputs.item(i);
-			if (nOutput.getNodeType() == Node.ELEMENT_NODE) {
-				Element inputElement = (Element) nOutput;
-				String nextPointer = inputElement.getAttribute("result");
-				if (!nextPointer.isEmpty()) {
-					int begin = nextPointer.indexOf('.');
-					if (i == 0) {
-						if (begin != -1) {
-							ifStart.firstOutputIndex = Integer.parseInt(nextPointer.substring(begin + 1, begin + 2));
-						} else {
-							ifStart.firstInputIndex = -1;
-						}
-					} else {
-						if (begin != -1) {
-							ifStart.secondOutputIndex = Integer.parseInt(nextPointer.substring(begin + 1, begin + 2));
-						} else {
-							ifStart.secondOutputIndex = -1;
-						}
-					}
-				} else {
-					if (i == 0) {
-						ifStart.firstInputIndex = -1;
-					} else {
-						ifStart.secondOutputIndex = -1;
-					}
-				}
-			}
-		}
-	}
-
-	private void setStartNode(Document doc) {
-		NodeList nStartList = doc.getElementsByTagName("start");
-		Node nStart = nStartList.item(0);
-
-		if (nStart.getNodeType() == Node.ELEMENT_NODE) {
-			Element element = (Element) nStart;
-			String nextPointer = element.getAttribute("inputPorts");
-			if (!nextPointer.isEmpty()) {
-				int begin = nextPointer.indexOf('.') + 1;
-				startNode.outputIndex = Integer.parseInt(nextPointer.substring(begin, begin + 1));
-			} else {
-				startNode.outputIndex = -1;
 			}
 		}
 	}

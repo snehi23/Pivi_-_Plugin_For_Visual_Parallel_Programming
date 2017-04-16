@@ -4,7 +4,7 @@ package asu.ser.capstone.pivi;
  * @model
  */
 public interface Instruction extends Statement {
-	
+
 	/**
 	 * @model
 	 */

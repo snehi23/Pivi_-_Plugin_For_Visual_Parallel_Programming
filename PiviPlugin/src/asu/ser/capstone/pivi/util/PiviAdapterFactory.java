@@ -68,12 +68,12 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 	protected PiviSwitch<Adapter> modelSwitch =
 		new PiviSwitch<Adapter>() {
 			@Override
-			public Adapter caseIfEndStatement(IfEndStatement object) {
-				return createIfEndStatementAdapter();
+			public Adapter caseIfEnd(IfEnd object) {
+				return createIfEndAdapter();
 			}
 			@Override
-			public Adapter caseIfStartStatement(IfStartStatement object) {
-				return createIfStartStatementAdapter();
+			public Adapter caseIfStart(IfStart object) {
+				return createIfStartAdapter();
 			}
 			@Override
 			public Adapter caseInputPort(InputPort object) {
@@ -84,6 +84,14 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 				return createInstructionAdapter();
 			}
 			@Override
+			public Adapter caseMethodEnd(MethodEnd object) {
+				return createMethodEndAdapter();
+			}
+			@Override
+			public Adapter caseMethodStart(MethodStart object) {
+				return createMethodStartAdapter();
+			}
+			@Override
 			public Adapter caseOutputPort(OutputPort object) {
 				return createOutputPortAdapter();
 			}
@@ -92,24 +100,24 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 				return createPiviDiagramAdapter();
 			}
 			@Override
-			public Adapter caseResult(Result object) {
-				return createResultAdapter();
-			}
-			@Override
 			public Adapter caseStart(Start object) {
 				return createStartAdapter();
+			}
+			@Override
+			public Adapter caseStartPort(StartPort object) {
+				return createStartPortAdapter();
 			}
 			@Override
 			public Adapter caseStatement(Statement object) {
 				return createStatementAdapter();
 			}
 			@Override
-			public Adapter caseTerminal(Terminal object) {
-				return createTerminalAdapter();
+			public Adapter caseWhileEnd(WhileEnd object) {
+				return createWhileEndAdapter();
 			}
 			@Override
-			public Adapter caseWhileStatement(WhileStatement object) {
-				return createWhileStatementAdapter();
+			public Adapter caseWhileStart(WhileStart object) {
+				return createWhileStartAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -132,30 +140,30 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.IfEndStatement <em>If End Statement</em>}'.
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.IfEnd <em>If End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.IfEndStatement
+	 * @see asu.ser.capstone.pivi.IfEnd
 	 * @generated
 	 */
-	public Adapter createIfEndStatementAdapter() {
+	public Adapter createIfEndAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.IfStartStatement <em>If Start Statement</em>}'.
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.IfStart <em>If Start</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.IfStartStatement
+	 * @see asu.ser.capstone.pivi.IfStart
 	 * @generated
 	 */
-	public Adapter createIfStartStatementAdapter() {
+	public Adapter createIfStartAdapter() {
 		return null;
 	}
 
@@ -188,6 +196,34 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.MethodEnd <em>Method End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see asu.ser.capstone.pivi.MethodEnd
+	 * @generated
+	 */
+	public Adapter createMethodEndAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.MethodStart <em>Method Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see asu.ser.capstone.pivi.MethodStart
+	 * @generated
+	 */
+	public Adapter createMethodStartAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.OutputPort <em>Output Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -216,20 +252,6 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.Result <em>Result</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.Result
-	 * @generated
-	 */
-	public Adapter createResultAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.Start <em>Start</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -240,6 +262,20 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.StartPort <em>Start Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see asu.ser.capstone.pivi.StartPort
+	 * @generated
+	 */
+	public Adapter createStartPortAdapter() {
 		return null;
 	}
 
@@ -258,30 +294,30 @@ public class PiviAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.Terminal <em>Terminal</em>}'.
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.WhileEnd <em>While End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.Terminal
+	 * @see asu.ser.capstone.pivi.WhileEnd
 	 * @generated
 	 */
-	public Adapter createTerminalAdapter() {
+	public Adapter createWhileEndAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.WhileStatement <em>While Statement</em>}'.
+	 * Creates a new adapter for an object of class '{@link asu.ser.capstone.pivi.WhileStart <em>While Start</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see asu.ser.capstone.pivi.WhileStatement
+	 * @see asu.ser.capstone.pivi.WhileStart
 	 * @generated
 	 */
-	public Adapter createWhileStatementAdapter() {
+	public Adapter createWhileStartAdapter() {
 		return null;
 	}
 

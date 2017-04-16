@@ -34,8 +34,8 @@ import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
 import asu.ser.capstone.pivi.InputPort;
 import asu.ser.capstone.pivi.OutputPort;
-import asu.ser.capstone.pivi.Result;
-import asu.ser.capstone.pivi.Terminal;
+import asu.ser.capstone.pivi.Start;
+import asu.ser.capstone.pivi.StartPort;
 import asu.ser.capstone.pivi.diagram.part.PiviDiagramEditorPlugin;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
@@ -309,25 +309,25 @@ public class PiviBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTerminalInputPorts_4001(Terminal source, InputPort target) {
+		public boolean canCreateStartStartPort_4004(Start source, StartPort target) {
 			if (source != null) {
-				if (source.getInputPorts().contains(target)) {
+				if (source.getStartPort().contains(target)) {
 					return false;
 				}
 			}
-			if (target != null && (target.getTerminal() != null)) {
+			if (target != null && (target.getStart() != null)) {
 				return false;
 			}
 
-			return canExistTerminalInputPorts_4001(source, target);
+			return canExistStartStartPort_4004(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateOutputPortResult_4002(OutputPort source, Result target) {
+		public boolean canCreateOutputPortInputPort_4002(OutputPort source, InputPort target) {
 			if (source != null) {
-				if (source.getResult() != null) {
+				if (source.getInputPort() != null) {
 					return false;
 				}
 			}
@@ -335,20 +335,20 @@ public class PiviBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistOutputPortResult_4002(source, target);
+			return canExistOutputPortInputPort_4002(source, target);
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistTerminalInputPorts_4001(Terminal source, InputPort target) {
+		public boolean canExistStartStartPort_4004(Start source, StartPort target) {
 			return true;
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistOutputPortResult_4002(OutputPort source, Result target) {
+		public boolean canExistOutputPortInputPort_4002(OutputPort source, InputPort target) {
 			return true;
 		}
 	}

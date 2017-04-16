@@ -1,30 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <asu.ser.capstone.pivi:PiviDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asu.ser.capstone.pivi="http:///asu/ser/capstone/pivi.ecore">
-  <statements xsi:type="asu.ser.capstone.pivi:IfStartStatement" condition="a==5">
+  <statements xsi:type="asu.ser.capstone.pivi:MethodStart" name="checkEvenOdd">
+    <start start="//@start"/>
     <inputs/>
-    <results outputPort="//@statements.4/@outputs.0"/>
-    <outputs result="//@statements.1/@results.0"/>
-    <outputs result="//@statements.2/@results.0"/>
+    <outputs inputPort="//@statements.1/@inputs.0"/>
   </statements>
-  <statements xsi:type="asu.ser.capstone.pivi:Instruction" instructions="System.out.println(&quot;equal to 5&quot;);">
-    <inputs/>
-    <results outputPort="//@statements.0/@outputs.0"/>
-    <outputs result="//@statements.3/@results.0"/>
+  <statements xsi:type="asu.ser.capstone.pivi:Instruction" instructions="int a = 6;">
+    <start/>
+    <inputs outputPort="//@statements.0/@outputs.0"/>
+    <outputs inputPort="//@statements.2/@inputs.0"/>
   </statements>
-  <statements xsi:type="asu.ser.capstone.pivi:Instruction" instructions="System.out.println(&quot;not equal to 5&quot;);">
-    <inputs/>
-    <results outputPort="//@statements.0/@outputs.1"/>
-    <outputs result="//@statements.3/@results.1"/>
+  <statements xsi:type="asu.ser.capstone.pivi:WhileStart" condition="a > 0">
+    <start/>
+    <inputs outputPort="//@statements.1/@outputs.0"/>
+    <outputs inputPort="//@statements.3/@inputs.0"/>
   </statements>
-  <statements xsi:type="asu.ser.capstone.pivi:IfEndStatement">
-    <results outputPort="//@statements.1/@outputs.0"/>
-    <results outputPort="//@statements.2/@outputs.0"/>
+  <statements xsi:type="asu.ser.capstone.pivi:IfStart" condition="a % 2 == 0">
+    <start/>
+    <inputs outputPort="//@statements.2/@outputs.0"/>
+    <outputs inputPort="//@statements.4/@inputs.0"/>
+    <outputs inputPort="//@statements.5/@inputs.0"/>
+  </statements>
+  <statements xsi:type="asu.ser.capstone.pivi:Instruction" instructions="System.out.println(a + &quot; is even.&quot;);">
+    <start/>
+    <inputs outputPort="//@statements.3/@outputs.0"/>
+    <outputs inputPort="//@statements.6/@inputs.0"/>
+  </statements>
+  <statements xsi:type="asu.ser.capstone.pivi:Instruction" instructions="System.out.println(a + &quot; is odd.&quot;);">
+    <start/>
+    <inputs outputPort="//@statements.3/@outputs.1"/>
+    <outputs inputPort="//@statements.6/@inputs.1"/>
+  </statements>
+  <statements xsi:type="asu.ser.capstone.pivi:IfEnd">
+    <inputs outputPort="//@statements.4/@outputs.0"/>
+    <inputs outputPort="//@statements.5/@outputs.0"/>
+    <outputs inputPort="//@statements.7/@inputs.0"/>
+  </statements>
+  <statements xsi:type="asu.ser.capstone.pivi:Instruction" instructions="a--;">
+    <start/>
+    <inputs outputPort="//@statements.6/@outputs.0"/>
+    <outputs inputPort="//@statements.8/@inputs.0"/>
+  </statements>
+  <statements xsi:type="asu.ser.capstone.pivi:WhileEnd">
+    <inputs outputPort="//@statements.7/@outputs.0"/>
+    <outputs inputPort="//@statements.9/@inputs.0"/>
+  </statements>
+  <statements xsi:type="asu.ser.capstone.pivi:MethodEnd">
+    <inputs outputPort="//@statements.8/@outputs.0"/>
     <outputs/>
   </statements>
-  <statements xsi:type="asu.ser.capstone.pivi:Instruction" instructions="int a = 10;">
-    <inputs terminal="//@start"/>
-    <results/>
-    <outputs result="//@statements.0/@results.0"/>
-  </statements>
-  <start inputPorts="//@statements.4/@inputs.0"/>
+  <start startPort="//@statements.0/@start.0"/>
 </asu.ser.capstone.pivi:PiviDiagram>
