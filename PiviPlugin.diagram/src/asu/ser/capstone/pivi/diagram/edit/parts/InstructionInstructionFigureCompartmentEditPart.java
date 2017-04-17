@@ -18,13 +18,18 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Shell;
 
 import asu.ser.capstone.pivi.diagram.edit.parts.custom.InstructionCompartmentFigureListener;
+import asu.ser.capstone.pivi.diagram.edit.parts.custom.InstructionOpenEditPolicy;
 import asu.ser.capstone.pivi.diagram.edit.parts.custom.InstructionRoundedRectangle;
 import asu.ser.capstone.pivi.diagram.edit.policies.InstructionInstructionFigureCompartmentCanonicalEditPolicy;
 import asu.ser.capstone.pivi.diagram.edit.policies.InstructionInstructionFigureCompartmentItemSemanticEditPolicy;
 import asu.ser.capstone.pivi.diagram.part.Messages;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
+import asu.ser.capstone.pivi.diagram.part.custom.InstructionWizard;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
 
 /**
@@ -36,6 +41,10 @@ public class InstructionInstructionFigureCompartmentEditPart extends ListCompart
 	* @generated
 	*/
 	public static final int VISUAL_ID = 7005;
+	
+	protected Shell shell;
+	
+	protected WizardDialog wizardDialog;	
 
 	/**
 	* @generated
@@ -83,6 +92,10 @@ public class InstructionInstructionFigureCompartmentEditPart extends ListCompart
 		// Add the resize events listener
 		result.addFigureListener(new InstructionCompartmentFigureListener(this, roundedRectangle));
 		
+		shell = new Shell(SWT.DIALOG_TRIM | 
+                SWT.PRIMARY_MODAL);
+		wizardDialog = new WizardDialog(shell,
+                new InstructionWizard());		
 		return result;
 	}
 
@@ -98,6 +111,7 @@ public class InstructionInstructionFigureCompartmentEditPart extends ListCompart
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new InstructionInstructionFigureCompartmentCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new InstructionOpenEditPolicy(wizardDialog, elementGuid));
 	}
 
 	/**

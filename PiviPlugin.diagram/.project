@@ -3,6 +3,7 @@
 	<name>PiviPlugin.diagram</name>
 	<comment></comment>
 	<projects>
+		<project>PiviParser</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

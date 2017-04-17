@@ -3,7 +3,8 @@ package asu.ser.capstone.pivi.diagram.part.custom;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
@@ -16,39 +17,41 @@ public class InstructionWizard extends Wizard {
 
 		public InstructionPage(String pageName) {
 			super(pageName);
-			setTitle("Rename");
-			setDescription("Rename a component");
+			setTitle("Instructions");
 		}
 
 		@Override
 		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE);
-			Label lab = new Label(composite, SWT.NONE);
-			lab.setText("Rename to: ");
-			instructionText = new Text(composite, SWT.NONE);
-			instructionText.setText(oldInstructions);
-			RowLayout rl = new RowLayout();
-			composite.setLayout(rl);
+			Label instructionLabel = new Label(composite, SWT.NONE);
+			instructionLabel.setText("Instructions:");
+			GridData gridData = new GridData();
+			gridData.horizontalSpan = 2;
+			instructionLabel.setLayoutData(gridData);
+
+			instructionText = new Text(composite, SWT.MULTI | SWT.BORDER | SWT.V_SCROLL);
+			gridData = new GridData();
+			gridData.horizontalAlignment = SWT.FILL;
+			gridData.grabExcessHorizontalSpace = true;
+			gridData.verticalAlignment = SWT.FILL;
+			gridData.grabExcessVerticalSpace = true;
+			instructionText.setLayoutData(gridData);
+			instructionText.setText(newInstructions);
+			composite.setLayout(new GridLayout(2, false));
 			setControl(composite);
 		}
 	}
 
-	private String oldInstructions;
 	private String newInstructions;
 
-	public InstructionWizard(String oldName) {
-		this.oldInstructions = oldName;
-		this.newInstructions = null;
-		addPage(new InstructionPage("MyRenamePage"));
+	public InstructionWizard() {
+		this.newInstructions = "";
+		addPage(new InstructionPage("instructionsPage"));
 	}
 
 	@Override
 	public boolean performFinish() {
-		InstructionPage page = (InstructionPage) getPage("MyRenamePage");
-		if (page.instructionText.getText().isEmpty()) {
-			page.setErrorMessage("Le champ nom est vide!");
-			return false;
-		}
+		InstructionPage page = (InstructionPage) getPage("instructionsPage");
 		newInstructions = page.instructionText.getText();
 		return true;
 	}
