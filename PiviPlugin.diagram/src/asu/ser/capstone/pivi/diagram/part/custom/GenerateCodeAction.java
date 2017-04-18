@@ -153,7 +153,8 @@ public class GenerateCodeAction implements IAction{
 		// TODO Auto-generated method stub
 		// Fake code to test break point
 		String fileName = getFileName();
-		PiviParser.ParseDiagram(this.path, fileName);
+		PiviParser piviParser = new PiviParser();
+		piviParser.ParseDiagram(this.path, fileName);
 		
 //		File source = new File(this.path + "/" + XML_FILE_NAME);
 		// Generate the code from this file here
