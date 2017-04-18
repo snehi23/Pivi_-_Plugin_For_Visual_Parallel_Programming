@@ -42,12 +42,10 @@ public class PiviParser {
 			dBuilder = dbFactory.newDocumentBuilder();
 			doc = dBuilder.parse(piviFile);
 			doc.getDocumentElement().normalize();
-
-			PiviParser pivi = new PiviParser();
-			pivi.startNode = new StartNode(doc);
-			pivi.setStatements(doc);
-			pivi.generateCode();
-			pivi.saveToFile(path);
+			this.startNode = new StartNode(doc);
+			this.setStatements(doc);
+			this.generateCode();
+			this.saveToFile(path);
 
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
