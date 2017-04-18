@@ -33,7 +33,7 @@ public class PiviParser {
 		generatedCode = new StringBuilder();
 	}
 
-	public static void ParseDiagram(String path, String fileName) {
+	public void ParseDiagram(String path, String fileName) {
 		File piviFile = new File(path + "/" + fileName);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
