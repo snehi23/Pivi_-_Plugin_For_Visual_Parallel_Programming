@@ -1,10 +1,7 @@
 package asu.ser.capstone.pivi.diagram.part.custom;
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Paths;
-
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -153,8 +150,8 @@ public class GenerateCodeAction implements IAction{
 		// TODO Auto-generated method stub
 		// Fake code to test break point
 		String fileName = getFileName();
-		PiviParser piviParser = new PiviParser();
-		piviParser.ParseDiagram(this.path, fileName);
+		PiviParser pivi = new PiviParser();
+		pivi.ParseDiagram(this.path, fileName);
 		
 //		File source = new File(this.path + "/" + XML_FILE_NAME);
 		// Generate the code from this file here

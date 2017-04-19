@@ -1,5 +1,6 @@
 package asu.ser.capstone.pivi.diagram.part.custom;
 
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -8,6 +9,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+
+import asu.ser.capstone.pivi.Instruction;
 
 public class InstructionWizard extends Wizard {
 
@@ -44,8 +47,17 @@ public class InstructionWizard extends Wizard {
 
 	private String newInstructions;
 
-	public InstructionWizard() {
-		this.newInstructions = "";
+	public InstructionWizard(GraphicalEditPart instructionEditPart) {
+		if (instructionEditPart != null) {
+			Instruction instructionModel = (Instruction) instructionEditPart.resolveSemanticElement();
+			if (instructionModel != null && instructionModel.getInstructions() != null) {
+				this.newInstructions = instructionModel.getInstructions();
+			} else {
+				this.newInstructions = "";
+			}
+		} else {
+			this.newInstructions = "";
+		}
 		addPage(new InstructionPage("instructionsPage"));
 	}
 

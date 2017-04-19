@@ -23,10 +23,10 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
 
 import asu.ser.capstone.pivi.diagram.edit.parts.custom.InstructionCompartmentFigureListener;
-import asu.ser.capstone.pivi.diagram.edit.parts.custom.InstructionOpenEditPolicy;
 import asu.ser.capstone.pivi.diagram.edit.parts.custom.InstructionRoundedRectangle;
 import asu.ser.capstone.pivi.diagram.edit.policies.InstructionInstructionFigureCompartmentCanonicalEditPolicy;
 import asu.ser.capstone.pivi.diagram.edit.policies.InstructionInstructionFigureCompartmentItemSemanticEditPolicy;
+import asu.ser.capstone.pivi.diagram.edit.policies.custom.InstructionOpenEditPolicy;
 import asu.ser.capstone.pivi.diagram.part.Messages;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
 import asu.ser.capstone.pivi.diagram.part.custom.InstructionWizard;
@@ -95,7 +95,7 @@ public class InstructionInstructionFigureCompartmentEditPart extends ListCompart
 		shell = new Shell(SWT.DIALOG_TRIM | 
                 SWT.PRIMARY_MODAL);
 		wizardDialog = new WizardDialog(shell,
-                new InstructionWizard());		
+                new InstructionWizard(this));		
 		return result;
 	}
 
@@ -111,7 +111,7 @@ public class InstructionInstructionFigureCompartmentEditPart extends ListCompart
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new InstructionInstructionFigureCompartmentCanonicalEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new InstructionOpenEditPolicy(wizardDialog, elementGuid));
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new InstructionOpenEditPolicy(wizardDialog));
 	}
 
 	/**

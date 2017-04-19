@@ -12,7 +12,7 @@ public class InstructionNode implements StatementNode{
 	public String instructions;
 	
 	public InstructionNode(Element element){
-
+		this.instructions = element.getAttribute("instructions");
 		Node nInput = element.getElementsByTagName("inputs").item(0);
 
 		if (nInput.getNodeType() == Node.ELEMENT_NODE) {
