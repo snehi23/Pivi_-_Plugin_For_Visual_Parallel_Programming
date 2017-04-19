@@ -5,9 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Stack;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -20,17 +18,23 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import asu.ser.capstone.pivi.diagram.edit.parts.custom.InstructionOpenEditPolicy;
-
 public class PiviParser {
 
 	StartNode startNode;
 	List<StatementNode> statements;
 	StringBuilder generatedCode;
+	Stack<StatementNode> ifStack;
+	Stack<StatementNode> whileStack;
+	StringBuilder methodDefinitionCode;
+	Stack<StatementNode> methodStack;
 
 	public PiviParser() {
 		statements = new ArrayList<>();
 		generatedCode = new StringBuilder();
+		ifStack = new Stack<>();
+		whileStack = new Stack<>();
+		methodDefinitionCode = new StringBuilder();
+		methodStack = new Stack<>();
 	}
 
 	public void ParseDiagram(String path, String fileName) {
@@ -42,6 +46,7 @@ public class PiviParser {
 			dBuilder = dbFactory.newDocumentBuilder();
 			doc = dBuilder.parse(piviFile);
 			doc.getDocumentElement().normalize();
+
 			this.startNode = new StartNode(doc);
 			this.setStatements(doc);
 			this.generateCode();
@@ -85,16 +90,15 @@ public class PiviParser {
 	private void generateCode() {
 		generatedCode.append("public class Solution {\n");
 		generatedCode.append("public static void main(String[] args) { \n");
-
-		Stack<StatementNode> ifStack = new Stack<>();
-		Stack<StatementNode> whileStack = new Stack<>();
-		Stack<StatementNode> methodStack = new Stack<>();
-		Map<String, Integer> methodMap = new HashMap<>();
-		List<StringBuilder> methodData = new ArrayList<>();
-		methodData.add(generatedCode);
-
 		int index = startNode.outputIndex;
-		StringBuilder code = methodData.get(0);
+		generateStatementCode(index, generatedCode);
+		generatedCode.append("}\n");
+		generateMethodDefinitions();
+		generatedCode.append(methodDefinitionCode);
+		generatedCode.append("}\n");
+	}
+
+	private void generateStatementCode(int index, StringBuilder code) {		
 		while (index != -1) {
 			StatementNode statement = statements.get(index);
 			if (statement instanceof IfStartNode) {
@@ -120,9 +124,7 @@ public class PiviParser {
 					code.append("}\n");
 				}
 			} else if (statement instanceof InstructionNode) {
-				if(InstructionOpenEditPolicy.instructionsMap.containsKey(index)){
-					code.append(InstructionOpenEditPolicy.instructionsMap.get(index));
-				}
+				code.append(((InstructionNode) statement).instructions);
 				code.append("\n");
 				index = ((InstructionNode) statement).firstOutputIndex;
 			} else if (statement instanceof WhileStartNode) {
@@ -137,40 +139,46 @@ public class PiviParser {
 					code.append("}\n");
 					index = ((WhileEndNode) statement).firstOutputIndex;
 				}
-			} else if (statement instanceof MethodStartNode) {
+			}else if (statement instanceof MethodEndNode){
+				methodStack.pop();
+				code.append("}\n");
+				index = ((MethodEndNode) statement).firstOutputIndex;
+			}			
+			/*
+				 * else if (statement instanceof MethodStartNode) {
+				 * methodStack.push(statement); StringBuilder newMethodData =
+				 * new StringBuilder();
+				 * 
+				 * methodMap.put(((MethodStartNode) statement).name,
+				 * methodData.size()); methodData.add(newMethodData);
+				 * 
+				 * newMethodData.append("public static void " +
+				 * ((MethodStartNode) statement).name + "(){\n"); code =
+				 * newMethodData; index = ((MethodStartNode)
+				 * statement).firstOutputIndex; } else if (statement instanceof
+				 * MethodEndNode) { if (!methodStack.isEmpty()) {
+				 * code.append("}\n"); StatementNode calleeMethod =
+				 * methodStack.pop(); if (!methodStack.isEmpty()) {
+				 * StatementNode callerMethod = methodStack.peek(); String
+				 * callerName = ((MethodStartNode) callerMethod).name; if
+				 * (methodMap.containsKey(callerName)) { code =
+				 * methodData.get(methodMap.get(callerName));
+				 * code.append(((MethodStartNode) calleeMethod).name + "();\n");
+				 * } } else { code = methodData.get(0);
+				 * code.append(((MethodStartNode) calleeMethod).name + "();\n");
+				 * } index = ((MethodEndNode) statement).firstOutputIndex; } }
+				 */
+		}
+	}
+
+	private void generateMethodDefinitions() {
+		for (StatementNode statement : statements) {
+			if(statement instanceof MethodStartNode){
 				methodStack.push(statement);
-				StringBuilder newMethodData = new StringBuilder();
-
-				methodMap.put(((MethodStartNode) statement).name, methodData.size());
-				methodData.add(newMethodData);
-
-				newMethodData.append("public static void " + ((MethodStartNode) statement).name + "(){\n");
-				code = newMethodData;
-				index = ((MethodStartNode) statement).firstOutputIndex;
-			} else if (statement instanceof MethodEndNode) {
-				if (!methodStack.isEmpty()) {
-					code.append("}\n");
-					StatementNode calleeMethod = methodStack.pop();
-					if (!methodStack.isEmpty()) {
-						StatementNode callerMethod = methodStack.peek();
-						String callerName = ((MethodStartNode) callerMethod).name;
-						if (methodMap.containsKey(callerName)) {
-							code = methodData.get(methodMap.get(callerName));
-							code.append(((MethodStartNode) calleeMethod).name + "();\n");
-						}
-					} else {
-						code = methodData.get(0);
-						code.append(((MethodStartNode) calleeMethod).name + "();\n");
-					}
-					index = ((MethodEndNode) statement).firstOutputIndex;
-				}
+				methodDefinitionCode.append("public void " + ((MethodStartNode)statement).name + "(){\n");
+				generateStatementCode(((MethodStartNode)statement).firstOutputIndex, methodDefinitionCode);
 			}
 		}
-		generatedCode.append("}\n");
-		for (int i = 1; i < methodData.size(); i++) {
-			generatedCode.append(methodData.get(i));
-		}
-		generatedCode.append("}\n");
 	}
 
 	private void setStatements(Document doc) {
