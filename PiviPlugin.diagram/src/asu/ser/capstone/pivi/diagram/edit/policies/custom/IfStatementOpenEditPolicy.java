@@ -40,7 +40,7 @@ public class IfStatementOpenEditPolicy extends OpenEditPolicy{
 						GraphicalEditPart ifStatementGEP = ((GraphicalEditPart) editPart);
 						TransactionalEditingDomain domain = ifStatementGEP.getEditingDomain();
 						EObject modelElement = ifStatementGEP.resolveSemanticElement();
-						EStructuralFeature feature = modelElement.eClass().getEStructuralFeature("instructions");
+						EStructuralFeature feature = modelElement.eClass().getEStructuralFeature("condition");
 						Thread editInstruction = new Thread(new EditInstructionCommandThread(domain, feature, modelElement, wizard));
 						editInstruction.start();
 					}
