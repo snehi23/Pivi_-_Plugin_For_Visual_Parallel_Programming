@@ -10,7 +10,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import asu.ser.capstone.pivi.Instruction;
+import asu.ser.capstone.pivi.IfStart;
 
 public class IfStatementWizard extends Wizard{
 
@@ -48,9 +48,9 @@ public class IfStatementWizard extends Wizard{
 
 	public IfStatementWizard(GraphicalEditPart ifStartEditPart) {
 		if (ifStartEditPart != null) {
-			Instruction ifStatementModel = (Instruction) ifStartEditPart.resolveSemanticElement();
-			if (ifStatementModel != null && ifStatementModel.getInstructions() != null) {
-				this.newCondition = ifStatementModel.getInstructions();
+			IfStart ifStatementModel = (IfStart) ifStartEditPart.resolveSemanticElement();
+			if (ifStatementModel != null && ifStatementModel.getCondition() != null) {
+				this.newCondition = ifStatementModel.getCondition();
 			} else {
 				this.newCondition = "";
 			}

@@ -12,6 +12,7 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
 
+import asu.ser.capstone.pivi.diagram.edit.commands.custom.EditIfStartCommandThread;
 import asu.ser.capstone.pivi.diagram.edit.commands.custom.EditInstructionCommandThread;
 import asu.ser.capstone.pivi.diagram.edit.parts.IfStartIfStartFigureCompartmentEditPart;
 import asu.ser.capstone.pivi.diagram.edit.parts.InstructionInstructionFigureCompartmentEditPart;
@@ -41,8 +42,8 @@ public class IfStatementOpenEditPolicy extends OpenEditPolicy{
 						TransactionalEditingDomain domain = ifStatementGEP.getEditingDomain();
 						EObject modelElement = ifStatementGEP.resolveSemanticElement();
 						EStructuralFeature feature = modelElement.eClass().getEStructuralFeature("condition");
-						Thread editInstruction = new Thread(new EditInstructionCommandThread(domain, feature, modelElement, wizard));
-						editInstruction.start();
+						Thread editIfStartCommand = new Thread(new EditIfStartCommandThread(domain, feature, modelElement, wizard));
+						editIfStartCommand.start();
 					}
 				}
 			}

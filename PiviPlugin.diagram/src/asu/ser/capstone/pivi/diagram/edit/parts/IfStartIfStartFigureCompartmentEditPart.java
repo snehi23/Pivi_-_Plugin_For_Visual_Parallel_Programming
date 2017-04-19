@@ -18,13 +18,20 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Shell;
 
 import asu.ser.capstone.pivi.diagram.edit.parts.custom.IfStartCompartmentFigureListener;
 import asu.ser.capstone.pivi.diagram.edit.parts.custom.IfStartRoundedRectangle;
 import asu.ser.capstone.pivi.diagram.edit.policies.IfStartIfStartFigureCompartmentCanonicalEditPolicy;
 import asu.ser.capstone.pivi.diagram.edit.policies.IfStartIfStartFigureCompartmentItemSemanticEditPolicy;
+import asu.ser.capstone.pivi.diagram.edit.policies.custom.IfStatementOpenEditPolicy;
+import asu.ser.capstone.pivi.diagram.edit.policies.custom.InstructionOpenEditPolicy;
 import asu.ser.capstone.pivi.diagram.part.Messages;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
+import asu.ser.capstone.pivi.diagram.part.custom.IfStatementWizard;
+import asu.ser.capstone.pivi.diagram.part.custom.InstructionWizard;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
 
 /**
@@ -36,6 +43,8 @@ public class IfStartIfStartFigureCompartmentEditPart extends ListCompartmentEdit
 	* @generated
 	*/
 	public static final int VISUAL_ID = 7001;
+	protected Shell shell;
+	protected WizardDialog wizardDialog;
 
 	/**
 	* @generated
@@ -83,6 +92,11 @@ public class IfStartIfStartFigureCompartmentEditPart extends ListCompartmentEdit
 		// Add the resize events listener
 		result.addFigureListener(new IfStartCompartmentFigureListener(this, roundedRectangle));
 		
+		shell = new Shell(SWT.DIALOG_TRIM | 
+                SWT.PRIMARY_MODAL);
+		wizardDialog = new WizardDialog(shell,
+                new IfStatementWizard(this));	
+		
 		return result;
 	}
 
@@ -96,6 +110,7 @@ public class IfStartIfStartFigureCompartmentEditPart extends ListCompartmentEdit
 				new CreationEditPolicyWithCustomReparent(PiviVisualIDRegistry.TYPED_INSTANCE));
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new IfStartIfStartFigureCompartmentCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new IfStatementOpenEditPolicy(wizardDialog));
 	}
 
 	/**
