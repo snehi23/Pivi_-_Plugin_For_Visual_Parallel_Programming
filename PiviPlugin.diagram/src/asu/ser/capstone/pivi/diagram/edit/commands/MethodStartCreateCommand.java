@@ -54,9 +54,9 @@ public class MethodStartCreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		MethodStart newElement = PiviFactory.eINSTANCE.createMethodStart();
 		
-		newElement.getStart().add(PiviFactory.eINSTANCE.createStartPort());
+		/*newElement.getStart().add(PiviFactory.eINSTANCE.createStartPort());
 		newElement.getInputs().add(PiviFactory.eINSTANCE.createInputPort());
-		newElement.getOutputs().add(PiviFactory.eINSTANCE.createOutputPort());
+		newElement.getOutputs().add(PiviFactory.eINSTANCE.createOutputPort());*/
 
 		PiviDiagram owner = (PiviDiagram) getElementToEdit();
 		owner.getStatements().add(newElement);
