@@ -20,7 +20,7 @@ public class IfStatementWizard extends Wizard{
 
 		public IfStatementPage(String pageName) {
 			super(pageName);
-			setTitle("Condition");
+			setTitle("IF Condition");
 		}
 
 		@Override

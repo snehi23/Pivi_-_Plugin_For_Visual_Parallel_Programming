@@ -20,7 +20,7 @@ public class WhileStatementWizard extends Wizard{
 
 		public WhileStatementPage(String pageName) {
 			super(pageName);
-			setTitle("Condition");
+			setTitle("Whille Condition");
 		}
 
 		@Override

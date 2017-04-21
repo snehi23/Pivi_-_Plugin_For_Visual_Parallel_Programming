@@ -20,7 +20,7 @@ public class InstructionWizard extends Wizard {
 
 		public InstructionPage(String pageName) {
 			super(pageName);
-			setTitle("Instructions");
+			setTitle("Instruction");
 		}
 
 		@Override
