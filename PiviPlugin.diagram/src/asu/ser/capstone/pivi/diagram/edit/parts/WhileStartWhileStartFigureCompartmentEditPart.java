@@ -18,13 +18,19 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Shell;
 
 import asu.ser.capstone.pivi.diagram.edit.parts.custom.WhileStartCompartmentFigureListener;
 import asu.ser.capstone.pivi.diagram.edit.parts.custom.WhileStartRoundedRectangle;
 import asu.ser.capstone.pivi.diagram.edit.policies.WhileStartWhileStartFigureCompartmentCanonicalEditPolicy;
 import asu.ser.capstone.pivi.diagram.edit.policies.WhileStartWhileStartFigureCompartmentItemSemanticEditPolicy;
+import asu.ser.capstone.pivi.diagram.edit.policies.custom.WhileStatementOpenEditPolicy;
 import asu.ser.capstone.pivi.diagram.part.Messages;
 import asu.ser.capstone.pivi.diagram.part.PiviVisualIDRegistry;
+import asu.ser.capstone.pivi.diagram.part.custom.IfStatementWizard;
+import asu.ser.capstone.pivi.diagram.part.custom.WhileStatementWizard;
 import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
 
 /**
@@ -33,10 +39,12 @@ import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
 public class WhileStartWhileStartFigureCompartmentEditPart extends ListCompartmentEditPart {
 
 	/**
-	* @generated
+	* @generated Not
 	*/
 	public static final int VISUAL_ID = 7008;
-
+	protected Shell shell;
+	protected WizardDialog wizardDialog;
+	
 	/**
 	* @generated
 	*/
@@ -82,7 +90,10 @@ public class WhileStartWhileStartFigureCompartmentEditPart extends ListCompartme
  
 		// Add the resize events listener
 		result.addFigureListener(new WhileStartCompartmentFigureListener(this, roundedRectangle));
-		
+		shell = new Shell(SWT.DIALOG_TRIM | 
+                SWT.PRIMARY_MODAL);
+		wizardDialog = new WizardDialog(shell,
+                new WhileStatementWizard(this));
 		return result;
 	}
 
@@ -98,6 +109,7 @@ public class WhileStartWhileStartFigureCompartmentEditPart extends ListCompartme
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new WhileStartWhileStartFigureCompartmentCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new WhileStatementOpenEditPolicy(wizardDialog));
 	}
 
 	/**

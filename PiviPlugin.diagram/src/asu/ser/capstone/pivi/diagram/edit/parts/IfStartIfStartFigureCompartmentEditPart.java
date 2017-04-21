@@ -40,7 +40,7 @@ import asu.ser.capstone.pivi.diagram.providers.PiviElementTypes;
 public class IfStartIfStartFigureCompartmentEditPart extends ListCompartmentEditPart {
 
 	/**
-	* @generated
+	* @generated Not
 	*/
 	public static final int VISUAL_ID = 7001;
 	protected Shell shell;
